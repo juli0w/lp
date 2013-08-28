@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+  <meta charset="utf-8">
+  <title>Loja do Pintor</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <%= stylesheet_link_tag    "web/application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <!--[if gte IE 9]>
+    <style type="text/css">
+      .gradient {
+         filter: none;
+      }
+    </style>
+  <![endif]-->
+
+</head>
+<body>
+<div class="page">
+
+  <%= render "layouts/top-menu" %>
+  <%= render "layouts/header" %>
+  <%= render "layouts/navbar" %>
+
+  <hr class="hr" />
+
+  <%= render "layouts/flashes" %>
+
+  <div class="band body">
+    <section class="container main">
+
+      <%= yield %>
+
+    </div>
+  </div>
+
+  <%= render "layouts/footer" %>
+
+</div>
+</body>
+</html>

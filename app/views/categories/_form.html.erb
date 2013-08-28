@@ -1,0 +1,22 @@
+<%= simple_form_for(@category) do |f| %>
+
+  <fieldset>
+
+    <p>
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "round full-width-input", autofocus: true %>
+    </p>
+
+    <p>
+      <%= f.label :parent_id %>
+      <%= f.collection_select :parent_id, @categories, :id, :name, include_blank: true, class: "round default-width-input" %>
+    </p>
+
+
+    <div class="stripe-separator"><!--  --></div>
+    
+    <%= f.submit "Salvar", class: "button round blue image-right ic-right-arrow" %>
+  
+  </fieldset>
+
+<% end %>

@@ -1,0 +1,59 @@
+<div class="three columns">
+  <%= render "layouts/left-menu" %>
+</div>
+
+<div class="thirteen columns content">
+
+  <div class="toolbar">
+    <div class="sortby">
+        <label>Ordenar por:</label>
+        <select>
+            <option>PREÇO</option>
+            <option>NOME</option>
+        </select>
+    </div>
+    <div class="viewby">
+      <label>Listagem:</label>
+      <a class="list" href="#"></a> <a class="grid" href="#"></a>
+    </div>
+    <div class="show_no">
+      <label>Mostrar:</label>
+      <select>
+        <option>12 ITEMS</option>
+        <option>24 ITEMS</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="product-listing">
+    <% @products.in_groups_of(4, false).each do |row| %>
+      <div class="row">
+
+        <% row.each do |product| %>
+
+          <div class="product three columns">
+            <div class="product-image">
+              <%= image_tag "suvinil.jpg", width: 100, height: 100 %>
+            </div>
+
+            <div class="product-details">
+              <%= product.name %>
+            </div>
+
+            <div class="product-actions">
+              <span class="price left">
+                R$ 38,50
+              </span>
+              <%= link_to "Comprar", "#", class: "btn right btn-carrinho", 'data-hint'=>"Bounce" %>
+            </div>
+          </div>
+
+        <% end %>
+
+      </div>
+
+      <div class="hr"></div>
+    <% end %>
+  </div>
+  
+</div>

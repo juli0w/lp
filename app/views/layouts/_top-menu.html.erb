@@ -1,0 +1,18 @@
+<div class="band top-menu">
+  <div class="container">
+    <div class="sixteen columns">
+      <nav class="navbar">
+        <ul class="nav">
+          <li><%= link_to "Carrinho", cart_index_path %></li>
+          <% unless user_signed_in? %>
+            <li><%= link_to "Login", new_user_session_path %></li>
+            <li><%= link_to "Cadastrar", new_user_registration_path %></li>
+          <% else %>
+            <li><%= link_to "Minha conta", dashboard_index_path %></li>
+          <% end %>
+          <li><%= link_to "Contato", 'produtos_path' %></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>

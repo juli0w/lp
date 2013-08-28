@@ -1,0 +1,59 @@
+.logo { float:left; }
+
+/*.header header .logo h1#logo {
+  text-indent: -9999px;
+  display: block;
+  width: 341px;
+  height: 105px;
+  background-image: url('loja do pintor.jpg');
+}*/
+
+.header {
+  padding-top: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #555555;
+}
+
+.header h1 {
+  color: #222222;
+  text-transform: uppercase;
+  font-size: 30px;
+  font-family: 'arial';
+  font-weight: bold;
+  line-height: 26px;
+  margin: 0;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+header .header_search {
+  height: 23px;
+  width: 230px;
+  float: right;
+  padding: 3px;
+  margin-top: 10px;
+  border: solid 1px #555555;
+  cursor: pointer;
+  background-color: #ffffff;
+}
+header .header_search #search-input {
+  width: 206px;
+  color: #b4b4b4;
+  overflow: hidden;
+  float: left;
+}
+
+header .header_search #search-input input {
+  background: none;
+  border: 0px;
+  padding: 4px;
+  padding-right: 5px;
+}
+
+header .header_search button {
+  background: url(search_btn.png) no-repeat center;
+  border: 0px;
+  width: 20px;
+  height: 20px;
+  float: left;
+  margin: 2px;
+}

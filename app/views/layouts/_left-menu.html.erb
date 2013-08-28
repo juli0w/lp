@@ -1,0 +1,22 @@
+<nav class="left-menu">
+  <% @categories_root.each do |category_root| %>
+
+      <% if category_root.children.any? %>
+
+        <% category_root.children.each do |category| %>
+
+          <h2><%= category.name %></h2>
+            
+          <ul>
+            <% category.children.each do |subcategory| %>
+              <li><%= link_to subcategory.name, subcategory %></li>
+            <% end %>
+          </ul>
+
+        <% end %>
+
+      <% end %>
+
+    </li>
+
+  <% end %>

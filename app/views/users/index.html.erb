@@ -1,0 +1,49 @@
+<div class="content-module-heading cf">
+
+  <h3 class="fl">Usuários</h3>
+  <span class="fr expand-collapse-text">Click to collapse</span>
+  <span class="fr expand-collapse-text initial-expand">Click to expand</span>
+
+</div> <!-- end content-module-heading -->
+
+
+<div class="content-module-main">
+
+  <table>
+  
+    <thead>
+  
+      <tr>
+        <th></th>
+        <th>Email</th>
+        <th>Nome</th>
+        <th>Cidade</th>
+        <th>Tipo</th>
+        <th>Ações</th>
+      </tr>
+    
+    </thead>
+    
+    <tbody>
+
+      <% @users.each do |user| %>
+
+      <tr>
+        <td></td>
+        <td><%= user.email %></td>
+        <td><%= user.profile.try(:name) %></td>
+        <td><%= user.profile.try(:city) %></td>
+        <td><%= user.get_state %></td>
+        <td>
+          <%= link_to "", [:edit, user], class: "table-actions-button ic-table-edit" %>
+          <%#= link_to "", "", class: "table-actions-button ic-table-delete" %>
+        </td>
+      </tr>
+
+      <% end %>
+
+    </tbody>
+    
+  </table>
+
+</div> <!-- end content-module-main -->

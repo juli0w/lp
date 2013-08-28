@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Loja do Pintor - Minha conta</title>
+  
+  <!-- Stylesheets -->
+  <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet'>
+  <%= stylesheet_link_tag    "admin/application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+
+  <!-- Optimize for mobile devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>  
+</head>
+<body>
+
+  <% [notice, alert].each do |f| %>
+    <% unless f.blank? %>
+      <div class="information-box round flash"><%= notice || alert %></div>
+    <% end %>
+  <% end %>
+
+  <!-- TOP BAR -->
+  <div id="top-bar">
+    
+    <div class="page-full-width">
+    
+      <a href="/" class="round button dark ic-left-arrow image-left ">Voltar para a Loja</a>
+
+    </div> <!-- end full-width -->  
+  
+  </div> <!-- end top-bar -->
+  
+  
+  
+  <!-- HEADER -->
+  <div id="header">
+    
+    <div class="page-full-width cf">
+  
+      <div id="login-intro" class="fl">
+      
+        <h1>Acessar sua conta</h1>
+        <h5>Digite suas credenciais</h5>
+      
+      </div> <!-- login-intro -->
+      
+      <!-- Change this image to your own company's logo -->
+      <!-- The logo will automatically be resized to 39px height. -->
+      <a href="#" id="company-branding" class="fr"><img src="images/company-logo.png" alt="Blue Hosting" /></a>
+      
+    </div> <!-- end full-width -->  
+
+  </div> <!-- end header -->
+  
+  
+  
+  <!-- MAIN CONTENT -->
+  <div id="content">
+    
+    <%= yield %>
+
+  </div> <!-- end content -->
+  
+</body>
+</html>

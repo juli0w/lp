@@ -1,0 +1,37 @@
+.top-menu .navbar {
+  clear: both; display: block;
+}
+
+.top-menu .navbar ul.nav {
+  padding: 0px;
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+  list-style: none;
+}
+
+.top-menu .navbar ul.nav li { margin: 0 auto; display: inline; }
+.top-menu {
+  background-color: #505050;
+}
+
+.top-menu .navbar {float: right;}
+.top-menu .navbar ul.nav li a {
+    padding: 0px 15px;
+    line-height: 30px;
+    font-size: 11px;
+    text-transform: uppercase;
+    text-align: center;
+    color: #ffffff;
+    font-weight: bold;
+    float: left;
+    text-decoration: none;
+    overflow: auto;
+    background-color: #5f5a56;
+    margin-left: 3px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+.top-menu .navbar ul.nav li a:hover {
+  background-color: #e60014;
+}

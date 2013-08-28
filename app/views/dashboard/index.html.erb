@@ -1,0 +1,20 @@
+<div class="content-module-heading cf">
+
+  <h3 class="fl">Dashboard</h3>
+  <span class="fr expand-collapse-text">Click to collapse</span>
+  <span class="fr expand-collapse-text initial-expand">Click to expand</span>
+
+</div> <!-- end content-module-heading -->
+
+
+<div class="content-module-main">
+
+  <% if current_user.profile.blank? or current_user.profile.name.blank? %>
+    <div class="information-box round">
+      Você ainda não nos passou suas informações,
+      <%= link_to "clique aqui", dashboard_profile_path %>
+      para habilitar sua conta.
+    </div>
+  <% end %>
+
+</div> <!-- end content-module-main -->

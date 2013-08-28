@@ -1,0 +1,22 @@
+<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), html: { id: 'login-form' }) do |f| %>
+
+  <fieldset>
+
+    <p>
+      <%= f.label :email %>
+      <%= f.text_field :email, id: 'login-username', class: "round full-width-input", autofocus: true %>
+    </p>
+
+    <p>
+      <%= f.label :password %>
+     <%= f.password_field :password, id: "login-password", class: "round full-width-input" %>
+    </p>
+    
+    <%= f.submit "Login", class: "button round blue image-right ic-right-arrow" %>
+
+    <p style="margin-top: 15px;">Eu <%= link_to "esqueci minha senha", new_user_password_path %>.</p>
+    <p>Ainda <%= link_to "não sou cadastrado", new_user_registration_path %>.</p>
+
+  </fieldset>
+
+<% end %>

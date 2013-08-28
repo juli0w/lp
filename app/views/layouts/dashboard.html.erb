@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Loja do Pintor - Minha conta</title>
+  
+  <!-- Stylesheets -->
+  <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet'>
+  <%= stylesheet_link_tag    "admin/application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+
+  <!-- Optimize for mobile devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>  
+</head>
+<body>
+
+  <% [notice, alert].each do |f| %>
+    <% unless f.blank? %>
+      <div class="information-box round flash"><%= notice || alert %></div>
+    <% end %>
+  <% end %>
+
+  <!-- TOP BAR -->
+  <div id="top-bar">
+    
+    <div class="page-full-width cf">
+
+      <ul id="nav" class="fl">
+  
+        <li class="v-sep"><a href="/" class="round button dark ic-left-arrow image-left">Voltar para a Loja</a></li>
+        <li class="v-sep"><a href="#" class="round button dark menu-user image-left">Logado como <strong><%= current_user.profile.try(:name) || current_user.email %></strong></a>
+          <ul>
+            <li><%= link_to "Minhas informações",  dashboard_profile_path %></li>
+            <li><%= link_to "Sair",  destroy_user_session_path, :method => :delete %></li>
+          </ul> 
+        </li>
+      
+        <li><a href="#" class="round button dark menu-email-special image-left">3 novas mensagens</a></li>
+        <li><%= link_to "Sair",  destroy_user_session_path, :method => :delete, class: "round button dark menu-logoff image-left" %></li>
+        
+      </ul> <!-- end nav -->
+
+    </div> <!-- end full-width -->  
+  
+  </div> <!-- end top-bar -->
+  
+  
+  
+  <!-- HEADER -->
+  <div id="header-with-tabs">
+    
+    <div class="page-full-width cf">
+  
+      <ul id="tabs" class="fl">
+        <li><%= link_to 'Dashboard', dashboard_index_path, class: "active-tab dashboard-tab" %></li>
+        <% if current_user.admin? %>
+          <li><%= link_to 'Administração', admin_index_path %></li>
+        <% end %>
+      </ul> <!-- end tabs -->
+      
+      <!-- Change this image to your own company's logo -->
+      <!-- The logo will automatically be resized to 30px height. -->
+      <a href="#" id="company-branding-small" class="fr"><img src="images/company-logo.png" alt="Blue Hosting" /></a>
+      
+    </div> <!-- end full-width -->  
+
+  </div> <!-- end header -->
+  
+  
+  
+  <!-- MAIN CONTENT -->
+  <div id="content">
+    
+    <div class="page-full-width cf">
+
+      <div class="side-menu fl">
+        
+        <h3>Menu</h3>
+        <ul>
+          <li><%= link_to "Minhas informações", dashboard_profile_path %></li>
+          <li><%= link_to "Pedidos", "" %></li>
+          <li><%= link_to "Mensagens", "" %></li>
+          <li><%= link_to "Tickets", "" %></li>
+        </ul>
+        
+      </div> <!-- end side-menu -->
+      
+      <div class="side-content fr">
+      
+        <div class="content-module">
+        
+          <%= yield %>
+        
+        </div> <!-- end content-module -->
+
+      </div>
+    
+      </div> <!-- end side-content -->
+    
+    </div> <!-- end full-width -->
+      
+  </div> <!-- end content -->
+
+</body>
+</html>

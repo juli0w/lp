@@ -1,0 +1,27 @@
+<%= simple_form_for(@product) do |f| %>
+
+  <fieldset>
+
+    <p>
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "round full-width-input", autofocus: true %>
+    </p>
+
+    <p>
+      <%= f.label :category_id %>
+      <%= f.collection_select :category_id, @categories, :id, :name, include_blank: true, class: "round default-width-input" %>
+    </p>
+
+    <p>
+      <%= f.label :price %>
+      <%= f.text_field :price, class: "round full-width-input", autofocus: true %>
+    </p>
+
+
+    <div class="stripe-separator"><!--  --></div>
+    
+    <%= f.submit "Salvar", class: "button round blue image-right ic-right-arrow" %>
+  
+  </fieldset>
+
+<% end %>

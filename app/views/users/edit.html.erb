@@ -1,0 +1,39 @@
+<div class="content-module-heading cf">
+
+  <h3 class="fl">Usuário <%= @user.get_state %></h3>
+  <span class="fr expand-collapse-text">Click to collapse</span>
+  <span class="fr expand-collapse-text initial-expand">Click to expand</span>
+
+</div> <!-- end content-module-heading -->
+
+
+<div class="content-module-main cf">
+
+  <p>
+    <strong>ID</strong>: <%= @user.id %>
+  </p>
+
+  <p>
+    <strong>Email</strong>: <%= @user.email %>
+  </p>
+
+  <% unless @user.profile.blank? %>
+    <p>
+      <strong>Nome</strong>: <%= @user.profile.try(:name) %>
+    </p>
+
+    <p>
+      <strong>Endereço</strong>:<br />
+      <%= @user.profile.try(:city) %> - <%= @user.profile.try(:uf) %><br />
+      <%= @user.profile.try(:cep) %><br />
+      <%= @user.profile.try(:address) %>, <%= @user.profile.try(:number) %>
+    </p>
+  <% end %>
+
+  <div class="stripe-separator"><!--  --></div>
+  
+  <%= link_to "Banir", ban_user_path, readonly: true, method: :put, class: "button round blue image-right ic-lock" %>
+  <%= link_to "Desbanir", unban_user_path, method: :put, class: "button round blue image-right ic-cancel" %>
+  <%= link_to "Administrador", permit_user_path, method: :put, class: "button round blue image-right ic-favorite" %>
+
+</div>

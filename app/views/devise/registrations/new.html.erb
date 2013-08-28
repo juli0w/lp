@@ -1,0 +1,28 @@
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: { id: 'login-form' }) do |f| %>
+
+  <%= devise_error_messages! %>
+
+  <fieldset>
+
+    <p>
+      <%= f.label :email %>
+      <%= f.text_field :email, id: 'login-username', class: "round full-width-input", autofocus: true %>
+    </p>
+
+    <p>
+      <%= f.label :password %>
+     <%= f.password_field :password, id: "login-password", class: "round full-width-input" %>
+    </p>
+
+    <p>
+      <%= f.label :password_confirmation %>
+     <%= f.password_field :password_confirmation, id: "login-password", class: "round full-width-input" %>
+    </p>
+    
+    <p>Eu <%= link_to "já sou cadastrado", new_user_session_path %>.</p>
+    
+    <%= f.submit "Cadastrar", class: "button round blue image-right ic-right-arrow" %>
+
+  </fieldset>
+
+<% end %>

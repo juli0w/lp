@@ -1,0 +1,61 @@
+<div class="content-module-heading cf">
+
+  <h3 class="fl">Minhas informações</h3>
+  <span class="fr expand-collapse-text">Click to collapse</span>
+  <span class="fr expand-collapse-text initial-expand">Click to expand</span>
+
+</div> <!-- end content-module-heading -->
+
+
+<div class="content-module-main cf">
+
+  <%= simple_form_for(@profile) do |f| %>
+
+    <fieldset>
+
+      <p>
+        <%= f.label :name %>
+        <%= f.text_field :name, class: "round full-width-input", autofocus: true %>
+      </p>
+
+      <p>
+        <%= f.label :cep %>
+       <%= f.text_field :cep, class: "round default-width-input" %>
+      </p>
+
+      <span class="cf">
+        <p class="fl">
+          <%= f.label :city %>
+         <%= f.text_field :city, class: "round default-width-input" %>
+        </p>
+
+        <p class="fl" style="margin-left: 20px">
+          <%= f.label :uf %>
+         <%= f.text_field :uf, class: "round", style: "width: 50px;" %>
+        </p>
+      </span>
+
+      <span class="cf">
+
+        <p class="fl">
+          <%= f.label :address %>
+         <%= f.text_field :address, class: "round default-width-input" %>
+        </p>
+
+        <p class="fl" style="margin-left: 20px">
+          <%= f.label :number %>
+         <%= f.text_field :number, class: "round", style: "width: 50px;" %>
+        </p>
+
+      </span>
+
+      <div class="stripe-separator"><!--  --></div>
+      
+      <%= f.submit "Salvar", class: "button round blue image-right ic-right-arrow" %>
+    
+    </fieldset>
+
+
+  <% end %>
+
+</div>

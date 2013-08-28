@@ -1,0 +1,55 @@
+<div class="row sixteen columns content cart">
+
+<div class="title">
+  <h3>Carrinho de Compras</h3>
+</div>
+
+<div class="row cart-products">
+  <ul>
+    <li>
+      Produtos
+      <div class="details-header right">
+        <span class="unit-price">Preço</span>
+        <span class="quantity">Quantidade</span>
+        <span class="price">Total</span>
+      </div>
+    </li>
+    <li>
+      <img src="ag" width=46 height=46>
+      <a href="#">Faded chambray shorts</a>
+      <div class="details right">
+        <span class="unit-price">R$ 12,90</span>
+        <span class="quantity"><%= text_field_tag :quantity %></span>
+        <span class="price">R$ 25,80</span>
+        <a href="#" class="remove right"></a>
+      </div>
+    </li>
+    <li>
+      <img src="ag" width=46 height=46>
+      <a href="#">Faded chambray shorts</a>
+      <div class="details right">
+        <span class="unit-price">R$ 12,90</span>
+        <span class="quantity"><%= text_field_tag :quantity %></span>
+        <span class="price">R$ 25,80</span>
+        <a href="#" class="remove right"></a>
+      </div>
+    </li>
+  </ul>
+
+</div>
+
+<div class="row cart_bottom">
+  <div class="desc">Subtotal:</div>
+  <div class="value">R$ 69,20</div>
+  <div class="desc">Descontos:</div>
+  <div class="value">R$ 0,00</div>
+  <div class="desc">Total:</div>
+  <div class="value total">R$ 69,20</div>
+</div>
+
+<div class="row checkout">
+  <%= link_to "Continuar Comprando", "#", class: "back" %>
+  <%= link_to "Finalizar Pedido", "#", class: "checkout-btn" %>
+</div>
+
+</div>
