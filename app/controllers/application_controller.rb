@@ -1,11 +1,14 @@
 # encoding: UTF-8
 class ApplicationController < ActionController::Base
+  include CartEngine
+
   protect_from_forgery
 
   layout :layout_by_resource
 
   before_filter :load_nav
   after_filter :store_location
+  before_filter :check_params
 
   def after_sign_out_path_for(resource)
     root_path
@@ -23,6 +26,30 @@ class ApplicationController < ActionController::Base
 
 protected
 
+  def redirect_to_back
+    redirect_to (request.fullpath != session[:previous_url]) ? session[:previous_url] : root_path 
+  end
+
+  def check_params
+    [:show, :order, :list].each do |param|
+      unless params[param].blank?
+        session[param] = params[param]
+      end
+    end
+  end
+
+  [:show, :order, :list].each do |param|
+    define_method "#{param}_param" do
+      session[param] || params[param]
+    end
+
+    helper_method "#{param}_param"
+  end
+
+  def sort arr
+    arr.sort {|a,b| a.send(order_param || :name) <=> b.send(order_param || :name) }
+  end
+
   def load_nav
     @categories_root = Category.roots
   end
@@ -34,10 +61,6 @@ protected
           !request.xhr?) # don't store ajax calls
         session[:previous_url] = request.fullpath 
       end
-  end
-
-  def after_sign_in_path_for(resource)
-    session[:previous_url] || root_path
   end
 
   def layout_by_resource

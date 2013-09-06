@@ -44,6 +44,14 @@
     
   </table>
 
+  <% if @products.num_pages > 1 %>
+
+    <div class="stripe-separator"><!--  --></div>
+
+    <%= paginate @products %>
+
+  <% end %>
+
   <div class="stripe-separator"><!--  --></div>
   
   <%= link_to "Cadastrar Produto", new_product_path, class: "button round blue image-right ic-right-arrow" %>

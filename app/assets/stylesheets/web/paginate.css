@@ -1,0 +1,22 @@
+.pagination {
+  font-size: 14px;
+}
+
+.pagination span a {
+  padding: 6px 8px;
+  background-color: #f8f9fa;
+  color: #2a2e36;
+  margin: 0;
+}
+
+.pagination span a:hover {
+  color: #ffffff;
+  background-color: red;
+}
+
+.pagination span.current {
+  padding: 5px 7px;
+  text-align: center;
+  color: #000000;
+  /*background-color: #3f4551;*/
+}

@@ -1,0 +1,22 @@
+<%= form_tag "", method: :get, style: "margin:0;" do %>
+<div class="toolbar cf">
+
+  <%= hidden_field_tag :q, params[:q] %>
+  
+  <div class="sortby">
+    <label>Ordenar por:</label>
+    <%= select_tag :order, options_for_select([['PREÇO', 'price'],['NOME', 'name']], order_param), onchange: "this.form.submit();" %>
+  </div>
+  <div class="viewby">
+    <label>Listagem:</label>
+    <%= link_to "", "?list=details#{'&q='+params[:q] unless params[:q].blank?}", class: "list" %>
+    <%= link_to "", "?list=grid#{'&q='+params[:q] unless params[:q].blank?}", class: "grid" %>
+  </div>
+  <div class="show_no">
+    <label>Mostrar:</label>
+
+    <%= select_tag :show, options_for_select([['20 ITENS', '20'],['40 ITENS', '40']], show_param), onchange: "javascript:this.form.submit();" %>
+  </div>
+
+</div>
+<% end %>

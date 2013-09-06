@@ -28,19 +28,19 @@
 
         <div class="minicart">
           <a href="#" class="minicart_link" >
-            <span class="item"><b>2</b> itens -</span> <span><b>R$ 69,20</b></span>
+            <span class="item"><b><%= current_cart.items.count %></b> itens -</span> <span><b><%= monetize current_cart.subtotal %></b></span>
           </a>
           <div class="cart_drop"> <span class="darw"></span>
             <ul>
+              <% current_cart.items.each do |item| %>
               <li>
-                <img src="ag" width=46 height=46><a href="#">Clogs Beach/Garden Clog</a> <span class="price">R$ 49,90</span>
+                <img src="ag" width=46 height=46><%= link_to "#{item.quantity}x #{item.product.name}", 'javascript:void();' %> <span class="price"><%= monetize item.total %></span>
               </li>
-              <li>
-                <img src="ag" width=46 height=46><a href="#">Faded chambray shorts</a> <span class="price">R$ 12,90</span>
-              </li>
+              <% end %>
+
               <div class="cart_bottom">
-                <div class="subtotal_menu"><small>Subtotal:</small>R$ 69,20</div>
-                <a href="leisure_cart.html">Checkout</a>
+                <div class="subtotal_menu"><small>Subtotal:</small><%= monetize current_cart.subtotal %></div>
+                <%= link_to "Visualizar", cart_index_path %>
               </div>
             </ul>
           </div>

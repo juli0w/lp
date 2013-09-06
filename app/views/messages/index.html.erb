@@ -1,6 +1,6 @@
 <div class="content-module-heading cf">
 
-  <h3 class="fl">Usuários</h3>
+  <h3 class="fl">Mensagens</h3>
   <span class="fr expand-collapse-text">Click to collapse</span>
   <span class="fr expand-collapse-text initial-expand">Click to expand</span>
 
@@ -15,10 +15,8 @@
   
       <tr>
         <th></th>
-        <th>Email</th>
-        <th>Nome</th>
-        <th>Cidade</th>
-        <th>Tipo</th>
+        <th>Assunto</th>
+        <th>Recebida em</th>
         <th>Ações</th>
       </tr>
     
@@ -26,17 +24,14 @@
     
     <tbody>
 
-      <% @users.each do |user| %>
+      <% @messages.each do |message| %>
 
       <tr>
         <td></td>
-        <td><%= user.email %></td>
-        <td><%= user.profile.try(:name) %></td>
-        <td><%= user.profile.try(:city) %></td>
-        <td><%= user.get_state %></td>
+        <td><%= message.subject %></td>
+        <td><%= l message.created_at %></td>
         <td>
-          <%= link_to "", [:edit, user], class: "table-actions-button ic-table-edit" %>
-          <%#= link_to "", "", class: "table-actions-button ic-table-delete" %>
+          <%= link_to "Visualizar", message %>
         </td>
       </tr>
 
@@ -46,11 +41,11 @@
     
   </table>
 
-  <% if @users.num_pages > 1 %>
+  <% if @messages.num_pages > 1 %>
 
     <div class="stripe-separator"><!--  --></div>
 
-    <%= paginate @users %>
+    <%= paginate @messages %>
 
   <% end %>
 

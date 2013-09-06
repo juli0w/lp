@@ -1,11 +1,11 @@
 # encoding: UTF-8
 class ProductsController < ApplicationController
-  before_filter :authenticate_user!
-  before_filter :authenticate_admin!
+  before_filter :authenticate_user!, except: [:search, :add_to_cart]
+  before_filter :authenticate_admin!, except: [:search, :add_to_cart]
   layout 'admin'
 
   def index
-    @products = Product.all
+    @products = Product.page(params[:page])
   end
 
   def new
@@ -47,5 +47,15 @@ class ProductsController < ApplicationController
     @product.destroy
 
     redirect_to products_path
+  end
+
+  def search
+    @products = Product.where("name LIKE ?", "%#{params[:q]}%").order(order_param).page(params[:page]).per(show_param)
+    render layout: 'application'
+  end
+
+  def add_to_cart
+    current_cart.add_item(params[:id])
+    redirect_to_back
   end
 end

@@ -11,6 +11,9 @@ Lojadopintor::Application.routes.draw do
 
   get "profile/edit"
 
+  get "cart/clean"
+  resources :cart
+
   resources :users do
     member do
       put :ban
@@ -20,8 +23,16 @@ Lojadopintor::Application.routes.draw do
   end
 
   resources :profile
+  resources :messages
   resources :categories
-  resources :products
+  resources :products do
+    member do
+      get :add_to_cart
+    end
+    collection do
+      get :search
+    end
+  end
 
   root to: "home#index"
 end

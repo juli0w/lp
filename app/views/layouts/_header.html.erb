@@ -5,14 +5,14 @@
         <h1 id="logo">Loja do <br/>Pintor<span style="float: right; color: #ffffff">.NET</span></h1>
       </div>
 
-      <form class="header_search">
+      <%= form_tag search_products_path, class: "header_search", method: :get do %>
         <div class="form-search">
           <div id="search-input">
             <input id="search" type="text" name="q" value="" class="input-text" autocomplete="off" placeholder="Search">
           </div>
           <button type="submit" title="Search"></button>
         </div>
-      </form>
+      <% end %>
     </div>
   </header>
 </div>

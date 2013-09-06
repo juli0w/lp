@@ -25,6 +25,7 @@ a.btn {
   color: #ffffff;
   background-color: #dedede;
   border: none;
+  display: block;
 }
 
 a.btn:hover {
@@ -61,7 +62,12 @@ a.btn-carrinho:hover {
 
 .title h3 {
   margin: 0;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
   text-transform: uppercase;
+}
+
+.breadcumb {
+  display: block;
+  margin: 10px 0 20px 0;
 }

@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
 
   has_one :profile
+  has_many :messages
 
   STATES = {
     0 => "Regular",

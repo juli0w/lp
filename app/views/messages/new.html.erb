@@ -1,0 +1,37 @@
+<div class="content-module-heading cf">
+
+  <h3 class="fl">Mensagem para <%= @user.profile.try(:name) || @user.email %></h3>
+  <span class="fr expand-collapse-text">Click to collapse</span>
+  <span class="fr expand-collapse-text initial-expand">Click to expand</span>
+
+</div> <!-- end content-module-heading -->
+
+
+<div class="content-module-main cf">
+
+  <%= simple_form_for(@message) do |f| %>
+
+    <fieldset>
+
+      <%= f.hidden_field :user_id, @user.id %>
+
+      <p>
+        <%= f.label :subject %>
+        <%= f.text_field :subject, class: "round full-width-input", autofocus: true %>
+      </p>
+
+      <p>
+        <%= f.label :message %>
+        <%= f.text_area :message, class: "round full-width-input", autofocus: true %>
+      </p>
+
+
+      <div class="stripe-separator"><!--  --></div>
+      
+      <%= f.submit "Enviar", class: "button round blue image-right ic-right-arrow" %>
+    
+    </fieldset>
+
+  <% end %>
+
+</div>

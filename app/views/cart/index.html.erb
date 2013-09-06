@@ -4,6 +4,8 @@
   <h3>Carrinho de Compras</h3>
 </div>
 
+<% unless current_cart.empty? %>
+
 <div class="row cart-products">
   <ul>
     <li>
@@ -14,42 +16,45 @@
         <span class="price">Total</span>
       </div>
     </li>
-    <li>
-      <img src="ag" width=46 height=46>
-      <a href="#">Faded chambray shorts</a>
-      <div class="details right">
-        <span class="unit-price">R$ 12,90</span>
-        <span class="quantity"><%= text_field_tag :quantity %></span>
-        <span class="price">R$ 25,80</span>
-        <a href="#" class="remove right"></a>
-      </div>
-    </li>
-    <li>
-      <img src="ag" width=46 height=46>
-      <a href="#">Faded chambray shorts</a>
-      <div class="details right">
-        <span class="unit-price">R$ 12,90</span>
-        <span class="quantity"><%= text_field_tag :quantity %></span>
-        <span class="price">R$ 25,80</span>
-        <a href="#" class="remove right"></a>
-      </div>
-    </li>
+
+    <% current_cart.items.each do |item| %>
+      <li>
+        <img src="ag" width=46 height=46>
+        <%= link_to item.product.name, "javascript:void();" %>
+        <div class="details right">
+          <span class="unit-price"><%= monetize item.price %></span>
+          <span class="quantity"><%= text_field_tag :quantity, item.quantity %></span>
+          <span class="price"><%= monetize item.total %></span>
+          <a href="#" class="remove right"></a>
+        </div>
+      </li>
+    <% end %>
   </ul>
 
 </div>
 
 <div class="row cart_bottom">
   <div class="desc">Subtotal:</div>
-  <div class="value">R$ 69,20</div>
+  <div class="value"><%= monetize current_cart.total %></div>
   <div class="desc">Descontos:</div>
   <div class="value">R$ 0,00</div>
   <div class="desc">Total:</div>
-  <div class="value total">R$ 69,20</div>
+  <div class="value total"><%= monetize current_cart.total %></div>
 </div>
 
 <div class="row checkout">
-  <%= link_to "Continuar Comprando", "#", class: "back" %>
+  <%= link_to "Continuar Comprando", "/", class: "back" %>
+  <%= link_to "Limpar Carrinho", cart_clean_path, class: "clean_button back", confirm: "Deseja limpar sua compra?" %>
   <%= link_to "Finalizar Pedido", "#", class: "checkout-btn" %>
 </div>
+
+<% else %>
+
+<div class="row" style="text-align: center; margin-top: 20px;">
+  O carrinho está vazio.<br />
+  <%= link_to "Comece suas compras", root_path %>!
+</div>
+
+<% end %>
 
 </div>

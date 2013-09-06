@@ -1,8 +1,14 @@
 # encoding: UTF-8
 class CategoriesController < ApplicationController
-  before_filter :authenticate_user!
-  before_filter :authenticate_admin!
+  before_filter :authenticate_user!, except: :show
+  before_filter :authenticate_admin!, except: :show
   layout 'admin'
+
+  def show
+    @category = Category.find(params[:id])
+    @products = Kaminari.paginate_array(sort(Category.load_products(params[:id]))).page(params[:page]).per(show_param)
+    render layout: 'application'
+  end
 
   def index
     @categories_root = Category.roots
