@@ -27,9 +27,9 @@
       <% @messages.each do |message| %>
 
       <tr>
-        <td></td>
+        <td><%= image_tag "#{message.read ? 'read' : 'not_read'}.png" %></td>
         <td><%= message.subject %></td>
-        <td><%= l message.created_at %></td>
+        <td><%= message.created_at.strftime("%H:%M %d/%m/%Y") %></td>
         <td>
           <%= link_to "Visualizar", message %>
         </td>

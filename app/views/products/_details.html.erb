@@ -18,7 +18,7 @@
   <% @products.each do |product| %>
     <div class="row">
 
-      <div class="product">
+      <div class="product" id="product-<%= product.id %>">
         <div class="product-image">
           <%= image_tag "suvinil.jpg", width: 35, height: 35 %>
         </div>

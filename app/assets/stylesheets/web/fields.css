@@ -1,0 +1,87 @@
+/* ---------- FORMS ---------- */
+.format-form form label {
+  display: block;
+  text-transform: uppercase;
+  color: #2a2e36;
+  margin: 0 0 0.3125em 0;
+}
+
+.format-form form label.alt-label { text-transform: none; }
+
+.format-form form input[type="text"], input[type="password"], .format-form textarea {
+  border: 1px solid #d9dbdd;
+  padding: 1em 0.625em; /* 16/16 10/16 */
+  outline: none;
+}
+  .format-form form input[type="text"]:hover, .format-form input[type="password"]:hover, .format-form textarea:hover,
+  .format-form form input[type="text"]:focus, .format-form input[type="password"]:focus, .format-form textarea:focus {
+    border: 1px solid #bbbdbe;
+  }
+  
+.format-form form input[type="checkbox"], .format-form form input[type="radio"] { margin-right: 0.833em; /* 10/12 */ }
+
+.format-form form input[type="submit"] {
+  border: none;
+  cursor: pointer;
+  padding: 0.833em; /* 10/12 */
+
+  background-position: right center;
+  padding-right: 3em; /* 36/12 */
+  background-repeat: no-repeat;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.format-form form#search-form input {
+  border: none;
+  /* The inner text overflows on the BG image, so we're setting a right padding to stop that */
+  padding-right: 3em; /* 36/12 */
+}
+  .format-form form#search-form input:focus {
+    /* Same as .dark:hover */
+    background-color: #5d6677;
+    color: white;
+  }
+
+.format-form form p em {
+  margin-top: 0.833em; /* 10/12 */
+  display: block;
+}
+
+.format-form form p.form-error, .format-form form p.form-error label { color: #cf4425; }
+
+.format-form form p.form-error em {
+  background: transparent url('../images/icons/message-boxes/error.png') no-repeat left center;
+  padding-left: 2em; /* 24/12 */
+}
+
+.format-form form input.error-input { border: 1px solid #ff876f; }
+  .format-form form input.error-input:hover { border: 1px solid #b03e27; }
+
+/* Styling the HTML5 placeholders */
+/* So far they don't work in: IE, Opera 10 and below, Firefox 3.6 and below */
+::-webkit-input-placeholder { color: #858d9c; }
+:-moz-placeholder { color: #858d9c; }
+
+/* ---------- WIDTHS ---------- */
+/* Form Inputs Style */
+.default-width-input { width: 20.833em !important; /* Default Value. Equals 250px for the 12px font size */ }  
+
+.full-width-input { width: 95% !important; }
+
+/* Textarea Style */
+.full-width-textarea {
+  width: 95% !important;
+  height: 12.5em; /* 150/12 */
+}
+
+/* Page Container Style */
+.page-full-width { padding: 0 1.875em; /* 30/16 */ }
+
+.page-limited {
+  width: 60em; /* 960/16 */
+  margin: 0 auto;
+}
+.fl { float: left; }
+.fr { float: right; }
+.cb { clear: both; }

@@ -28,7 +28,7 @@
 }
 
 .product-details .row:hover {
-  background-color: rgba(20,130,230, 0.1);
+  background-color: #ffd204;
 }
 
 .product-details .row.details-head {

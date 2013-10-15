@@ -1,0 +1,54 @@
+<div class="content-module-heading cf">
+
+  <h3 class="fl">Pedidos</h3>
+  <span class="fr expand-collapse-text">Click to collapse</span>
+  <span class="fr expand-collapse-text initial-expand">Click to expand</span>
+
+</div> <!-- end content-module-heading -->
+
+
+<div class="content-module-main">
+
+  <table>
+  
+    <thead>
+  
+      <tr>
+        <th></th>
+        <th width="20%">Data</th>
+        <th>Status</th>
+        <th>Valor</th>
+        <th></th>
+      </tr>
+    
+    </thead>
+    
+    <tbody>
+
+      <% @purchases.each do |purchase| %>
+
+      <tr>
+        <td><%= purchase.rid %></td>
+        <td><%= purchase.created_at.strftime("%d/%m/%Y %H:%M") %></td>
+        <td><%= purchase.get_state %></td>
+        <td><%= monetize purchase.total %></td>
+        <td>
+          <%= link_to "Detalhes", purchase %>
+        </td>
+      </tr>
+
+      <% end %>
+
+    </tbody>
+    
+  </table>
+
+  <% if @purchases.num_pages > 1 %>
+
+    <div class="stripe-separator"><!--  --></div>
+
+    <%= paginate @purchases %>
+
+  <% end %>
+
+</div> <!-- end content-module-main -->

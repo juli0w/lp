@@ -7,8 +7,12 @@ class CartItem
     self.price      = price || self.product.price
   end
 
+  def update quantity
+    self.quantity = quantity
+  end
+
   def total
-    self.price * self.quantity
+    self.price.to_f * self.quantity.to_f
   end
 
   def product

@@ -1,0 +1,102 @@
+<div class="content-module-heading cf">
+
+  <h3 class="fl">Pedido #<%= @purchase.rid %></h3>
+  <span class="fr expand-collapse-text">Click to collapse</span>
+  <span class="fr expand-collapse-text initial-expand">Click to expand</span>
+
+</div> <!-- end content-module-heading -->
+
+
+<div class="content-module-main cf">
+
+  <div class="cf">
+
+    <div class="half-size-column fl">
+
+      <h2 class="text-upper">Dados de entrega</h2>
+
+      <ul class="regular-ul">
+        <li><strong>CEP</strong>: <%= @purchase.cep %></li>
+        <li><strong>Cidade</strong>: <%= @purchase.city %> <%= @purchase.uf %></li>
+        <li><strong>Endereço</strong>: <%= @purchase.address %> - <strong>Número</strong>: <%= @purchase.number %></li>
+        <li><strong>Bairro</strong>: <%= @purchase.district %></li>
+        <li><strong>Complemento</strong>: <%= @purchase.complement %></li>
+        <li><strong>Celular</strong>: <%= @purchase.cellphone %> - <strong>Telefone</strong>: <%= @purchase.phone %></li>
+      </ul>
+
+    </div>
+
+    <div class="half-size-column fr">
+
+      <h2 class="text-upper">Status do Pedido</h2>
+
+      <%= @purchase.get_state %>
+
+      <% if @purchase.state == 0 %>
+        (<%= link_to "Efetuar pagamento", "" %>)
+      <% end %>
+
+    </div>
+
+  </div>
+
+  <% if current_user.admin? %>
+    <div class="stripe-separator cf"><!--  --></div>
+    
+    <%= link_to "Em aberto", change_purchase_path(@purchase, state: 0), method: :put, class: "button round blue image-right ic-refresh" unless @purchase.state == 0 %>
+    <%= link_to "Confirmar pagamento", change_purchase_path(@purchase, state: 1), method: :put, class: "button round blue image-right ic-favorite" unless @purchase.state == 1 %>
+    <%= link_to "Confirmar envio", change_purchase_path(@purchase, state: 2), method: :put, class: "button round blue image-right ic-right-arrow" unless @purchase.state == 2 %>
+    <%= link_to "Cancelar pedido", change_purchase_path(@purchase, state: 3), method: :put, class: "button round blue image-right ic-cancel" unless @purchase.state == 3 %>
+  <% end %>
+
+</div> <!-- end content-module-main -->
+
+<div class="content-module-heading cf">
+
+  <h3 class="fl">Produtos do pedido</h3>
+  <span class="fr expand-collapse-text">Click to collapse</span>
+  <span class="fr expand-collapse-text initial-expand">Click to expand</span>
+
+</div> <!-- end content-module-heading -->
+
+
+<div class="content-module-main cf">
+
+  <table>
+
+    <thead>
+
+      <tr>
+        <th></th>
+        <th>Produtos</th>
+        <th width="15%">Preço</th>
+        <th width="15%">Qtd</th>
+        <th width="15%">Total</th>
+      </tr>
+    
+    </thead>
+    
+    <tbody>
+
+      <% @purchase.purchase_items.each do |item| %>
+
+      <tr>
+        <td><img src="ag" width=46 height=46 /></td>
+        <td><%= item.product.name %></td>
+        <td><%= monetize item.price %></td>
+        <td><%= item.quantity %></td>
+        <td><%= monetize item.total %></td>
+      </tr>
+
+      <% end %>
+
+      <tr>
+        <td colspan=4></td>
+        <td height="50"><%= monetize @purchase.total %></td>
+      </tr>
+
+    </tbody>
+    
+  </table>
+
+</div> <!-- end content-module-main -->

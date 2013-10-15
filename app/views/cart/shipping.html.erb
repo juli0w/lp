@@ -1,0 +1,73 @@
+<div class="row sixteen columns content cart cart-confirm format-form">
+
+<div class="title">
+  <h3>Dados de Entrega</h3>
+</div>
+
+<%= form_for @purchase, url: cart_purchase_path, method: :post do |f| %>
+
+  <fieldset>
+
+      <span class="cf">
+        <p class="fl">
+          <%= f.label :phone %>
+          <%= f.text_field :phone, class: "round default-width-input" %>
+        </p>
+
+        <p class="fl" style="margin-left: 20px">
+          <%= f.label :cellphone %>
+          <%= f.text_field :cellphone, class: "round default-width-input" %>
+        </p>
+      </span>
+
+      <p>
+        <%= f.label :cep %>
+        <%= f.text_field :cep, class: "round default-width-input" %>
+      </p>
+
+      <span class="cf">
+        <p class="fl">
+          <%= f.label :city %>
+         <%= f.text_field :city, class: "round default-width-input" %>
+        </p>
+
+        <p class="fl" style="margin-left: 20px">
+          <%= f.label :uf %>
+          <%= f.text_field :uf, class: "round", style: "width: 50px;" %>
+        </p>
+      </span>
+
+      <p>
+        <%= f.label :district %>
+        <%= f.text_field :district, class: "round default-width-input" %>
+      </p>
+
+      <span class="cf">
+
+        <p class="fl">
+          <%= f.label :address %>
+          <%= f.text_field :address, class: "round default-width-input" %>
+        </p>
+
+        <p class="fl" style="margin-left: 20px">
+          <%= f.label :number %>
+          <%= f.text_field :number, class: "round", style: "width: 50px;" %>
+        </p>
+
+      </span>
+
+      <p>
+        <%= f.label :complement %>
+        <%= f.text_field :complement, class: "round full-width-input" %>
+      </p>
+
+  </fieldset>
+
+  <div class="row checkout">
+    <%= link_to "Voltar para o carrinho", cart_index_path, class: "back" %>
+    <%= f.submit "Confirmar dados", class: "checkout-btn" %>
+  </div>
+
+<% end %>
+
+</div>

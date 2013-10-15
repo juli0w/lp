@@ -1,9 +1,11 @@
 <div class="band header">
   <header class="container">
     <div class="sixteen columns">
-      <div class="logo">
-        <h1 id="logo">Loja do <br/>Pintor<span style="float: right; color: #ffffff">.NET</span></h1>
-      </div>
+      <%= link_to root_url do %>
+        <div class="logo">
+          <h1 id="logo">Loja do Pintor</h1>
+        </div>
+      <% end %>
 
       <%= form_tag search_products_path, class: "header_search", method: :get do %>
         <div class="form-search">

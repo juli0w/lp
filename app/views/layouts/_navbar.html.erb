@@ -28,7 +28,9 @@
 
         <div class="minicart">
           <a href="#" class="minicart_link" >
-            <span class="item"><b><%= current_cart.items.count %></b> itens -</span> <span><b><%= monetize current_cart.subtotal %></b></span>
+            <div class="labeld">
+              <span class="item"><b><%= current_cart.items.count %></b> itens - </span> <span><b><%= monetize current_cart.subtotal %></b></span>
+            </div>
           </a>
           <div class="cart_drop"> <span class="darw"></span>
             <ul>

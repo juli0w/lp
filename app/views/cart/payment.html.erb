@@ -1,0 +1,43 @@
+<div class="row sixteen columns content cart cart-confirm format-form">
+
+<div class="title">
+  <h3>Pedido #<%= @purchase.id.to_s.rjust(5, "0") %></h3>
+</div>
+
+<div class="row">
+<div class="ten columns alpha">
+  
+  <table class="purchase-table">
+    <tr class="heading">
+      <td width="1%"></td>
+      <td width="50%">Produtos</td>
+      <td align="center" width="15%">Preço</td>
+      <td align="center" width="15%">Quantidade</td>
+      <td align="center" width="15%">Total</td>
+    </tr>
+
+    <% @purchase.purchase_items.each do |item| %>
+      <tr>
+        <td><img src="ag" width=46 height=46 /></td>
+        <td><%= item.product.name %></td>
+        <td align="center"><%= monetize item.price %></td>
+        <td align="center"><%= item.quantity %></td>
+        <td align="center"><%= monetize item.total %></td>
+      </tr>
+    <% end %>
+  </table>
+
+</div>
+
+<div class="six columns omega">
+teste
+
+</div>
+</div>
+
+<div class="row checkout">
+  <%= link_to "Voltar para o carrinho", cart_index_path, class: "back" %>
+  <%= link_to "Confirmar dados", "", class: "checkout-btn" %>
+</div>
+
+</div>

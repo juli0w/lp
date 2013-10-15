@@ -16,38 +16,8 @@
 </head>
 <body>
 
-  <% [notice, alert].each do |f| %>
-    <% unless f.blank? %>
-      <div class="information-box round flash"><%= notice || alert %></div>
-    <% end %>
-  <% end %>
+  <%= render 'layouts/admin_toolbar' %>
 
-  <!-- TOP BAR -->
-  <div id="top-bar">
-    
-    <div class="page-full-width cf">
-
-      <ul id="nav" class="fl">
-  
-        <li class="v-sep"><a href="/" class="round button dark ic-left-arrow image-left">Voltar para a Loja</a></li>
-        <li class="v-sep"><a href="#" class="round button dark menu-user image-left">Logado como <strong><%= current_user.profile.try(:name) || current_user.email %></strong></a>
-          <ul>
-            <li><%= link_to "Minhas informações",  dashboard_profile_path %></li>
-            <li><%= link_to "Sair",  destroy_user_session_path, :method => :delete %></li>
-          </ul> 
-        </li>
-      
-        <li><a href="#" class="round button dark menu-email-special image-left">3 novas mensagens</a></li>
-        <li><%= link_to "Sair",  destroy_user_session_path, :method => :delete, class: "round button dark menu-logoff image-left" %></li>
-        
-      </ul> <!-- end nav -->
-
-    </div> <!-- end full-width -->  
-  
-  </div> <!-- end top-bar -->
-  
-  
-  
   <!-- HEADER -->
   <div id="header-with-tabs">
     
@@ -60,13 +30,11 @@
       
       <!-- Change this image to your own company's logo -->
       <!-- The logo will automatically be resized to 30px height. -->
-      <a href="#" id="company-branding-small" class="fr"><img src="images/company-logo.png" alt="Blue Hosting" /></a>
+      <%= link_to image_tag("company-logo.png"), root_url, id: "company-branding-small", class: "fr" %>
       
     </div> <!-- end full-width -->  
 
   </div> <!-- end header -->
-  
-  
   
   <!-- MAIN CONTENT -->
   <div id="content">
@@ -85,6 +53,14 @@
         <ul>
           <li><%= link_to "Usuários", users_path %></li>
           <li><%= link_to "Páginas", "" %></li>
+        </ul>
+
+        <h3>Pedidos</h3>
+        <ul>
+          <li><%= link_to "Abertos", open_purchases_path %></li>
+          <li><%= link_to "Pagos", paid_purchases_path %></li>
+          <li><%= link_to "Cancelados", canceled_purchases_path %></li>
+          <li><%= link_to "Enviados", sent_purchases_path %></li>
         </ul>
         
         <h3>Gerência</h3>

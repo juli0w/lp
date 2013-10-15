@@ -13,7 +13,7 @@
 
     <fieldset>
 
-      <%= f.hidden_field :user_id, @user.id %>
+      <%= f.hidden_field :user_id, value: @user.id.to_s %>
 
       <p>
         <%= f.label :subject %>

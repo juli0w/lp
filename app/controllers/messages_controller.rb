@@ -8,6 +8,12 @@ class MessagesController < ApplicationController
     @messages = current_user.messages.page(params[:page])
   end
 
+  def show
+    @message = current_user.messages.find(params[:id])
+
+    @message.mark_as_read!
+  end
+
   def new
     @user    = User.find(params[:user_id])
     @message = Message.new(user_id: params[:user_id])

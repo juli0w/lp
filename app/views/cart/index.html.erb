@@ -7,30 +7,35 @@
 <% unless current_cart.empty? %>
 
 <div class="row cart-products">
-  <ul>
-    <li>
-      Produtos
-      <div class="details-header right">
-        <span class="unit-price">Preço</span>
-        <span class="quantity">Quantidade</span>
-        <span class="price">Total</span>
-      </div>
-    </li>
 
-    <% current_cart.items.each do |item| %>
+  <%= form_tag cart_update_path, method: :put do %>
+    <ul>
       <li>
-        <img src="ag" width=46 height=46>
-        <%= link_to item.product.name, "javascript:void();" %>
-        <div class="details right">
-          <span class="unit-price"><%= monetize item.price %></span>
-          <span class="quantity"><%= text_field_tag :quantity, item.quantity %></span>
-          <span class="price"><%= monetize item.total %></span>
-          <a href="#" class="remove right"></a>
+        Produtos
+        <div class="details-header right">
+          <span class="unit-price">Preço</span>
+          <span class="quantity">Quantidade</span>
+          <span class="price">Total</span>
         </div>
       </li>
-    <% end %>
-  </ul>
 
+      <% current_cart.items.each do |item| %>
+        <li>
+          <img src="ag" width=46 height=46>
+          <%= link_to item.product.name, "javascript:void();" %>
+          <div class="details right">
+            <span class="unit-price"><%= monetize item.price %></span>
+            <span class="quantity"><%= text_field_tag "product[#{item.product_id}]", item.quantity %></span>
+            <span class="price"><%= monetize item.total %></span>
+            <%= link_to "", remove_cart_path(item.product_id), method: :put, class: "remove right" %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+
+    <%= submit_tag "Atualizar carrinho", class: "update-cart-btn right" %>
+
+  <% end %>
 </div>
 
 <div class="row cart_bottom">
@@ -39,13 +44,13 @@
   <div class="desc">Descontos:</div>
   <div class="value">R$ 0,00</div>
   <div class="desc">Total:</div>
-  <div class="value total"><%= monetize current_cart.total %></div>
+  <div class="value total" id="total"><%= monetize current_cart.total %></div>
 </div>
 
 <div class="row checkout">
-  <%= link_to "Continuar Comprando", "/", class: "back" %>
+  <%= link_to "Continuar Comprando", root_path, class: "back" %>
   <%= link_to "Limpar Carrinho", cart_clean_path, class: "clean_button back", confirm: "Deseja limpar sua compra?" %>
-  <%= link_to "Finalizar Pedido", "#", class: "checkout-btn" %>
+  <%= link_to "Finalizar Pedido", cart_shipping_path, class: "checkout-btn" %>
 </div>
 
 <% else %>

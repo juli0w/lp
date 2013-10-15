@@ -6,6 +6,7 @@
   font-size: 13px;
   font-weight: bold;
   text-transform: uppercase;
+  color: #f26122;
 }
 
 .left-menu li a {
@@ -13,7 +14,7 @@
   text-decoration: none;
 }
 .left-menu li a:hover {
-  background-color: #fefa1d;
+  background-color: #ffd204;
   padding-left: 5px;
   color: #000000;
 }

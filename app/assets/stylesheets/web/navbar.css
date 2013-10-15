@@ -18,11 +18,12 @@
   font-size: 12px;
   text-transform: uppercase;
   float: left;
-  color: #222222;
+  color: #ffffff;
   text-decoration: none;
   overflow: auto;
   font-weight: bold;
 }
+  /*text-shadow:#000 1px -1px, #000 -1px 1px, #000 1px 1px, #000 -1px -1px*/
 .main-menu .navbar ul.primary_nav > li > a:hover {
   background-color: rgba(0, 0, 0, 0.1);
 }
@@ -73,21 +74,30 @@
 
 .main-menu .minicart {
   float: right;
-  margin: 5px;
-  margin-bottom: 0;
-  padding: 0px 10px 0px 40px;
-  background: url(cart_icon.png) no-repeat 7px center;
   position: relative;
-  text-decoration: none;
+  margin: 0px;
+  /*padding: 7px 10px 7px 40px;*/
 }
 
-.main-menu .minicart a {
+.main-menu .minicart > a {
+  padding: 9px 10px 10px 40px;
   text-decoration: none;
+  line-height: 35px;
+  background: url(cart_icon.png) no-repeat 7px center;
+  text-decoration: none;
+  background-color: #ffd204;
 }
 .main-menu .minicart span.price {
   color: #555555;
 }
-.main-menu .minicart span { color: #fefa1d; }
+.main-menu .minicart .labeld {
+  display: inline-block;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+.main-menu .minicart span {
+  color: #575757;
+}
 .main-menu .minicart span b { font-weight: bold; }
 
 .main-menu {
