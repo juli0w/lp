@@ -12,6 +12,23 @@
  *= require_tree .
  */
 
+ .hints {
+  display: none;
+}
+
+.field:hover .hints {
+  position: absolute;
+  display: block;
+  margin: -15px 0 0 355px;
+  color: #FFFFFF;
+  padding: 7px 10px;
+  background: rgba(0, 0, 0, 0.6);
+
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+  border-radius: 7px;
+}
+
 .alert {
   padding: 0.833em 0.833em 0.833em 3em; /* 10/12 36/12 */
   margin-top: 10px;

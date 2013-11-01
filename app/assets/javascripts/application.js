@@ -12,10 +12,14 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require redactor-rails
 //= require_tree .
 
 $(document).ready(function(){
+  $(".fancybox").fancybox();
+  
   jQuery(".minicart_link").click(function() {
     $('.cart_drop').slideToggle(300);
   });
+
 });

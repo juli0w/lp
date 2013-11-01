@@ -1,4 +1,6 @@
 Lojadopintor::Application.routes.draw do
+  mount RedactorRails::Engine => '/redactor_rails'
+
   devise_for :users
 
   get "dashboard/index"
@@ -7,6 +9,7 @@ Lojadopintor::Application.routes.draw do
   get "admin/index"
 
   get "home/index"
+  get "home/contact"
 
   # -
   # - CART
@@ -47,7 +50,12 @@ Lojadopintor::Application.routes.draw do
   end
 
   resources :messages
+  resources :colors
+  resources :sizes
   resources :categories
+  resources :pages, except: :show
+  get "pages/:slug", controller: :pages, action: :show
+
   resources :products do
     member do
       get :add_to_cart

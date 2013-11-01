@@ -1,0 +1,49 @@
+<div class="content-module-heading cf">
+
+  <h3 class="fl">Recipientes</h3>
+  <span class="fr expand-collapse-text">Click to collapse</span>
+  <span class="fr expand-collapse-text initial-expand">Click to expand</span>
+
+</div> <!-- end content-module-heading -->
+
+
+<div class="content-module-main">
+
+  <table>
+  
+    <thead>
+  
+      <tr>
+        <th></th>
+        <th>Nome</th>
+        <th>Abreviação</th>
+        <th>Ações</th>
+      </tr>
+    
+    </thead>
+    
+    <tbody>
+
+      <% @sizes.each do |size| %>
+
+      <tr>
+        <td></td>
+        <td><%= size.name %></td>
+        <td><%= size.code %></td>
+        <td>
+          <%= link_to "", [:edit, size], class: "table-actions-button ic-table-edit" %>
+          <%= link_to "", size, method: :delete, class: "table-actions-button ic-table-delete", confirm: "Confirma exclusão?" %>
+        </td>
+      </tr>
+
+      <% end %>
+
+    </tbody>
+    
+  </table>
+
+  <div class="stripe-separator"><!--  --></div>
+  
+  <%= link_to "Novo recipiente", new_size_path, class: "button round blue image-right ic-right-arrow" %>
+
+</div> <!-- end content-module-main -->

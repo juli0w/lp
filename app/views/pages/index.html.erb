@@ -1,0 +1,59 @@
+<div class="content-module-heading cf">
+
+  <h3 class="fl">Páginas</h3>
+  <span class="fr expand-collapse-text">Click to collapse</span>
+  <span class="fr expand-collapse-text initial-expand">Click to expand</span>
+
+</div> <!-- end content-module-heading -->
+
+
+<div class="content-module-main">
+
+  <table>
+  
+    <thead>
+  
+      <tr>
+        <th></th>
+        <th>Título</th>
+        <th>Link</th>
+        <th>Tipo</th>
+        <th>Ações</th>
+      </tr>
+    
+    </thead>
+    
+    <tbody>
+
+      <% @pages.each do |page| %>
+
+      <tr>
+        <td></td>
+        <td><%= page.title %></td>
+        <td><%= link_to page_path(page), page %></td>
+        <td><%= page.page_type_name %></td>
+        <td>
+          <%= link_to "", [:edit, page], class: "table-actions-button ic-table-edit" %>
+          <%= link_to "", page, method: :delete, class: "table-actions-button ic-table-delete", confirm: "Confirma exclusão?" %>
+        </td>
+      </tr>
+
+      <% end %>
+
+    </tbody>
+    
+  </table>
+
+  <% if @pages.num_pages > 1 %>
+
+    <div class="stripe-separator"><!--  --></div>
+
+    <%= paginate @pages %>
+
+  <% end %>
+
+  <div class="stripe-separator"><!--  --></div>
+  
+  <%= link_to "Nova página", new_page_path, class: "button round blue image-right ic-right-arrow" %>
+
+</div> <!-- end content-module-main -->

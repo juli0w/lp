@@ -7,8 +7,9 @@ class ApplicationController < ActionController::Base
   layout :layout_by_resource
 
   before_filter :load_nav
-  after_filter :store_location
   before_filter :check_params
+  before_filter :load_pages
+  after_filter :store_location
 
   def after_sign_out_path_for(resource)
     root_path
@@ -52,6 +53,12 @@ protected
 
   def load_nav
     @categories_root = Category.roots
+  end
+
+  def load_pages
+    @pages         = Page.pages
+    @notices       = Page.notices
+    @company_pages = Page.company
   end
 
   def store_location

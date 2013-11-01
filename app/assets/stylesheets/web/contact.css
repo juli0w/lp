@@ -1,0 +1,28 @@
+.contact .contact-text {
+  color: #777777;
+  font-size: 13px;
+  margin-top: 10px;
+}
+
+.contact form label {
+  font-size: 14px;
+  font-weight: normal;
+}
+.contact form input[type='text'],
+.contact form textarea {
+  width: 450px;
+}
+
+.contact form textarea {
+  height: 250px;
+}
+
+.contact form input[type='submit'] {float: right;}
+
+.contact-map {
+  border: 1px solid #dedede;
+}
+
+.contact .main-content {
+  padding: 25px 0 50px 0;
+}

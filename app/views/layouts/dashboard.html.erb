@@ -25,7 +25,9 @@
   
       <ul id="tabs" class="fl">
         <li><%= link_to 'Dashboard', dashboard_index_path, class: "active-tab dashboard-tab" %></li>
-        <li><%= link_to 'Administração', admin_index_path, class: "" %></li>
+        <% if current_user.admin? %>
+          <li><%= link_to 'Administração', admin_index_path, class: "" %></li>
+        <% end %>
       </ul> <!-- end tabs -->
       
       <!-- Change this image to your own company's logo -->

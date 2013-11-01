@@ -20,7 +20,7 @@
 
       <div class="product" id="product-<%= product.id %>">
         <div class="product-image">
-          <%= image_tag "suvinil.jpg", width: 35, height: 35 %>
+          <%= image_tag get_image(product.image.mini), width: 35, height: 35 %>
         </div>
 
         <div class="product-details">

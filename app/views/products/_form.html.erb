@@ -13,10 +13,21 @@
     </p>
 
     <p>
-      <%= f.label :price %>
-      <%= f.text_field :price, class: "round full-width-input", autofocus: true %>
+      <%= f.label :colors %>
+      <%= f.collection_select :colors, Color.all, :id, :name, include_blank: true, class: "round default-width-input" %>
     </p>
 
+    <p>
+      <%= f.label :price %>
+      <%= f.text_field :price, class: "round full-width-input" %>
+    </p>
+
+    <p>
+      <%= f.label :image %>
+      <%= image_tag(@product.image.thumb) if @product.image? %>
+      <%= f.file_field :image %>
+      <%= f.hidden_field :image_cache %>
+    </p>
 
     <div class="stripe-separator"><!--  --></div>
     

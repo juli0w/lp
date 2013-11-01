@@ -5,10 +5,9 @@
         <h4>Empresa</h4>
 
         <ul>
-          <li><%= link_to "Institucional" %></li>
-          <li><%= link_to "Conheça nossas lojas" %></li>
-          <li><%= link_to "Contato" %></li>
-          <li><%= link_to "Trabalhe conosco" %></li>
+          <% @company_pages.each do |page| %>
+            <li><%= link_to page.title, page %></li>
+          <% end %>
         </ul>
       </div>
 
@@ -16,8 +15,9 @@
         <h4>Notícias</h4>
 
         <ul>
-          <li><%= link_to "Loja do pintor abre nova filial" %></li>
-          <li><%= link_to "Prêmio pintor do ano" %></li>
+          <% @notices.each do |page| %>
+            <li><%= link_to page.title, page %></li>
+          <% end %>
         </ul>
       </div>
 
@@ -25,13 +25,9 @@
         <h4>Páginas</h4>
 
         <ul>
-          <li><%= link_to "Aprenda a pintar" %></li>
-          <li><%= link_to "Como escolher suas cores?" %></li>
-          <li><%= link_to "Aprenda a pintar" %></li>
-          <li><%= link_to "Como escolher suas cores?" %></li>
-          <li><%= link_to "Aprenda a pintar" %></li>
-          <li><%= link_to "Como escolher suas cores?" %></li>
-          <li><%= link_to "Que tipo de tinta eu preciso?" %></li>
+          <% @pages.each do |page| %>
+            <li><%= link_to page.title, page %></li>
+          <% end %>
         </ul>
       </div>
 

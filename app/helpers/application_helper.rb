@@ -22,4 +22,8 @@ module ApplicationHelper
       "Nenhuma nova mensagem"
     end
   end
+
+  def get_image image
+    image.blank? ? "/assets/no-image.jpg" : image
+  end
 end

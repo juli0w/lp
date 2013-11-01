@@ -1,5 +1,11 @@
 class Product < ActiveRecord::Base
-  attr_accessible :category_id, :description, :name, :price
+  mount_uploader :image, ProductUploader
+
+  attr_accessible :category_id, :description, :name, :price,
+                  :image, :image_cache
+
+  has_and_belongs_to_many :sizes
+  has_and_belongs_to_many :colors
 
   belongs_to :category
 end

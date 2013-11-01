@@ -10,6 +10,11 @@ gem 'simple_form'
 gem 'devise'
 gem 'acts_as_tree'
 gem 'kaminari'
+gem 'friendly_id', '~> 4.0.10'
+# gem 'imperavi-rails', '0.0.12.beta'
+gem 'redactor-rails'
+gem 'carrierwave'
+gem 'mini_magick'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -26,8 +31,8 @@ end
 gem 'jquery-rails'
 
 group :test do
-  gem "rspec-rails"
-  gem "factory_girl_rails"
-  gem "capybara", '~> 1.0'
-  gem "launchy"
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'capybara', '~> 1.0'
+  gem 'launchy'
 end

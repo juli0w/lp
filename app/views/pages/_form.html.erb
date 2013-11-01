@@ -1,0 +1,26 @@
+<%= simple_form_for(@page) do |f| %>
+
+  <fieldset>
+
+    <p>
+      <%= f.label :title %>
+      <%= f.text_field :title, class: "round full-width-input", autofocus: true %>
+    </p>
+
+    <p>
+      <%= f.label :content %>
+      <%= f.text_area :content, class: "redactor", rows: 20 %>
+    </p>
+
+    <p>
+      <%= f.label :page_type %>
+      <%= f.select :page_type, Page::TYPES, include_blank: false, class: "round default-width-input" %>
+    </p>
+
+    <div class="stripe-separator"><!--  --></div>
+    
+    <%= f.submit "Salvar", class: "button round blue image-right ic-right-arrow" %>
+  
+  </fieldset>
+
+<% end %>

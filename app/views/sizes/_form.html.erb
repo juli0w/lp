@@ -1,0 +1,21 @@
+<%= simple_form_for(@size) do |f| %>
+
+  <fieldset>
+
+    <p>
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "round full-width-input", autofocus: true %>
+    </p>
+
+    <p>
+      <%= f.label :code %>
+      <%= f.text_field :code, class: "round full-width-input" %>
+    </p>
+
+    <div class="stripe-separator"><!--  --></div>
+    
+    <%= f.submit "Salvar", class: "button round blue image-right ic-right-arrow" %>
+  
+  </fieldset>
+
+<% end %>
