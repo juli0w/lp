@@ -22,7 +22,7 @@
             <span class="price left">
               <%= monetize product.price %>
             </span>
-            <%= link_to "Comprar", add_to_cart_product_path(product), class: "btn right btn-carrinho", 'data-hint'=>"Bounce" %>
+            <%= link_to "Comprar", product, class: "btn right btn-carrinho", 'data-hint'=>"Bounce" %>
           </div>
         </div>
 

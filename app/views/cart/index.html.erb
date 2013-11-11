@@ -22,7 +22,7 @@
       <% current_cart.items.each do |item| %>
         <li>
           <img src="ag" width=46 height=46>
-          <%= link_to item.product.name, "javascript:void();" %>
+          <%= link_to get_name(item), "javascript:void();" %>
           <div class="details right">
             <span class="unit-price"><%= monetize item.price %></span>
             <span class="quantity"><%= text_field_tag "product[#{item.product_id}]", item.quantity %></span>

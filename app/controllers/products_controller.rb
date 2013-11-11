@@ -1,7 +1,7 @@
 # encoding: UTF-8
 class ProductsController < ApplicationController
   before_filter :authenticate_user!, except: [:search, :add_to_cart]
-  before_filter :authenticate_admin!, except: [:search, :add_to_cart]
+  before_filter :authenticate_admin!, except: [:search, :add_to_cart, :show]
   layout 'admin'
 
   def index
@@ -11,6 +11,12 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @categories = Category.all
+  end
+
+  def show
+    @product = Product.find(params[:id])
+
+    render layout: 'application'
   end
 
   def create
@@ -55,7 +61,7 @@ class ProductsController < ApplicationController
   end
 
   def add_to_cart
-    current_cart.add_item(params[:id])
-    redirect_to_back
+    current_cart.add_item(params[:id], params[:color_id], params[:size_id])
+    redirect_to controller: :cart, action: :index
   end
 end

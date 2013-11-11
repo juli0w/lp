@@ -58,7 +58,7 @@ Lojadopintor::Application.routes.draw do
 
   resources :products do
     member do
-      get :add_to_cart
+      post :add_to_cart
     end
     collection do
       get :search

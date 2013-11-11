@@ -1,0 +1,43 @@
+<div class="three columns">
+  <%= render "layouts/left-menu" %>
+</div>
+
+<div class="thirteen columns product-show content contact">
+  <div class="row">
+    <div class="three columns alpha">
+      <%= link_to ( 
+                image_tag get_image(@product.image), width: '100%', height: 150
+              ), get_image(@product.image_url), class: "product-image fancybox"
+            %>
+    </div>
+
+    <div class="ten columns omega">
+      <h4><%= @product.name %></h4>
+      <p class="contact-text"><%= @product.description.html_safe %></p>
+    
+      <%= form_tag add_to_cart_product_path(@product) do %>
+        <p class='colors'>
+          <%= label_tag :color, 'Cor' %><br />
+          <% @product.colors.each_with_index do |color, x| %>
+            <span>
+              <%= radio_button_tag 'color_id', color.id, x==0, id: dom_id(color) %> <%= label_tag dom_id(color), color.name, class: 'product-color', style: "border-color: #{color.code};" %>
+            </span>
+          <% end %>
+        </p>
+
+        <p class='colors'>
+          <%= label_tag :size, 'Recipiente' %><br />
+          <% @product.sizes.each_with_index do |size, x| %>
+            <span>
+              <%= radio_button_tag 'size_id', size.id, x==0, id: dom_id(size) %> <%= label_tag dom_id(size), "#{size.name} (#{size.code})" %>
+            </span>
+          <% end %>
+        </p>
+
+        <div class="hr"></div>
+
+        <%= submit_tag 'Adicionar ao carrinho', class: 'add-to-cart' %>
+      <% end %>
+    </div>
+  </div>
+</div>

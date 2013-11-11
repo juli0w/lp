@@ -1,0 +1,30 @@
+.product-show a.product-image img {
+  border: 1px dashed #dedede;
+  padding: 2px;
+}
+
+.product-show {
+  padding-top: 30px;
+}
+
+.add-to-cart {
+  float: right;
+  overflow: hidden;
+  height: 40px;
+  padding-left: 35px;
+  padding-right: 15px;
+  border: none;
+  background: url(cart_icon.png) no-repeat 5px;
+  background-color: green;
+  color: white;
+  margin-bottom: 5px;
+}
+.add-to-cart:hover {
+  background-color: #dedede;
+}
+
+.product-show form {
+  display: inline-block;
+  padding: 15px;
+  border: 1px dashed #dedede;
+}

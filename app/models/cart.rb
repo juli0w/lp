@@ -18,31 +18,40 @@ class Cart
     purchase
   end
 
-  def update_quantity item_id, quantity=1
+  def update_quantity sku, quantity=1
     if quantity.to_i == 0
-      remove item_id
+      remove sku
     else
-      update(item_id, quantity)
+      update(sku, quantity)
     end
   end
 
-  def remove item_id
+  def remove sku
     self.items.delete_if do |item|
-      item.product_id == item_id
+      item.sku == sku
     end
   end
 
-  def update item_id, quantity
+  def update sku, quantity
     self.items.each do |item|
-      item.update(quantity) if (item.product_id.to_i == item_id.to_i)
+      if (item.sku == sku)
+        item.update(quantity)
+      end
     end
   end
 
-  def add_item item_id, quantity=1
-    item = self.items.select {|item| item.product_id == item_id }.first
+  def add_item item_id, color_id='', size_id=''
+    quantity ||= 1
+
+    item = self.items.select do |item|
+      item.sku == CartItem.get_sku(item_id,
+                                   color_id: color_id,
+                                   size_id: size_id)
+    end.first
 
     if item.blank?
-      self.items << CartItem.new(item_id, quantity)
+      self.items << CartItem.new(item_id, quantity, nil,
+                                 color_id: color_id, size_id: size_id)
     else
       item.quantity += quantity
     end

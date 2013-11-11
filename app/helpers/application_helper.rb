@@ -26,4 +26,12 @@ module ApplicationHelper
   def get_image image
     image.blank? ? "/assets/no-image.jpg" : image
   end
+
+  def get_name item
+    name = item.product.name
+    name += " - #{item.color_name}" unless item.opts.has_key?('color_id')
+    name += " - #{item.size_name}" unless item.opts.has_key?('size_id')
+
+    return name
+  end
 end
