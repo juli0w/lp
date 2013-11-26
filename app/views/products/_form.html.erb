@@ -23,11 +23,12 @@
     </p>
 
     <p class='colors'>
-      <%= f.label :sizes %><br />
-      <%= hidden_field_tag 'product[size_ids][]', nil %>
-      <% Size.all.each do |size| %>
+      <%#= f.label :sizes %><br />
+      <%= f.fields_for :product_sizes do |s| %>
         <span>
-          <%= check_box_tag 'product[size_ids][]', size.id, @product.size_ids.include?(size.id), id: dom_id(size) %> <%= label_tag dom_id(size), "#{size.name} (#{size.code})" %>
+          <%= s.hidden_field :size_id %>
+          <%= s.object.size.code %>
+          <%= s.text_field :price, style: 'margin-left: 15px; width: 60px' %>
         </span>
       <% end %>
     </p>

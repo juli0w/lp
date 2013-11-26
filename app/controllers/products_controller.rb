@@ -1,6 +1,6 @@
 # encoding: UTF-8
 class ProductsController < ApplicationController
-  before_filter :authenticate_user!, except: [:search, :add_to_cart]
+  before_filter :authenticate_user!, except: [:search, :add_to_cart, :show]
   before_filter :authenticate_admin!, except: [:search, :add_to_cart, :show]
   layout 'admin'
 
@@ -10,6 +10,11 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    
+    Size.all.each do |s|
+      @product.product_sizes.build(product_id: @product.id, size_id: s.id, price: 0)
+    end
+    
     @categories = Category.all
   end
 

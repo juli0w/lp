@@ -16,23 +16,29 @@
       <p class="contact-text"><%= @product.description.html_safe %></p>
     
       <%= form_tag add_to_cart_product_path(@product) do %>
-        <p class='colors'>
-          <%= label_tag :color, 'Cor' %><br />
-          <% @product.colors.each_with_index do |color, x| %>
-            <span>
-              <%= radio_button_tag 'color_id', color.id, x==0, id: dom_id(color) %> <%= label_tag dom_id(color), color.name, class: 'product-color', style: "border-color: #{color.code};" %>
-            </span>
-          <% end %>
-        </p>
+        <% if @product.colors.size > 0 %>
+          <p class='colors'>
+            <%= label_tag :color, 'Cor' %><br />
+            <% @product.colors.each_with_index do |color, x| %>
+              <span>
+                <%= radio_button_tag 'color_id', color.id, x==0, id: dom_id(color) %> <%= label_tag dom_id(color), color.name, class: 'product-color', style: "border-color: #{color.code};" %>
+              </span>
+            <% end %>
+          </p>
+        <% end %>
 
-        <p class='colors'>
-          <%= label_tag :size, 'Recipiente' %><br />
-          <% @product.sizes.each_with_index do |size, x| %>
-            <span>
-              <%= radio_button_tag 'size_id', size.id, x==0, id: dom_id(size) %> <%= label_tag dom_id(size), "#{size.name} (#{size.code})" %>
-            </span>
-          <% end %>
-        </p>
+        <% if @product.product_sizes.size > 0 %>
+          <p class='colors'>
+            <%= label_tag :size, 'Recipiente' %><br />
+            <% @product.product_sizes.each_with_index do |product_size, x| %>
+              <% unless product_size.price <= 0 %>
+                <span>
+                  <%= radio_button_tag 'size_id', product_size.id, x==0, id: dom_id(product_size) %> <%= label_tag dom_id(product_size), "#{product_size.size.name} (#{product_size.size.code}) - #{monetize product_size.price}" %>
+                </span>
+              <% end %>
+            <% end %>
+          </p>
+        <% end %>
 
         <div class="hr"></div>
 

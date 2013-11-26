@@ -12,7 +12,8 @@ class Cart
       purchase.purchase_items.create({
         product_id: item.product_id,
           quantity: item.quantity,
-             price: item.price })
+             price: item.price,
+           options: item.opts })
     end
 
     purchase

@@ -28,9 +28,17 @@ module ApplicationHelper
   end
 
   def get_name item
+    opts = item.respond_to?(:opts) ? item.opts : item.options
+
     name = item.product.name
-    name += " - #{item.color_name}" unless item.opts.has_key?('color_id')
-    name += " - #{item.size_name}" unless item.opts.has_key?('size_id')
+
+    unless opts[:color_id].blank?
+      name += " - #{item.color_name}"
+    end
+
+    unless opts[:size_id].blank?
+      name += " - #{item.size_name}"
+    end
 
     return name
   end
