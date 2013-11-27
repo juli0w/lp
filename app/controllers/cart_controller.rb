@@ -10,7 +10,7 @@ class CartController < ApplicationController
   end
 
   def remove
-    current_cart.remove params[:id]
+    current_cart.remove params[:sku]
     redirect_to cart_index_path, notice: "Item removido do carrinho."
   end
 

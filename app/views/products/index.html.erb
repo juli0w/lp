@@ -30,7 +30,7 @@
       <tr>
         <td></td>
         <td><%= product.name %></td>
-        <td><%= product.category.name %></td>
+        <td><%= product.category.try(:name) %></td>
         <td><%= monetize product.price %></td>
         <td>
           <%= link_to "", [:edit, product], class: "table-actions-button ic-table-edit" %>

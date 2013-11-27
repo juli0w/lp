@@ -19,7 +19,7 @@ Lojadopintor::Application.routes.draw do
   get "cart/clean"
   put "cart/update"
   get "cart/shipping"
-  put "cart/remove/:id",     action: :remove, controller: :cart, as: "remove_cart"
+  put "cart/remove/:sku",     action: :remove, controller: :cart, as: "remove_cart"
   get "cart/payment/:token", action: :payment, controller: :cart, as: "payment_cart"
   post "cart/purchase"
 

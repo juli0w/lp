@@ -11,7 +11,7 @@ class PurchaseItem < ActiveRecord::Base
   end
 
   def size_name
-    Size.find(self.options[:size_id]).name
+    ProductSize.find(self.options[:size_id]).size.name
   end
 
   def total

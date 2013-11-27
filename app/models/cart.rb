@@ -51,7 +51,7 @@ class Cart
     end.first
 
     if item.blank?
-      self.items << CartItem.new(item_id, quantity, nil,
+      self.items << CartItem.new(item_id, quantity,
                                  color_id: color_id, size_id: size_id)
     else
       item.quantity += quantity

@@ -25,9 +25,9 @@
           <%= link_to get_name(item), "javascript:void();" %>
           <div class="details right">
             <span class="unit-price"><%= monetize item.price %></span>
-            <span class="quantity"><%= text_field_tag "product[#{item.product_id}]", item.quantity %></span>
+            <span class="quantity"><%= text_field_tag "product[#{item.sku}]", item.quantity %></span>
             <span class="price"><%= monetize item.total %></span>
-            <%= link_to "", remove_cart_path(item.product_id), method: :put, class: "remove right" %>
+            <%= link_to "", remove_cart_path(item.sku), method: :put, class: "remove right" %>
           </div>
         </li>
       <% end %>
