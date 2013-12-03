@@ -38,7 +38,7 @@ Lojadopintor::Application.routes.draw do
   resources :profile
   resources :purchases do
     member do
-      put :change
+      put  :change
     end
 
     collection do

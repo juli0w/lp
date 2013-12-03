@@ -17,4 +17,17 @@ class PurchaseItem < ActiveRecord::Base
   def total
     self.price.to_f * self.quantity.to_f
   end
+
+  def present_name
+    name = product.name
+
+    name += " - #{color_name}" unless self.options[:color_id].blank?
+    name += " - #{size_name}"  unless self.options[:size_id].blank?
+
+    name
+  end
+
+  def get_sku
+    "#{self.product_id}-#{self.options[:color_id]}-#{self.options[:size_id]}"
+  end
 end

@@ -1,0 +1,31 @@
+<p>
+<form target="pagseguro" method="post"   
+action="https://pagseguro.uol.com.br/v2/checkout/payment.html">  
+      
+    <!-- Campos obrigatórios -->  
+    <input type="hidden" name="receiverEmail" value="<%= Purchase::RECEIVER %>">  
+    <input type="hidden" name="currency" value="BRL">  
+      
+    <!-- Itens do pagamento (ao menos um item é obrigatório) -->
+    <% @purchase.purchase_items.each_with_index do |item, index| %>
+      <input type="hidden" name="itemId<%= index +1 %>" value="<%= item.get_sku %>">  
+      <input type="hidden" name="itemDescription<%= index +1 %>" value="<%= item.present_name %>">  
+      <input type="hidden" name="itemAmount<%= index +1 %>" value=<%= "%.2f" % item.total %>>  
+      <input type="hidden" name="itemQuantity<%= index +1 %>" value="<%= item.quantity %>">  
+      <input type="hidden" name="itemWeight<%= index +1 %>" value="<%= 0 %>">
+    <% end %>
+      
+    <!-- Código de referência do pagamento no seu sistema (opcional) -->  
+    <input type="hidden" name="reference" value="<%= @purchase.id %>">  
+      
+    <!-- Dados do comprador (opcionais) -->  
+    <input type="hidden" name="senderName" value="<%= @purchase.user.profile.try(:name) %>">  
+    <input type="hidden" name="senderEmail" value="<%= @purchase.user.email %>">  
+      
+    <!-- submit do form (obrigatório) -->  
+    <input type="image" name="submit"   
+    src="https://p.simg.uol.com.br/out/pagseguro/i/botoes/pagamentos/120x53-pagar.gif"   
+    alt="Pague com PagSeguro">  
+      
+</form>
+</p>

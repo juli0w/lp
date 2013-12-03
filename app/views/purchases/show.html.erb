@@ -33,7 +33,7 @@
       <%= @purchase.get_state %>
 
       <% if @purchase.state == 0 %>
-        (<%= link_to "Efetuar pagamento", "" %>)
+        <%= render "payment", purchase: @purchase %>
       <% end %>
 
     </div>

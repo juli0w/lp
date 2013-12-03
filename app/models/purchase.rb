@@ -12,7 +12,8 @@ class Purchase < ActiveRecord::Base
     3 => "Cancelado"
   }
 
-  TOKEN = "B3F0ECF7DDD749B1824CE98553E42E17"
+  RECEIVER = "juli0w@hotmail.com"
+  TOKEN    = "B3F0ECF7DDD749B1824CE98553E42E17"
 
   scope :open    , -> { where("state = 0") }
   scope :paid    , -> { where("state = 1") }

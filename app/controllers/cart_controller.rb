@@ -23,7 +23,7 @@ class CartController < ApplicationController
   end
 
   def shipping
-    profile = current_user.profile
+    profile = current_user.profile || current_user.build_profile
 
     @purchase = Purchase.new({
         cep:        profile.cep,
