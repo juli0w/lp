@@ -10,7 +10,7 @@ action="https://pagseguro.uol.com.br/v2/checkout/payment.html">
     <% @purchase.purchase_items.each_with_index do |item, index| %>
       <input type="hidden" name="itemId<%= index +1 %>" value="<%= item.get_sku %>">  
       <input type="hidden" name="itemDescription<%= index +1 %>" value="<%= item.present_name %>">  
-      <input type="hidden" name="itemAmount<%= index +1 %>" value=<%= "%.2f" % item.total %>>  
+      <input type="hidden" name="itemAmount<%= index +1 %>" value=<%= "%.2f" % item.total %>>
       <input type="hidden" name="itemQuantity<%= index +1 %>" value="<%= item.quantity %>">  
       <input type="hidden" name="itemWeight<%= index +1 %>" value="<%= 0 %>">
     <% end %>
