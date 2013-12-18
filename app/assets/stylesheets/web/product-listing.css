@@ -36,6 +36,7 @@
   clear: both;
   padding: 0 3px;
   height: 42px;
+  overflow: hidden;
 }
 
 .product-listing .product:hover {
@@ -58,7 +59,7 @@
   padding: 12px 10px 5px 10px;
   margin-bottom: 20px;
   display: inline-block;
-  background-color: #f3f3f3;
+  background-color: #ffd204;
   width: 740px;
 }
 .toolbar label{ font-size:11px; color:#5f5a56; text-transform:uppercase; float:left; padding-right:10px; line-height:24px;}

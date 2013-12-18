@@ -1,0 +1,10 @@
+pt-BR:
+  hello: "Hello world"
+
+  views:
+    pagination:
+      next: '›'
+      prev: '‹'
+      first: '«'
+      last: '»'
+      truncate: "&hellip;"

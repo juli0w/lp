@@ -3,6 +3,13 @@
   padding: 2px;
 }
 
+.product-show h4 {
+  text-transform: uppercase;
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: 26px;
+  /*font-weight: bold;*/
+}
+
 .product-show {
   padding-top: 30px;
 }
