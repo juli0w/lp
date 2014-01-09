@@ -8,3 +8,46 @@ pt-BR:
       first: '«'
       last: '»'
       truncate: "&hellip;"
+
+  activerecord:
+    models:
+      purchase: Pedido
+      product: Produto
+      category: Categoria
+      color: Cor
+      size: Recipiente
+      page: Página
+      message: Mensagem
+    attributes:
+      purchase:
+        phone: "Telefone"
+        cellphone: "Celular"
+        district: "Bairro"
+        address: "Endereço"
+        number: "Número"
+        uf: "UF"
+        city: "Cidade"
+        complement: "Complemento"
+      category:
+        name: "Nome"
+        parent_id: "Antecessor"
+      product:
+        name: "Nome"
+        category_id: "Categoria"
+        colors: "Cores"
+        price: "Valor genérico"
+        description: "Descrição"
+        image: "Imagem"
+      color:
+        name: "Nome"
+        code: "Código"
+      size:
+        name: "Nome"
+        code: "Abreviação"
+      page:
+        title: "Título"
+        content: "Conteúdo"
+        page_type: "Divisão"
+      message:
+        subject: "Assunto"
+        message: "Conteúdo"

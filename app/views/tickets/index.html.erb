@@ -1,0 +1,52 @@
+<div class="content-module-heading cf">
+
+  <h3 class="fl">Tickets</h3>
+  <span class="fr expand-collapse-text">Click to collapse</span>
+  <span class="fr expand-collapse-text initial-expand">Click to expand</span>
+
+</div> <!-- end content-module-heading -->
+
+
+<div class="content-module-main">
+
+  <%= link_to "Abrir ticket", new_ticket_path, class: "button round blue image-right ic-right-arrow" %>
+
+  <div class="stripe-separator"><!--  --></div>
+  
+  <table>
+  
+    <thead>
+  
+      <tr>
+        <th></th>
+        <th>Assunto</th>
+        <th>Status</th>
+      </tr>
+    
+    </thead>
+    
+    <tbody>
+
+      <% @tickets.each do |ticket| %>
+
+      <tr>
+        <td><%= link_to "##{'%05d' % ticket.id}", ticket %></td>
+        <td><%= ticket.subject %></td>
+        <td><%= ticket.get_state %></td>
+      </tr>
+
+      <% end %>
+
+    </tbody>
+    
+  </table>
+
+  <% if @tickets.num_pages > 1 %>
+
+    <div class="stripe-separator"><!--  --></div>
+
+    <%= paginate @tickets %>
+
+  <% end %>
+
+</div> <!-- end content-module-main -->

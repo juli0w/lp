@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_one :profile
   has_many :messages
   has_many :purchases
+  has_many :tickets
 
   STATES = {
     0 => "Regular",

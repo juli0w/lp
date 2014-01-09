@@ -50,6 +50,7 @@ Lojadopintor::Application.routes.draw do
   end
 
   resources :messages
+  resources :tickets
   resources :colors
   resources :sizes
   resources :categories
