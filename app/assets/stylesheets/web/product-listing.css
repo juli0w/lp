@@ -2,6 +2,7 @@
   border: 1px solid transparent;
   margin-left: 8px !important;
   padding: 6px 5px 10px 5px;
+  background-color: white;
 }
 
 .product-listing > .product:nth-child(4n) {
@@ -17,13 +18,18 @@
 }
 
 .product-listing .product-actions .price {
-  padding: 7px 8px;
+  padding: 3px 8px 7px 8px;
   font-size: 15px;
   font-weight: bold;
   background-color: #e60014;
   color: #ffffff;
   -webkit-border-radius: 25px;
   border-radius: 25px;
+  line-height: 12px;
+}
+
+.product-listing .product-actions .price small {
+  font-size: 9px;
 }
 
 .product-listing .product:hover .price {

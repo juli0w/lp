@@ -11,6 +11,8 @@ Lojadopintor::Application.routes.draw do
   get "home/index"
   get "home/contact"
 
+  get "/simulador", action: 'simulator', controller: 'home'
+
   # -
   # - CART
   # -

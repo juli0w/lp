@@ -5,7 +5,7 @@ development:
   database: lojadopintor_development
   pool: 5
   username: root
-  password: budal33
+  password:
   socket: /var/run/mysqld/mysqld.sock
 
 test:
@@ -15,7 +15,7 @@ test:
   database: lojadopintor_test
   pool: 5
   username: root
-  password: budal33
+  password:
   socket: /var/run/mysqld/mysqld.sock
 
 production:
@@ -25,5 +25,5 @@ production:
   database: lojadopintor_production
   pool: 5
   username: root
-  password: budal33
+  password:
   socket: /var/run/mysqld/mysqld.sock
