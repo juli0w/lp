@@ -18,6 +18,15 @@
   margin-right: 5px;
 }
 
+.product-details .price {
+  line-height: 16px;
+}
+
+.product-details .price small {
+  font-size: 9px;
+  line-height: 6px;
+}
+
 .product-details img {
   overflow: hidden;
   display: block;

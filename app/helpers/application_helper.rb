@@ -4,6 +4,17 @@ module ApplicationHelper
     number_to_currency decimal, unit: "R$ ", separator: ","
   end
 
+  def external_simulator
+    res = Net::HTTP.get_response(URI.parse('http://resicolor.com.br/paginas/espaco/simulador'))
+
+    s = '<base href="http://resicolor.com.br/" />
+         <script type="text/javascript" src="/js/jquery/jquery.flash.js"></script>
+         <link rel="canonical" href="http://www.resicolor.com.br/paginas/espaco/simulador" />
+         <object width="800" height="600" type="application/x-shockwave-flash" data="./simulador_loader.swf"> <param name="movie" value="./simulador_loader.swf" /> <param name="quality" value="high" /> <param name="wmode" value="transparent" /> </object>'
+
+    return s.html_safe
+  end
+
   def breadcumb category
     breadcumb = link_to(category.name, category)
     parent = category.parent
