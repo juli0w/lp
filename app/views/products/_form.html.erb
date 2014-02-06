@@ -13,13 +13,27 @@
     </p>
 
     <p class='colors'>
-      <%= f.label :colors %><br />
-      <%= hidden_field_tag 'product[color_ids][]', nil %>
-      <% Color.all.each do |color| %>
-        <span>
-          <%= check_box_tag 'product[color_ids][]', color.id, @product.color_ids.include?(color.id), id: dom_id(color) %> <%= label_tag dom_id(color), color.name, class: 'product-color', style: "border-color: #{color.code};" %>
-        </span>
-      <% end %>
+      <%= f.label :colors, id: "button_automotiva", label: "CORES AUTOMOTIVAS" %><br />
+      <!-- <div class="automotivas"> -->
+        <%= hidden_field_tag 'product[color_ids][]', nil %>
+        <% Color.automotivas.each do |color| %>
+          <span class="automotivas">
+            <%= check_box_tag 'product[color_ids][]', color.id, @product.color_ids.include?(color.id), id: dom_id(color) %> <%= label_tag dom_id(color), color.name, class: 'product-color', style: "border-color: #{color.code};" %>
+          </span>
+        <% end %>
+      <!-- </div> -->
+    </p>
+
+    <p class='colors'>
+      <%= f.label :colors, id: "button_imobiliaria", label: "CORES IMOBILIÁRIAS" %><br />
+      <!-- <div class="imobiliarias"> -->
+        <%= hidden_field_tag 'product[color_ids][]', nil %>
+        <% Color.imobiliarias.each do |color| %>
+          <span class="imobiliarias">
+            <%= check_box_tag 'product[color_ids][]', color.id, @product.color_ids.include?(color.id), id: dom_id(color) %> <%= label_tag dom_id(color), color.name, class: 'product-color', style: "border-color: #{color.code};" %>
+          </span>
+        <% end %>
+      <!-- </div> -->
     </p>
 
     <p class='colors'>

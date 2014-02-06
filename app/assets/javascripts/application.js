@@ -22,4 +22,12 @@ $(document).ready(function(){
     $('.cart_drop').slideToggle(300);
   });
 
+  $("#button_imobiliaria").click(function() {
+    $('.imobiliarias').toggle();
+  });
+
+  $("#button_automotiva").click(function() {
+    $('.automotivas').toggle();
+  });
+
 });

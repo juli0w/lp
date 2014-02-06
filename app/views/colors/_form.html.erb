@@ -12,6 +12,11 @@
       <%= f.text_field :code, class: "round full-width-input" %>
     </p>
 
+    <p>
+      <%= f.label :category_id %>
+      <%= f.select :category_id, Color::CATEGORIES, class: "round full-width-input" %>
+    </p>
+
     <div class="stripe-separator"><!--  --></div>
     
     <%= f.submit "Salvar", class: "button round blue image-right ic-right-arrow" %>

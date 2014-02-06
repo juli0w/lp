@@ -5,7 +5,7 @@ class ColorsController < ApplicationController
   layout 'admin'
 
   def index
-    @colors = Color.all
+    @colors = Color.page(params[:page])
   end
 
   # def show
