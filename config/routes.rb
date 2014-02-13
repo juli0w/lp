@@ -52,7 +52,18 @@ Lojadopintor::Application.routes.draw do
   end
 
   resources :messages
-  resources :tickets
+  resources :tickets do
+    collection do
+      get 'list'
+    end
+
+    member do
+      get 'open'
+      get 'close'
+    end
+
+    resources :ticket_repplies, only: :create
+  end
   resources :colors
   resources :sizes
   resources :categories

@@ -29,13 +29,13 @@ header .header_search {
   height: 31px;
   width: 230px;
   float: right;
-  padding: 3px;
+  padding: 2px 3px 3px 3px;
   margin-top: 20px;
   border: solid 1px #dedede;
   cursor: pointer;
   background-color: #ffffff;
-  -webkit-border-radius: 15px;
-  border-radius: 15px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
 }
 header .header_search #search-input {
   width: 206px;

@@ -1,0 +1,71 @@
+<div class="content-module-heading cf">
+
+  <h3 class="fl">Ticket <%= @ticket.rid %> (<%= @ticket.get_state %>)</h3>
+  <span class="fr expand-collapse-text">Click to collapse</span>
+  <span class="fr expand-collapse-text initial-expand">Click to expand</span>
+
+</div> <!-- end content-module-heading -->
+
+
+<div class="content-module-main cf">
+
+  <h2><%= @ticket.subject %></h4>
+
+  <p>
+    <%= @ticket.content %>
+  </p>
+
+  <% if current_user.admin? %>
+    <div class="stripe-separator cf"><!--  --></div>
+    
+    <% unless @ticket.open? %>
+      <%= link_to "Abrir", open_ticket_path(@ticket), class: "button round blue image-right ic-favorite" %>
+    <% else %>
+      <%= link_to "Fechar", close_ticket_path(@ticket), class: "button round blue image-right ic-cancel" %>
+    <% end %>
+  
+  <% end %>
+
+</div>
+
+<div class="content-module-heading cf">
+
+  <h3 class="fl">Comentários</h3>
+  <span class="fr expand-collapse-text">Click to collapse</span>
+  <span class="fr expand-collapse-text initial-expand">Click to expand</span>
+
+</div> <!-- end content-module-heading -->
+
+<div class="content-module-main cf">
+  <% if @ticket.ticket_repplies.any? %>
+    
+    <% @ticket.ticket_repplies.each do |repply| %>    
+      <p>
+        <strong><%= repply.created_at.strftime("%d/%m %H:%M") %> - <%= repply.user.get_name %></strong>:<br />
+        <%= repply.message %>
+      </p>
+    <% end %>
+
+    <div class="stripe-separator"><!--  --></div>
+
+  <% end %>
+
+  <% if @ticket.open? %>
+
+    <%= form_for [@ticket, TicketRepply.new] do |f| %>
+
+      <fieldset>
+
+        <p>
+          <%= f.label :message, 'Resposta:' %>
+          <%= f.text_area :message, class: "full-width-input" %>
+        </p>
+
+        <%= f.submit "Enviar" %>
+
+      </fieldset>
+
+    <% end %>
+   
+  <% end %>
+</div>

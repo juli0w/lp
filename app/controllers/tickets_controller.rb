@@ -9,12 +9,20 @@ class TicketsController < ApplicationController
     @tickets = current_user.tickets.page(params[:page])
   end
 
+  def list
+    @tickets = Ticket.page(params[:page])
+
+    render 'index'
+  end
+
   def show
     if current_user.admin?
       @ticket = Ticket.find(params[:id])
     else
       @ticket = current_user.tickets.find(params[:id])
     end
+
+    @repplies = @ticket.ticket_repplies
   end
 
   def pending

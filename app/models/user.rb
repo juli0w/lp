@@ -34,4 +34,8 @@ class User < ActiveRecord::Base
   def admin?
     self.state == 2
   end
+
+  def get_name
+    self.profile.try(:name).nil? ? self.email : self.profile.name
+  end
 end
