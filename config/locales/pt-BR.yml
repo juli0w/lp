@@ -10,6 +10,22 @@ pt-BR:
       truncate: "&hellip;"
 
   activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            name:
+              blank: "não pode ser nulo."
+            email:
+              blank: "não pode ser nulo."
+              invalid: "inválido!"
+              taken: "já existe!"
+            duplicate_email:
+              taken: "já existe!"
+            password:
+              blank: "não pode ser nula."
+              confirmation: "e confirmação não conferem."
+              too_short: "muito curto."
     models:
       purchase: Pedido
       product: Produto
