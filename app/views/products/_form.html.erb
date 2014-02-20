@@ -64,6 +64,11 @@
       <%= f.hidden_field :image_cache %>
     </p>
 
+    <p>
+      <%= f.label :active, "Disponível em estoque" %>
+      <%= f.check_box :active %>
+    </p>
+
     <div class="stripe-separator"><!--  --></div>
     
     <%= f.submit "Salvar", class: "button round blue image-right ic-right-arrow" %>

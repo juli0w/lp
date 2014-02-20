@@ -3,7 +3,7 @@
 
       <% if category_root.children.any? %>
 
-        <% category_root.children.each do |category| %>
+        <% category_root.children.actives.each do |category| %>
 
           <h2><%= category.name %></h2>
             

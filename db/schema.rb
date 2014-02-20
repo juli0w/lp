@@ -11,13 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140211202858) do
+ActiveRecord::Schema.define(:version => 20140220192423) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
     t.integer  "parent_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+    t.boolean  "active",     :default => true
   end
 
   create_table "colors", :force => true do |t|
@@ -57,10 +58,11 @@ ActiveRecord::Schema.define(:version => 20140211202858) do
     t.string   "name"
     t.decimal  "price",       :precision => 10, :scale => 2
     t.integer  "category_id"
-    t.datetime "created_at",                                 :null => false
-    t.datetime "updated_at",                                 :null => false
+    t.datetime "created_at",                                                   :null => false
+    t.datetime "updated_at",                                                   :null => false
     t.string   "image"
     t.text     "description"
+    t.boolean  "active",                                     :default => true
   end
 
   create_table "products_sizes", :force => true do |t|

@@ -12,11 +12,14 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require modernizer
 //= require redactor-rails
 //= require_tree .
 
 $(document).ready(function(){
   $(".fancybox").fancybox();
+
+  $('#cbp-fwslider').cbpFWSlider();
   
   jQuery(".minicart_link").click(function() {
     $('.cart_drop').slideToggle(300);

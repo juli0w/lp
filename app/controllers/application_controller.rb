@@ -52,7 +52,7 @@ protected
   end
 
   def load_nav
-    @categories_root = Category.roots
+    @categories_root = Category.roots.where(active: true)
   end
 
   def load_pages

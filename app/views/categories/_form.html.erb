@@ -12,6 +12,11 @@
       <%= f.collection_select :parent_id, @categories, :id, :name, include_blank: true, class: "round default-width-input" %>
     </p>
 
+    <p>
+      <%= f.label :active, "Disponível" %>
+      <%= f.check_box :active %>
+    </p>
+
 
     <div class="stripe-separator"><!--  --></div>
     

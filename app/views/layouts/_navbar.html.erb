@@ -6,10 +6,10 @@
           <% @categories_root.each do |category_root| %>
             <li><%= link_to category_root.name, category_root %>
 
-              <% if category_root.children.any? %>
+              <% if category_root.children.actives.any? %>
               <ul class="sub_menu">
 
-                <% category_root.children.each do |category| %>
+                <% category_root.children.actives.each do |category| %>
                   <li><%= link_to category.name, category %>
                     <ul>
                       <% category.children.each do |subcategory| %>

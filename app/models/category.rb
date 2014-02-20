@@ -1,6 +1,8 @@
 class Category < ActiveRecord::Base
   include ActsAsTree
-  attr_accessible :name, :parent_id
+  attr_accessible :name, :parent_id, :active
+
+  scope :actives, -> { where(active: true) }
 
   acts_as_tree order: "id"
 

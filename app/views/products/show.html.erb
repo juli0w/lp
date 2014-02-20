@@ -21,7 +21,7 @@
             <%= label_tag :color, 'Cor' %><br />
             <% @product.colors.each_with_index do |color, x| %>
               <span>
-                <%= radio_button_tag 'color_id', color.id, x==0, id: dom_id(color) %> <%= label_tag dom_id(color), color.name, class: 'product-color', style: "border-color: #{color.code};" %>
+                <%= radio_button_tag 'color_id', color.id, x==0, id: dom_id(color) %> <%= label_tag dom_id(color), color.name, class: 'product-color', style: "border-color: #{color.code || '#FFFFFF'};" %>
               </span>
             <% end %>
           </p>
@@ -42,7 +42,11 @@
 
         <div class="hr"></div>
 
-        <%= submit_tag 'Adicionar ao carrinho', class: 'add-to-cart' %>
+        <% if @product.active %>
+          <%= submit_tag 'Adicionar ao carrinho', class: 'add-to-cart' %>
+        <% else %>
+          Produto fora de estoque! Entre em contato conosco para encomenda.
+        <% end %>
       <% end %>
     </div>
   </div>

@@ -3,7 +3,9 @@ class Product < ActiveRecord::Base
 
   attr_accessible :category_id, :description, :name, :price,
                   :image, :image_cache, :color_ids,
-                  :product_sizes_attributes
+                  :product_sizes_attributes, :active
+
+  scope :actives, -> { where(active: true) }
 
   has_and_belongs_to_many :colors
   has_many :product_sizes
