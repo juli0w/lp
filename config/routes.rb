@@ -51,7 +51,12 @@ Lojadopintor::Application.routes.draw do
     end
   end
 
-  resources :messages
+  resources :messages do
+    collection do
+      post 'contact'
+    end
+  end
+
   resources :tickets do
     collection do
       get 'list'

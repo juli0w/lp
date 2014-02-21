@@ -15,6 +15,10 @@ class User < ActiveRecord::Base
     2 => "Administrador"
   }
 
+  def self.admin
+    where(state: 2).first
+  end
+
   def unban!
     update_attribute(:state, 0)
   end

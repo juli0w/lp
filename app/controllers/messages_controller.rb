@@ -1,6 +1,6 @@
 # encoding: UTF-8
 class MessagesController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, except: [:contact]
   before_filter :authenticate_admin!, only: [:new, :create]
   layout 'dashboard', except: [:new]
 
@@ -19,6 +19,19 @@ class MessagesController < ApplicationController
     @message = Message.new(user_id: params[:user_id])
 
     render layout: 'admin'
+  end
+
+  def contact
+    User.where(state: 2).each do |user|
+      @message = Message.create({
+        message: "Nome: #{params[:message][:name]}
+        <br />Email: #{params[:message][:email]}
+        <br />Mensagem: #{params[:message][:message]}",
+        user_id: user.id,
+        subject: "Contato"})
+    end
+
+    redirect_to :back, alert: "Agradecemos sua mensagem!"
   end
 
   def create

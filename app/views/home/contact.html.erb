@@ -5,7 +5,7 @@
         <h4>Deixe sua <strong>mensagem</strong></h4>
         <p class="contact-text">Se você tem alguma dúvida, sugestão ou quiser saber um pouco mais sobre quem somos e o que fazemos, entre em contato conosco por meio do formulário abaixo.</p>
 
-        <%= form_for @message, method: :post, class: 'rounded' do |f| %>
+        <%= form_for @message, url: contact_messages_path, method: :post, class: 'rounded' do |f| %>
           <div class="field">
               <label for="name">Nome:</label>
               <%= f.text_field :name %>
@@ -29,20 +29,7 @@
       </div>
     </div>
     <div class="eight columns">
-      <div class="main-content">
-        <h4>Nosso <strong>contato</strong></h4>
-        <p class="contact-text">Entre em contato ou venha nos conhecer no seguinte endereço:</p>
-        <p class="contact-infos">
-          <strong>Endereço:</strong>
-          <br />Rua Fátima, 429
-          <br />Bairro Itaum, Joinville/SC
-          <br />(47) 3429-4000
-          <br /><%= link_to "lojadopintor.jlle@hotmail.com", "mailto:lojadopintor.jlle@hotmail.com" %>
-        </p>
-        <p>
-          <iframe width="430" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com.br/maps?q=R.+Senador+Petr%C3%B4nio+Portela,+n%C2%BA+200&amp;ie=UTF8&amp;hq=&amp;hnear=R.+Sen.+Petr%C3%B4nio+Portela,+200+-+Zona+Industrial+Norte,+Joinville+-+Santa+Catarina,+89219-575&amp;gl=br&amp;z=14&amp;vpsrc=0&amp;ll=-26.261758,-48.86745&amp;output=embed"></iframe>
-        </p>
-      </div>
+      
     </div>
   </section>
 </div>
