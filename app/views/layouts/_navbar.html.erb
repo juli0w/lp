@@ -54,7 +54,7 @@
             <ul>
               <% current_cart.items.each do |item| %>
               <li>
-                <img src="ag" width=46 height=46><%= link_to "#{item.quantity}x #{item.product.name}", 'javascript:void();' %> <span class="price"><%= monetize item.total %></span>
+                <%= image_tag get_image(item.product.image.mini), width: 46, height: 46 %><%= link_to "#{item.quantity}x #{item.product.name}", 'javascript:void();' %> <span class="price"><%= monetize item.total %></span>
               </li>
               <% end %>
 
