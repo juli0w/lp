@@ -65,6 +65,11 @@ class ProductsController < ApplicationController
     render layout: 'application'
   end
 
+  def filter
+    @products = Product.where("name LIKE ?", "%#{params[:search]}%").page(params[:page])
+    render :index
+  end
+
   def add_to_cart
     current_cart.add_item(params[:id], params[:color_id], params[:size_id])
     redirect_to controller: :cart, action: :index

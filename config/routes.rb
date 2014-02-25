@@ -81,6 +81,7 @@ Lojadopintor::Application.routes.draw do
     end
     collection do
       get :search
+      post :filter
     end
   end
 
