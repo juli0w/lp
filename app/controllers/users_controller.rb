@@ -19,6 +19,11 @@ class UsersController < ApplicationController
     @user.ban!
   end
 
+  def filter
+    @users = User.joins(:profile).where("(users.email LIKE :q) OR (profiles.name LIKE :q)", q: "%#{params[:search]}%").page(params[:page])
+    render :index
+  end
+
   def unban
     @user = User.find(params[:id])
     @user.unban!

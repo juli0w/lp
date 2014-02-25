@@ -4,6 +4,17 @@ module ApplicationHelper
     number_to_currency decimal, unit: "R$ ", separator: ","
   end
 
+  def filter_form path
+    form_tag path do
+      content_tag :fieldset do
+        content_tag :p do
+          text_field_tag(:search, '', class: "round small-width-input", autofocus: true, placeholder: "Palavra chave") +
+          submit_tag("Filtrar", class: "button round blue image-right ic-search", style: "height: 36px")
+        end
+      end
+    end
+  end
+
   def external_simulator
     s = '<base href="http://resicolor.com.br/" />
          <script type="text/javascript" src="http://www.resicolor.com.br/js/jquery/jquery.flash.js"></script>

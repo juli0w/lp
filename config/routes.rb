@@ -35,6 +35,10 @@ Lojadopintor::Application.routes.draw do
       put :unban
       put :permit
     end
+
+    collection do
+      post :filter
+    end
   end
 
   resources :profile

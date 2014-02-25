@@ -9,14 +9,7 @@
 
 <div class="content-module-main">
 
-  <%= form_tag filter_products_path do %>
-    <fieldset>
-      <p>
-        <%= text_field_tag :search, '', class: "round small-width-input", autofocus: true, placeholder: "Palavra chave" %>
-        <%= submit_tag "Filtrar", class: "button round blue image-right ic-search", style: "height: 36px" %>
-      </p>
-    </fieldset>
-  <% end %>
+  <%= filter_form filter_products_path %>
 
   <table>
   
