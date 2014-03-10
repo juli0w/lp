@@ -1,12 +1,48 @@
-.featured {
-  
+.featured ul li {
+    text-align: center;
+    margin: 0 auto;
+}
+.featured ul li .featured-box {
+    background-color: #ffffff;
+    display: inline-block;
+    width: 600px;
+    overflow: hidden;
+}
+
+.featured ul li a .featured-img {
+    float: left;
+    padding: 15px;
+}
+.featured ul li a .featured-desc p {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 0;
+}
+.featured ul li a .featured-desc p.featured-name {
+    padding: 20px 0;
+    height: 60px;
+}
+.featured ul li a .featured-desc p.featured-price {
+    font-size: 16px;
+    color: #ffd204;
+}
+
+.featured ul li a .featured-desc {
+    float: left;
+    background-color: #E60014;
+    padding: 0 20px;
+    width: 430px;
+    height: 135px;
+    text-align: left;
 }
 
 .cbp-fwslider {
     position: relative;
     margin: 0 0 10px;
     overflow: hidden;
-    padding: 40px 0 60px;
+    padding: 40px 0 40px;
 }
  
 .cbp-fwslider ul {
@@ -43,7 +79,7 @@
     top: 50%;
     width: 50px;
     height: 100px;
-    background: #47a3da;
+    background: #dedede;
     color: #fff;
     font-size: 50px;
     text-align: center;
@@ -54,7 +90,7 @@
 }
  
 .cbp-fwslider nav span:hover {
-    background: #378fc3;
+    background: #E60014;
 }
  
 .cbp-fwslider nav span.cbp-fwnext {
@@ -75,8 +111,8 @@
  
 .cbp-fwdots span {
     display: inline-block;
-    width: 18px;
-    height: 18px;
+    width: 14px;
+    height: 14px;
     background: #ddd;
     margin: 4px;
     border-radius: 50%;
@@ -88,7 +124,7 @@
 }
  
 .cbp-fwdots span.cbp-fwcurrent {
-    background: #47a3da;
-    box-shadow: 0 0 0 2px #47a3da;
+    background: #E60014;
+    box-shadow: 0 0 0 2px #E60014;
     transition: box-shadow 0.2s ease-in-out;
 }

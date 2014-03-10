@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class CartController < ApplicationController
   before_filter :authenticate_user!, only: [:shipping, :confirm, :purchase]
 
@@ -23,19 +24,23 @@ class CartController < ApplicationController
   end
 
   def shipping
-    profile = current_user.profile || current_user.build_profile
+    if current_cart.total < 30
+      redirect_to cart_index_path, notice: "Seu carrinho precisa conter o valor mínimo de R$ 30,00 para finalizar a compra."
+    else
+      profile = current_user.profile || current_user.build_profile
 
-    @purchase = Purchase.new({
-        cep:        profile.cep,
-        phone:      profile.phone,
-        cellphone:  profile.cellphone,
-        city:       profile.city,
-        uf:         profile.uf,
-        district:   profile.district,
-        address:    profile.address,
-        number:     profile.number,
-        complement: profile.complement
-      })
+      @purchase = Purchase.new({
+          cep:        profile.cep,
+          phone:      profile.phone,
+          cellphone:  profile.cellphone,
+          city:       profile.city,
+          uf:         profile.uf,
+          district:   profile.district,
+          address:    profile.address,
+          number:     profile.number,
+          complement: profile.complement
+        })
+    end
   end
 
   def purchase

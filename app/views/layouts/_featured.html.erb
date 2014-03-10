@@ -2,8 +2,21 @@
 
    <div id="cbp-fwslider" class="cbp-fwslider">
       <ul>
-          <li><a href="#">teste imagem <%= image_tag 'rails.png' %></a></li>
-          <li><a href="#"> woohoo<%= image_tag 'web/facebook.jpg' %></a></li>
+        <% (1..3).each do %>
+          <li>
+            <div class="featured-box">
+              <a href="#">
+                <div class="featured-img">
+                  <%= image_tag '/uploads/product/image/54/thumb_massa_antiruido_copy.jpg' %>
+                </div>
+                <div class="featured-desc">
+                  <p class="featured-name">2001 Anti-Ruido</p>
+                  <p class="featured-price">De R$ 9,90 por apenas R$ 7,90 !</p>
+                </div>
+              </a>
+            </div>
+          </li>
+          <% end %>
       </ul>
   </div>
 

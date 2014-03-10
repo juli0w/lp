@@ -33,7 +33,7 @@
       <% end %>
     </ul>
 
-    <%= submit_tag "Atualizar carrinho", class: "update-cart-btn right" %>
+    <%= submit_tag "Atualizar Carrinho", class: "update-cart-btn right" %>
 
   <% end %>
 </div>
@@ -50,7 +50,14 @@
 <div class="row checkout">
   <%= link_to "Continuar Comprando", root_path, class: "back" %>
   <%= link_to "Limpar Carrinho", cart_clean_path, class: "clean_button back", confirm: "Deseja limpar sua compra?" %>
-  <%= link_to "Finalizar Pedido", cart_shipping_path, class: "checkout-btn" %>
+
+  <% if current_cart.total >= 30 %>
+    <%= link_to "Finalizar Pedido", cart_shipping_path, class: "checkout-btn" %>
+  <% else %>
+    <span class="right" style="padding-top: 5px;">
+      O valor mínimo para a compra online é de R$ 30,00 !
+    </span>
+  <% end %>
 </div>
 
 <% else %>
