@@ -8,7 +8,7 @@
           <h2><%= category.name %></h2>
             
           <ul>
-            <% category.children.each do |subcategory| %>
+            <% category.children.actives.each do |subcategory| %>
               <li><%= link_to subcategory.name, subcategory %></li>
             <% end %>
           </ul>
