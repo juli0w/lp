@@ -41,7 +41,16 @@
             </ul>
           </li>
 
-          <li><%= link_to "Simulador de ambientes", "/simulador" %></li>
+          <li><%= link_to "Simulador de ambientes", "#" %>
+            <ul class="sub_menu">
+              <li>Simulador de ambientes
+                <ul>
+                  <li><%= link_to "Resicolor", simulador_resicolor_path %></li>
+                  <li><%= link_to "Metalatex", simulador_metalatex_path %></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
         </ul>
 
         <div class="minicart">

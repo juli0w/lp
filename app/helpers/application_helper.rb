@@ -1,5 +1,10 @@
 # encoding: UTF-8
 module ApplicationHelper
+  SIMULATOR_URL = {
+    resicolor: 'http://www.resicolor.com.br/paginas/espaco/simulador',
+    metalatex: 'http://www.sherwin-williams.com.br/simulador'
+  }
+
   def monetize decimal
     number_to_currency decimal, unit: "R$ ", separator: ","
   end
@@ -15,7 +20,7 @@ module ApplicationHelper
     end
   end
 
-  def external_simulator
+  def external_simulator params
     s = '<base href="http://resicolor.com.br/" />
          <script type="text/javascript" src="http://www.resicolor.com.br/js/jquery/jquery.flash.js"></script>
          <link rel="canonical" href="http://www.resicolor.com.br/paginas/espaco/simulador" />
@@ -27,7 +32,9 @@ module ApplicationHelper
          </div>
          <base href="" />'
 
-    return "<iframe width='100%' height='600px' src='http://www.resicolor.com.br/paginas/espaco/simulador'></iframe>".html_safe
+    url = SIMULATOR_URL[params]
+
+    return "<iframe width='100%' height='600px' src='#{url}'></iframe>".html_safe
   end
 
   def breadcumb category

@@ -3,7 +3,10 @@ class HomeController < ApplicationController
     @products = Product.order(params[:order] || :name).page(params[:page]).per(params[:show] || 20)
   end
 
-  def simulator
+  def resicolor
+  end
+
+  def metalatex
   end
 
   def contact
