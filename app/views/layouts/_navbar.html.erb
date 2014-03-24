@@ -53,27 +53,7 @@
           </li>
         </ul>
 
-        <div class="minicart">
-          <a href="#" class="minicart_link" >
-            <div class="labeld">
-              <span class="item"><b><%= current_cart.items.count %></b> itens - </span> <span><b><%= monetize current_cart.subtotal %></b></span>
-            </div>
-          </a>
-          <div class="cart_drop"> <span class="darw"></span>
-            <ul>
-              <% current_cart.items.each do |item| %>
-              <li>
-                <%= image_tag get_image(item.product.image.mini), width: 46, height: 46 %><%= link_to "#{item.quantity}x #{item.product.name}", 'javascript:void();' %> <span class="price"><%= monetize item.total %></span>
-              </li>
-              <% end %>
-
-              <div class="cart_bottom">
-                <div class="subtotal_menu"><small>Subtotal:</small><%= monetize current_cart.subtotal %></div>
-                <%= link_to "Visualizar", cart_index_path %>
-              </div>
-            </ul>
-          </div>
-        </div>
+        
       </nav>
     </div>
   </div>

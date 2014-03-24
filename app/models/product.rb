@@ -7,6 +7,8 @@ class Product < ActiveRecord::Base
 
   scope :actives, -> { where(active: true) }
 
+  default_scope where(active: true)
+
   has_and_belongs_to_many :colors
   has_many :product_sizes
 

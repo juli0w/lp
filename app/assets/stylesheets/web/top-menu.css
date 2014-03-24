@@ -21,7 +21,7 @@
 
 .top-menu .navbar {float: right;}
 .top-menu .navbar ul.nav li a {
-    padding: 0px 15px;
+    padding: 5px 15px;
     line-height: 30px;
     font-size: 11px;
     text-transform: uppercase;
@@ -31,11 +31,12 @@
     float: left;
     text-decoration: none;
     overflow: auto;
-    background-color: #5f5a56;
-    margin-left: 3px;
-    margin-top: 3px;
-    margin-bottom: 3px;
+    /*background-color: #5f5a56;*/
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 .top-menu .navbar ul.nav li a:hover {
-  background-color: #e60014;
+  /*background-color: #e60014;*/
+  background-color: #5f5a56;
 }

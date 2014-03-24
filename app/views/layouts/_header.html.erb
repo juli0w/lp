@@ -15,6 +15,40 @@
           <button type="submit" title="Search"></button>
         </div>
       <% end %>
+
+      <div class="minicart">
+        <a href="<%= cart_index_path %>">
+          <div class="labeld">
+            <span class="item">
+              Seu carrinho 
+              <% if current_cart.items.count > 0 %>
+                possui<br />
+                <span class="result">
+                  <b><%= current_cart.items.count %></b> produtos
+                </span>
+              <% else %>
+                está<br />
+                <span class="result">vazio</span> 
+              <% end %>
+            </span>
+          </div>
+        </a>
+        <!-- <div class="cart_drop"> <span class="darw"></span>
+          <ul>
+            <% current_cart.items.each do |item| %>
+            <li>
+              <%= image_tag get_image(item.product.image.mini), width: 46, height: 46 %><%= link_to "#{item.quantity}x #{item.product.name}", 'javascript:void();' %> <span class="price"><%= monetize item.total %></span>
+            </li>
+            <% end %>
+
+            <div class="cart_bottom">
+              <div class="subtotal_menu"><small>Subtotal:</small><%= monetize current_cart.subtotal %></div>
+              <%= link_to "Visualizar", cart_index_path %>
+            </div>
+          </ul>
+        </div> -->
+      </div>
+
     </div>
   </header>
 </div>

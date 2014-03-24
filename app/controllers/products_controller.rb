@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
   layout 'admin'
 
   def index
-    @products = Product.page(params[:page])
+    @products = Product.unscoped.page(params[:page])
   end
 
   def new
@@ -37,12 +37,12 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @product = Product.find(params[:id])
+    @product = Product.unscoped.find(params[:id])
     @categories = Category.all
   end
 
   def update
-    @product = Product.find(params[:id])
+    @product = Product.unscoped.find(params[:id])
 
     respond_to do |format|
       if @product.update_attributes(params[:product])
