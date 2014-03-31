@@ -17,7 +17,7 @@
           <h3><%= @product.name %></h3>
         </div>
 
-        <p class="contact-text"><%= @product.description.html_safe %></p>
+        <span class="product-desc"><%= @product.description.html_safe %></span>
       
         <%= form_tag add_to_cart_product_path(@product) do %>
           <% if @product.colors.size > 0 %>
