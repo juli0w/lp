@@ -4,7 +4,7 @@ pt-BR:
   views:
     pagination:
       next: '›'
-      prev: '‹'
+      previous: '‹'
       first: '«'
       last: '»'
       truncate: "&hellip;"

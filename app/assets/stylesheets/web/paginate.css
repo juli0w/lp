@@ -5,14 +5,16 @@
 
 .pagination span a {
   padding: 6px 8px;
-  background-color: #f8f9fa;
+  background-color: #ffffff;
   color: #2a2e36;
+  border: 1px solid #dedede;
   margin: 0;
+  text-decoration: none;
 }
 
 .pagination span a:hover {
   color: #ffffff;
-  background-color: red;
+  background-color: #2a2e36;
 }
 
 .pagination span.current {

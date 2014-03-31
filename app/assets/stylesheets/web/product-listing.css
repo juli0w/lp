@@ -3,6 +3,7 @@
   margin-left: 8px !important;
   padding: 6px 5px 10px 5px;
   background-color: white;
+  text-align: center;
 }
 
 .product-listing > .product:nth-child(4n) {
@@ -10,7 +11,7 @@
 }
 
 .product-listing {
-  text-align: center;
+  /*text-align: center;*/
 }
 .product-listing .product-actions {
   padding: 0 3px;

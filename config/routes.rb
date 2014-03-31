@@ -43,6 +43,7 @@ Lojadopintor::Application.routes.draw do
   end
 
   resources :profile
+  resources :cache_products
   resources :purchases do
     member do
       put  :change

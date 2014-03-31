@@ -1,0 +1,21 @@
+<%= simple_form_for(@cache_product) do |f| %>
+
+  <fieldset>
+
+    <p>
+      <%= f.label :cache_type %>
+      <%= f.select :cache_type, CacheProduct::TYPES, include_blank: false, class: "round default-width-input" %>
+    </p>
+
+    <p>
+      <%= f.label :product_id %>
+      <%= f.text_field :product_id, class: "round full-width-input", autofocus: true %>
+    </p>
+
+    <div class="stripe-separator"><!--  --></div>
+    
+    <%= f.submit "Salvar", class: "button round blue image-right ic-right-arrow" %>
+  
+  </fieldset>
+
+<% end %>

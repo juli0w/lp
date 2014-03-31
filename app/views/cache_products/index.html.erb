@@ -1,0 +1,57 @@
+<div class="content-module-heading cf">
+
+  <h3 class="fl">Configuração de cache dos produtos</h3>
+  <span class="fr expand-collapse-text">Click to collapse</span>
+  <span class="fr expand-collapse-text initial-expand">Click to expand</span>
+
+</div> <!-- end content-module-heading -->
+
+
+<div class="content-module-main">
+
+  <table>
+  
+    <thead>
+  
+      <tr>
+        <th></th>
+        <th>Tipo</th>
+        <th>Produto</th>
+        <th>Ações</th>
+      </tr>
+    
+    </thead>
+    
+    <tbody>
+
+      <% @cache_products.each do |cache_product| %>
+
+      <tr>
+        <td><%= cache_product.id %></td>
+        <td><%= cache_product.type_name %></td>
+        <td><%= cache_product.product.try(:name) %></td>
+        <td>
+          <%= link_to "", [:edit, cache_product], class: "table-actions-button ic-table-edit" %>
+          <%= link_to "", cache_product, method: :delete, class: "table-actions-button ic-table-delete", confirm: "Confirma exclusão?" %>
+        </td>
+      </tr>
+
+      <% end %>
+
+    </tbody>
+    
+  </table>
+
+  <% if @cache_products.num_pages > 1 %>
+
+    <div class="stripe-separator"><!--  --></div>
+
+    <%= paginate @cache_products %>
+
+  <% end %>
+
+  <div class="stripe-separator"><!--  --></div>
+  
+  <%= link_to "Novo Cache", new_cache_product_path, class: "button round blue image-right ic-right-arrow" %>
+
+</div> <!-- end content-module-main -->

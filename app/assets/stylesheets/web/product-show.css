@@ -11,11 +11,15 @@
 }
 
 .product-show {
-  padding-top: 30px;
+  padding-top: 15px;
+}
+
+.product-show p.contact-text {
+  padding: 0 15px;
+  font-family: "Georgia", "Times New Roman", serif;
 }
 
 .add-to-cart {
-  float: right;
   overflow: hidden;
   height: 40px;
   padding-left: 35px;
@@ -35,4 +39,33 @@
   padding: 15px;
   /*border: 1px dashed #dedede;*/
   width: 580px;
+}
+
+.custom-bg {
+  background-color: #ffffff;
+  border: 1px solid #efefef;
+}
+.ten-custom {
+  width: 578px;
+}
+.custom-pd {
+  padding: 2px;
+}
+
+.product-title {
+  padding: 8px;
+  padding-left: 55px;
+  /*background-color: #f7f7f7;*/
+  border-bottom: 1px dashed #efefef;
+  margin: 0;
+  /*margin-bottom: 12px;*/
+  background: url(descricao.jpeg) no-repeat 0px center;
+  background-size: contain;
+}
+
+.product-title h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
 }
