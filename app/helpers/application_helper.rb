@@ -1,7 +1,8 @@
 # encoding: UTF-8
 module ApplicationHelper
   SIMULATOR_URL = {
-    resicolor: 'http://www.resicolor.com.br/paginas/espaco/simulador',
+    #resicolor: 'http://www.resicolor.com.br/paginas/espaco/simulador',
+    resicolor: 'http://www.resicolor.com.br/espaco-color/simulador-ambientes',
     metalatex: 'http://www.sherwin-williams.com.br/simulador'
   }
 
