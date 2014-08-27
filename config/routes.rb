@@ -46,7 +46,8 @@ Lojadopintor::Application.routes.draw do
   resources :cache_products
   resources :purchases do
     member do
-      put  :change
+      put :change
+      get :print
     end
 
     collection do

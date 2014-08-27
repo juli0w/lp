@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<head>
+
+  <meta charset="utf-8">
+  <title>Loja do Pintor - Pedido: #<%= @purchase.rid %></title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <style tyle="text/css">
+
+  @media screen
+  {
+  body {font-family:verdana, arial, sans-serif;}
+  }
+
+  @media print
+  {
+  body {font-family:georgia, times, serif;}
+  }
+  @media screen, print
+  {
+  body {font-size:11pt}
+  }
+
+  </style>
+
+</head>
+<body>
+
+<strong>LOJA DO PINTOR</strong>
+<br />
+<br />
+Pedido: #<%= @purchase.rid %>
+<br />
+Emissão: <%= Date.today.strftime("%d/%M/%Y") %>
+<br />
+Vendedor: <%= current_user.get_name %>
+<br />
+
+<ul style="list-style: none; padding-left: 0;">
+  <li><strong>CEP</strong>: <%= @purchase.cep %></li>
+  <li><strong>Cidade</strong>: <%= @purchase.city %> <%= @purchase.uf %></li>
+  <li><strong>Endereço</strong>: <%= @purchase.address %> - <strong>Número</strong>: <%= @purchase.number %></li>
+  <li><strong>Bairro</strong>: <%= @purchase.district %></li>
+  <li><strong>Complemento</strong>: <%= @purchase.complement %></li>
+  <li><strong>Celular</strong>: <%= @purchase.cellphone %> - <strong>Telefone</strong>: <%= @purchase.phone %></li>
+</ul>
+<br />
+<table width="450px">
+
+  <thead>
+
+    <tr>
+      <th align="left" width='50'>Código</th>
+      <th align="left" width='140'>Produtos</th>
+      <th align="left" width='50'>Preço</th>
+      <th align="left" width='50'>Qtd</th>
+      <th align="left" width='50'>Total</th>
+    </tr>
+  
+  </thead>
+  
+  <tbody>
+
+    <% @purchase.purchase_items.each do |item| %>
+
+    <tr>
+      <td><%= item.id %></td>
+      <td><%= get_name item %></td>
+      <td><%= monetize item.price %></td>
+      <td><%= item.quantity %></td>
+      <td><%= monetize item.total %></td>
+    </tr>
+
+    <% end %>
+
+    <tr>
+      <td colspan=4></td>
+      <td height="50"><%= monetize @purchase.total %></td>
+    </tr>
+
+  </tbody>
+  
+</table>
+
+</body>
+</html>

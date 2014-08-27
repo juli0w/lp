@@ -47,6 +47,7 @@
     <%= link_to "Confirmar pagamento", change_purchase_path(@purchase, state: 1), method: :put, class: "button round blue image-right ic-favorite" unless @purchase.state == 1 %>
     <%= link_to "Confirmar envio", change_purchase_path(@purchase, state: 2), method: :put, class: "button round blue image-right ic-right-arrow" unless @purchase.state == 2 %>
     <%= link_to "Cancelar pedido", change_purchase_path(@purchase, state: 3), method: :put, class: "button round blue image-right ic-cancel" unless @purchase.state == 3 %>
+    <%= link_to "Imprimir nota", print_purchase_path(@purchase), class: "button round blue image-right ic-print", target: "_blank" %>
   <% end %>
 
 </div> <!-- end content-module-main -->

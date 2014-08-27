@@ -19,6 +19,12 @@ class PurchasesController < ApplicationController
   def list
   end
 
+  def print
+    @purchase = Purchase.find(params[:id])
+
+    render layout: false
+  end
+
   [:open, :paid, :sent, :canceled].each_with_index do |method, index|
     define_method method do
       @kind = Purchase::STATES[index]
