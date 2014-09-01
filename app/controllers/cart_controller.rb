@@ -30,6 +30,7 @@ class CartController < ApplicationController
       profile = current_user.profile || current_user.build_profile
 
       @purchase = Purchase.new({
+          name:       profile.name,
           cep:        profile.cep,
           phone:      profile.phone,
           cellphone:  profile.cellphone,

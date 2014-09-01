@@ -40,6 +40,7 @@ Vendedor: <%= current_user.get_name %>
 <br />
 
 <ul style="list-style: none; padding-left: 0;">
+  <li><strong>Cliente</strong>: <%= @purchase.name %></li>
   <li><strong>CEP</strong>: <%= @purchase.cep %></li>
   <li><strong>Cidade</strong>: <%= @purchase.city %> <%= @purchase.uf %></li>
   <li><strong>Endereço</strong>: <%= @purchase.address %> - <strong>Número</strong>: <%= @purchase.number %></li>
@@ -54,10 +55,10 @@ Vendedor: <%= current_user.get_name %>
 
     <tr>
       <th align="left" width='50'>Código</th>
-      <th align="left" width='140'>Produtos</th>
+      <th align="left" width='110'>Produtos</th>
       <th align="left" width='50'>Preço</th>
-      <th align="left" width='50'>Qtd</th>
-      <th align="left" width='50'>Total</th>
+      <th align="left" width='40'>Qtd</th>
+      <th align="left" width='55'>Total</th>
     </tr>
   
   </thead>

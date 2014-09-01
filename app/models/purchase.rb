@@ -1,5 +1,5 @@
 class Purchase < ActiveRecord::Base
-  attr_accessible :address, :cellphone, :cep, :city, :complement,
+  attr_accessible :name, :address, :cellphone, :cep, :city, :complement,
                   :number, :phone, :uf, :user_id, :district
 
   belongs_to :user
@@ -30,7 +30,7 @@ class Purchase < ActiveRecord::Base
   end
 
   def update_address hash
-    [:address, :cellphone, :phone, :cep,
+    [:name, :address, :cellphone, :phone, :cep,
      :city, :complement, :uf, :number, :district].each do |field|
       write_attribute(field, hash[field])
     end

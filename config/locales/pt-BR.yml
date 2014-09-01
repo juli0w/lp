@@ -36,6 +36,7 @@ pt-BR:
       message: Mensagem
     attributes:
       purchase:
+        name: "Nome"
         phone: "Telefone"
         cellphone: "Celular"
         district: "Bairro"
