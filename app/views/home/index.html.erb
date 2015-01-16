@@ -1,9 +1,32 @@
-<div class="three columns">
-  <%= render "layouts/left-menu" %>
-</div>
+<% @items.each do |key, items| %>
+  <div class="content-module-heading cf">
 
-<div class="thirteen columns content">
+    <h3 class="fl"><%= key %></h3>
+    <span class="fr expand-collapse-text">Clique para esconder</span>
+    <span class="fr expand-collapse-text initial-expand">Clique para expandir</span>
 
-  <%= render "home/products" %>
-  
-</div>
+  </div> <!-- end content-module-heading -->
+
+  <div class="content-module-main cf">
+
+    <table>
+      
+      <tbody>
+
+        <tr>
+
+        <% items.each do |item| %>
+
+          <%= render 'home/items', item: item %>
+
+        <% end %>
+
+        </tr>
+
+      </tbody>
+      
+    </table>
+
+  </div>
+
+<% end %>

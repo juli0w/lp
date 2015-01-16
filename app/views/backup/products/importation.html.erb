@@ -1,0 +1,31 @@
+<div class="content-module-heading cf">
+
+  <h3 class="fl">Importar Produtos</h3>
+  <span class="fr expand-collapse-text">Clique para esconder</span>
+  <span class="fr expand-collapse-text initial-expand">Clique para expandir</span>
+
+</div> <!-- end content-module-heading -->
+
+
+<div class="content-module-main cf">
+
+  <%= form_tag import_sproducts_path, multipart: true do %>
+
+	  <fieldset>
+
+	    <p>
+	      <%= label_tag :itens, "Produtos" %>
+	      <%= file_field_tag :itens, class: "round full-width-input" %>
+	    </p>
+
+	    <div class="stripe-separator"><!--  --></div>
+	    
+	    <%= link_to "Formatar", format_sproducts_path, method: :delete, class: "button round blue image-right ic-cancel", confirm: "Isso irá excluir todas os produtos. Continuar?" %>
+
+	    <%= submit_tag "Importar", class: "button round blue image-right ic-right-arrow" %>
+	  
+	  </fieldset>
+
+	<% end %>
+
+</div>

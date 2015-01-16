@@ -1,0 +1,61 @@
+<div class="content-module-heading cf">
+
+  <h3 class="fl">Produtos</h3>
+  <span class="fr expand-collapse-text">Clique para esconder</span>
+  <span class="fr expand-collapse-text initial-expand">Clique para expandir</span>
+
+</div> <!-- end content-module-heading -->
+
+
+<div class="content-module-main">
+
+  <%= filter_form filter_items_path %>
+
+  <table>
+  
+    <thead>
+  
+      <tr>
+        <th></th>
+        <th>Produto</th>
+        <th>Categoria</th>
+        <th>Preço</th>
+        <th>Ações</th>
+      </tr>
+    
+    </thead>
+    
+    <tbody>
+
+      <% @items.each do |item| %>
+
+      <tr>
+        <td></td>
+        <td><%= item.name %></td>
+        <td><%= item.category.try(:name) %></td>
+        <td><%= monetize item.price %></td>
+        <td>
+          <%= link_to "", [:edit, item], class: "table-actions-button ic-table-edit" %>
+          <%= link_to "", item, method: :delete, confirm: "Confirma exclusão?", class: "table-actions-button ic-table-delete" %>
+        </td>
+      </tr>
+
+      <% end %>
+
+    </tbody>
+    
+  </table>
+
+  <% if @items.num_pages > 1 %>
+
+    <div class="stripe-separator"><!--  --></div>
+
+    <%= paginate @items %>
+
+  <% end %>
+
+  <div class="stripe-separator"><!--  --></div>
+  
+  <%= link_to "Importação", importation_items_path, class: "button round blue image-right ic-right-arrow" %>
+
+</div>

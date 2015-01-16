@@ -1,18 +1,19 @@
-.main-menu {
+#navbar {
   padding-bottom: 0px;
   margin-bottom: 0px;
 }
 
-.main-menu .navbar ul.primary_nav {
+#navbar ul.primary_nav {
+  position: relative;
   padding: 0px;
   margin: 0 auto;
   width: 100%;
   list-style: none;
 }
 
-.main-menu .navbar ul.primary_nav > li { margin: 0 auto; display: inline; }
+#navbar ul.primary_nav > li { margin: 0 auto; display: inline; }
 
-.main-menu .navbar ul.primary_nav > li > a {
+#navbar ul.primary_nav > li > a {
   padding: 0px 15px;
   line-height: 35px;
   font-size: 12px;
@@ -24,55 +25,61 @@
   font-weight: bold;
 }
   /*text-shadow:#000 1px -1px, #000 -1px 1px, #000 1px 1px, #000 -1px -1px*/
-.main-menu .navbar ul.primary_nav > li > a:hover {
+#navbar ul.primary_nav > li > a:hover {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
-.main-menu .primary_nav li { float: left; }
+#navbar .primary_nav li { float: left; }
 
-.main-menu ul.sub_menu {
+#navbar ul ul, #navbar ul { list-style: none; }
+#navbar ul ul a, #navbar ul a {
+  color: inherit;
+}
+#navbar ul.sub_menu {
   background-color: rgba(255,255,255, 0.95);
   position: absolute;
-  top: 25px;
+  top: 30px;
   left: -4000px;
   padding: 15px 0px;
   z-index: 100;
-  width: 940px;
   box-shadow: 0px 5px 6px #999999;
   border-top: solid 3px #e60014;
   margin-left: 0;
+  overflow: hidden;
 }
 
-.main-menu ul.primary_nav > li:hover > ul { left: 10px; }
-.main-menu ul.sub_menu > li {
+#navbar ul.primary_nav > li:hover > ul { left: 0px; }
+#navbar ul.sub_menu > li {
   width: 190px;
   margin-left: 25px;
 }
 
-.main-menu ul.sub_menu li a {
+#navbar ul.sub_menu li a, #navbar ul.sub_menu li {
   text-decoration: none;
   line-height: 20px;
+  font-size: 12px;
+  text-transform: uppercase;
   display: block;
   width: 200px;
 }
-.main-menu ul.sub_menu > li > ul > li {
+#navbar ul.sub_menu > li > ul > li {
   padding: 2px 0px;
 }
 
-.main-menu ul.primary_nav > li:hover > a {
+#navbar ul.primary_nav > li:hover > a {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
-.main-menu ul.sub_menu > li > ul > li:first-child { padding-top: 15px; }
-.main-menu ul.sub_menu > li > ul > li { font-size: 13px; }
-.main-menu ul.sub_menu > li > ul > li:hover a { font-weight: bold; }
-.main-menu ul.sub_menu > li > ul {
+#navbar ul.sub_menu > li > ul > li:first-child { padding-top: 15px; }
+#navbar ul.sub_menu > li > ul > li { font-size: 12px; }
+#navbar ul.sub_menu > li > ul > li:hover a { font-weight: bold; }
+#navbar ul.sub_menu > li > ul {
   border-top: solid 1px #e60014;
   margin-top:10px;
   margin-left: 0px;
 }
 
-.main-menu {
+#navbar {
   background: #e60014; /* Old browsers */
   background: -moz-linear-gradient(top,  #ff3019 0%, #cf0404 100%); /* FF3.6+ */
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff3019), color-stop(100%,#cf0404)); /* Chrome,Safari4+ */

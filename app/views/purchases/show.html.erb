@@ -1,8 +1,8 @@
 <div class="content-module-heading cf">
 
   <h3 class="fl">Pedido #<%= @purchase.rid %></h3>
-  <span class="fr expand-collapse-text">Click to collapse</span>
-  <span class="fr expand-collapse-text initial-expand">Click to expand</span>
+  <span class="fr expand-collapse-text">Clique para esconder</span>
+  <span class="fr expand-collapse-text initial-expand">Clique para expandir</span>
 
 </div> <!-- end content-module-heading -->
 
@@ -56,8 +56,8 @@
 <div class="content-module-heading cf">
 
   <h3 class="fl">Produtos do pedido</h3>
-  <span class="fr expand-collapse-text">Click to collapse</span>
-  <span class="fr expand-collapse-text initial-expand">Click to expand</span>
+  <span class="fr expand-collapse-text">Clique para esconder</span>
+  <span class="fr expand-collapse-text initial-expand">Clique para expandir</span>
 
 </div> <!-- end content-module-heading -->
 
@@ -83,7 +83,9 @@
       <% @purchase.purchase_items.each do |item| %>
 
       <tr>
-        <td><img src="ag" width=46 height=46 /></td>
+        <td><%= link_to(
+                    image_tag(get_image(item.item.image), width: "100%", height: 'auto'),
+                    get_image(item.item.image), class: 'fancybox') %></td>
         <td><%= get_name item %></td>
         <td><%= monetize item.price %></td>
         <td><%= item.quantity %></td>

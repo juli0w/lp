@@ -15,6 +15,8 @@ class User < ActiveRecord::Base
     2 => "Administrador"
   }
 
+  scope :admins, -> { where(state: 2) }
+
   def self.admin
     where(state: 2).first
   end

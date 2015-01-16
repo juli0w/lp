@@ -1,18 +1,31 @@
-<div class="band top-menu">
-  <div class="container">
-    <div class="sixteen columns">
-      <nav class="navbar">
-        <ul class="nav">
-          <li><%= link_to "Carrinho", cart_index_path %></li>
-          <% unless user_signed_in? %>
-            <li><%= link_to "Login", new_user_session_path %></li>
-            <li><%= link_to "Cadastrar", new_user_registration_path %></li>
-          <% else %>
-            <li><%= link_to "Minha conta", dashboard_index_path %></li>
-          <% end %>
-          <li><%= link_to "Contato", home_contact_path %></li>
-        </ul>
-      </nav>
-    </div>
-  </div>
-</div>
+<!-- TOP BAR -->
+<div id="top-bar">
+  
+  <div class="page-full-width cf">
+
+    <ul id="nav" class="fl">
+
+      <% if user_signed_in? %>
+        <li class="v-sep"><%= link_to "Logado como #{current_user.profile.try(:name) || current_user.email}", dashboard_index_path, class: "round button dark menu-user image-left" %>
+        <ul>
+          <li><%= link_to "Minhas informações",  dashboard_profile_path %></li>
+          <li><%= link_to "Meus pedidos",  purchases_path %></li>
+          <li><%= link_to "Sair",  destroy_user_session_path, :method => :delete %></li>
+        </ul> 
+      </li>
+      <% else %>
+        <li><%= link_to "Login",  new_user_session_path, class: "round button dark menu-logoff image-left" %></li>
+        <li class="v-sep"><%= link_to "Cadastrar",  new_user_registration_path, class: "round button dark menu-user image-left" %></li>
+      <% end %>
+      <li class="v-sep"><%= link_to "Ver carrinho", cart_index_path, class: "round button dark menu-cart image-left" %></li>
+    
+      <li><%= link_to "Contato", home_contact_path, class: "round button dark menu-email image-left" %></li>
+      <% if user_signed_in? %>
+        <li><%= link_to "Sair",  destroy_user_session_path, :method => :delete, class: "round button dark menu-logoff image-left" %></li>
+      <% end %>
+      
+    </ul> <!-- end nav -->
+
+  </div> <!-- end full-width -->  
+
+</div> <!-- end top-bar -->

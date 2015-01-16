@@ -16,13 +16,13 @@
       <td align="center" width="15%">Total</td>
     </tr>
 
-    <% @purchase.purchase_items.each do |item| %>
+    <% @purchase.purchase_items.each do |i| %>
       <tr>
         <td><img src="ag" width=46 height=46 /></td>
-        <td><%= item.product.name %></td>
-        <td align="center"><%= monetize item.price %></td>
-        <td align="center"><%= item.quantity %></td>
-        <td align="center"><%= monetize item.total %></td>
+        <td><%= i.item.name %></td>
+        <td align="center"><%= monetize i.price %></td>
+        <td align="center"><%= i.quantity %></td>
+        <td align="center"><%= monetize i.total %></td>
       </tr>
     <% end %>
   </table>

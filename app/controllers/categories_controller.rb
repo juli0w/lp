@@ -4,14 +4,27 @@ class CategoriesController < ApplicationController
   before_filter :authenticate_admin!, except: :show
   layout 'admin'
 
+  def importation
+  end
+
+  def import
+    if params[:familias].blank? or params[:grupos].blank? or params[:subgrupos].blank?
+      redirect_to importation_categories_path, alert: "Envie todos os arquivos"
+    else
+      Category.import(params[:familias], params[:grupos], params[:subgrupos])
+      redirect_to categories_path, notice: "Categorias importadas"
+    end
+  end
+
   def show
     @category = Category.find(params[:id])
-    @products = Kaminari.paginate_array(sort(Category.load_products(params[:id]))).page(params[:page]).per(show_param)
+    @items    = Kaminari.paginate_array(sort(Category.load_products(params[:id]))).page(params[:page]).per(20)
     render layout: 'application'
   end
 
   def index
     @categories_root = Category.roots
+    # @categories_root = Category.all
   end
 
   def new
@@ -48,10 +61,9 @@ class CategoriesController < ApplicationController
     end
   end
 
-  def destroy
-    @category = Category.find(params[:id])
-    @category.destroy
+  def format
+    Category.delete_all
 
-    redirect_to categories_path
+    redirect_to importation_categories_path, notice: "Categorias deletadas"
   end
 end

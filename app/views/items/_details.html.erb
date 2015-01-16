@@ -1,0 +1,45 @@
+<%= render "items/filter" %>
+
+<div class="product-details">
+  <div class="row details-head">
+
+    <div class="product">
+      <div class="product-details" style="margin-left: 37px">
+        Produto
+      </div>
+
+      <div class="">
+        Preço
+      </div>
+    </div>
+
+  </div>
+
+  <% @items.find_each do |item| %>
+    <div class="row">
+
+      <div class="product" id="product-<%= product.id %>">
+        <div class="product-image">
+          <%= image_tag get_image(item.image.mini), width: 35, height: 35 %>
+        </div>
+
+        <div class="product-details">
+          <%= item.name %>
+        </div>
+
+        <div class="price">
+          <small>a partir de<br /></small>
+          <%= monetize item.price %>
+        </div>
+
+        <div class="product-actions right">
+          <%= link_to "Comprar", item, class: "btn btn-carrinho" %>
+        </div>
+      </div>
+
+    </div>
+
+  <% end %>
+</div>
+
+<%= paginate @items %>

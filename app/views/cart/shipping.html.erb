@@ -1,19 +1,22 @@
-<div class="row sixteen columns content cart cart-confirm format-form">
+<div class="content-module-heading cf">
 
-<div class="title">
-  <h3>Dados de Entrega</h3>
-</div>
+  <h3 class="fl">Dados de entrega</h3>
+  <span class="fr expand-collapse-text">Clique para esconder</span>
+  <span class="fr expand-collapse-text initial-expand">Clique para expandir</span>
 
-<%= form_for @purchase, url: cart_purchase_path, method: :post do |f| %>
+</div> <!-- end content-module-heading -->
 
-  <fieldset>
 
-      <span class="cf">
-        <p class="fl">
-          <%= f.label :name %>
-          <%= f.text_field :name, class: "round default-width-input" %>
-        </p>
-      </span>
+<div class="content-module-main cf">
+
+  <%= simple_form_for @purchase, url: cart_purchase_path, method: :post do |f| %>
+
+    <fieldset>
+
+      <p>
+        <%= f.label :name %>
+        <%= f.text_field :name, class: "round full-width-input", autofocus: true %>
+      </p>
 
       <span class="cf">
         <p class="fl">
@@ -29,7 +32,7 @@
 
       <p>
         <%= f.label :cep %>
-        <%= f.text_field :cep, class: "round default-width-input" %>
+       <%= f.text_field :cep, class: "round default-width-input" %>
       </p>
 
       <span class="cf">
@@ -53,12 +56,12 @@
 
         <p class="fl">
           <%= f.label :address %>
-          <%= f.text_field :address, class: "round default-width-input" %>
+         <%= f.text_field :address, class: "round default-width-input" %>
         </p>
 
         <p class="fl" style="margin-left: 20px">
           <%= f.label :number %>
-          <%= f.text_field :number, class: "round", style: "width: 50px;" %>
+         <%= f.text_field :number, class: "round", style: "width: 50px;" %>
         </p>
 
       </span>
@@ -68,13 +71,15 @@
         <%= f.text_field :complement, class: "round full-width-input" %>
       </p>
 
-  </fieldset>
+      <div class="stripe-separator"><!--  --></div>
+      
+      <span class="cf">
+        <%= link_to "Voltar para o carrinho", cart_index_path, class: "button fl round blue image-left ic-left-arrow" %>
+        <%= f.submit "Confirmar dados", class: "button round text-upper green fr image-right ic-right-arrow" %>
+      </span>  
+    </fieldset>
 
-  <div class="row checkout">
-    <%= link_to "Voltar para o carrinho", cart_index_path, class: "back" %>
-    <%= f.submit "Confirmar dados", class: "checkout-btn" %>
-  </div>
 
-<% end %>
+  <% end %>
 
 </div>

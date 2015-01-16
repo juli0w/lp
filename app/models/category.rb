@@ -1,12 +1,18 @@
 class Category < ActiveRecord::Base
   include ActsAsTree
-  attr_accessible :name, :parent_id, :active
+  attr_accessible :name, :parent_id, :active, :alternative_id, :level
 
   scope :actives, -> { where(active: true) }
 
   acts_as_tree order: "id"
 
-  has_many :products
+  has_many :items
+
+  def self.import familias, grupos, subgrupos
+    ImportationEngine.import(familias, grupos, subgrupos)
+
+    return true
+  end
 
   def self.load_products id
     categories = [id.to_i]
@@ -19,10 +25,10 @@ class Category < ActiveRecord::Base
       end
     end
 
-    products = []
+    items = []
 
-    categories.each {|c| products = products + self.find(c).products }
+    categories.each {|c| items = items + self.find(c).items }
 
-    return products.uniq
+    return items.uniq
   end
 end

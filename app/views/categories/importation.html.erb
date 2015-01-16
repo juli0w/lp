@@ -1,0 +1,41 @@
+<div class="content-module-heading cf">
+
+  <h3 class="fl">Importar Categorias</h3>
+  <span class="fr expand-collapse-text">Clique para esconder</span>
+  <span class="fr expand-collapse-text initial-expand">Clique para expandir</span>
+
+</div> <!-- end content-module-heading -->
+
+
+<div class="content-module-main cf">
+
+  <%= form_tag import_categories_path, multipart: true do %>
+
+	  <fieldset>
+
+	    <p>
+	      <%= label_tag :familias, "Famílias" %>
+	      <%= file_field_tag :familias, class: "round full-width-input" %>
+	    </p>
+
+	    <p>
+	      <%= label_tag :grupos, "Grupos" %>
+	      <%= file_field_tag :grupos, class: "round full-width-input" %>
+	    </p>
+
+	    <p>
+	      <%= label_tag :subgrupos, "Subgrupos" %>
+	      <%= file_field_tag :subgrupos, class: "round full-width-input" %>
+	    </p>
+
+	    <div class="stripe-separator"><!--  --></div>
+	    
+	    <%= link_to "Formatar", format_categories_path, method: :delete, class: "button round blue image-right ic-cancel", confirm: "Isso irá excluir todas as categorias. Continuar?" %>
+
+	    <%= submit_tag "Importar", class: "button round blue image-right ic-right-arrow" %>
+	  
+	  </fieldset>
+
+	<% end %>
+
+</div>

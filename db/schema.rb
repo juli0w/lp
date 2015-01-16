@@ -11,11 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140901180035) do
+ActiveRecord::Schema.define(:version => 20141217165757) do
 
   create_table "cache_products", :force => true do |t|
     t.integer  "cache_type"
-    t.integer  "product_id"
+    t.integer  "item_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -23,22 +23,24 @@ ActiveRecord::Schema.define(:version => 20140901180035) do
   create_table "categories", :force => true do |t|
     t.string   "name"
     t.integer  "parent_id"
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
-    t.boolean  "active",     :default => true
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
+    t.boolean  "active",         :default => true
+    t.integer  "alternative_id"
+    t.integer  "level"
   end
 
-  create_table "colors", :force => true do |t|
+  create_table "items", :force => true do |t|
     t.string   "name"
-    t.string   "code"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.string   "description"
+    t.integer  "external_id"
+    t.string   "um"
+    t.decimal  "price",       :precision => 10, :scale => 2
+    t.boolean  "active"
+    t.string   "image"
     t.integer  "category_id"
-  end
-
-  create_table "colors_products", :force => true do |t|
-    t.integer "product_id"
-    t.integer "color_id"
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
   end
 
   create_table "messages", :force => true do |t|
@@ -61,23 +63,6 @@ ActiveRecord::Schema.define(:version => 20140901180035) do
     t.integer  "page_type",  :default => 0
   end
 
-  create_table "products", :force => true do |t|
-    t.string   "name"
-    t.decimal  "price",       :precision => 10, :scale => 2
-    t.integer  "category_id"
-    t.datetime "created_at",                                                   :null => false
-    t.datetime "updated_at",                                                   :null => false
-    t.string   "image"
-    t.text     "description"
-    t.boolean  "active",                                     :default => true
-  end
-
-  create_table "products_sizes", :force => true do |t|
-    t.integer "product_id"
-    t.integer "size_id"
-    t.decimal "price",      :precision => 10, :scale => 2
-  end
-
   create_table "profiles", :force => true do |t|
     t.string   "name"
     t.string   "cep"
@@ -96,7 +81,7 @@ ActiveRecord::Schema.define(:version => 20140901180035) do
 
   create_table "purchase_items", :force => true do |t|
     t.integer  "purchase_id"
-    t.integer  "product_id"
+    t.integer  "item_id"
     t.integer  "quantity"
     t.datetime "created_at",                                 :null => false
     t.datetime "updated_at",                                 :null => false
@@ -137,13 +122,6 @@ ActiveRecord::Schema.define(:version => 20140901180035) do
 
   add_index "redactor_assets", ["assetable_type", "assetable_id"], :name => "idx_redactor_assetable"
   add_index "redactor_assets", ["assetable_type", "type", "assetable_id"], :name => "idx_redactor_assetable_type"
-
-  create_table "sizes", :force => true do |t|
-    t.string   "name"
-    t.string   "code"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
 
   create_table "ticket_repplies", :force => true do |t|
     t.integer  "ticket_id"

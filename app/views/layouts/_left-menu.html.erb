@@ -1,23 +1,21 @@
-<nav class="left-menu">
-  <% @categories_root.each do |category_root| %>
+<% @categories_root.each do |category_root| %>
 
-      <% if category_root.children.any? %>
+    <% if category_root.children.any? %>
 
-        <% category_root.children.actives.each do |category| %>
+      <% category_root.children.actives.each do |category| %>
 
-          <h2><%= category.name %></h2>
-            
-          <ul>
-            <% category.children.actives.each do |subcategory| %>
-              <li><%= link_to subcategory.name, subcategory %></li>
-            <% end %>
-          </ul>
-
-        <% end %>
+        <h3><%= category.name %></h3>
+          
+        <ul>
+          <% category.children.actives.first(6).each do |subcategory| %>
+            <li><%= link_to subcategory.name, subcategory %></li>
+          <% end %>
+        </ul>
 
       <% end %>
 
-    </li>
+    <% end %>
 
-  <% end %>
-</nav>
+  </li>
+
+<% end %>

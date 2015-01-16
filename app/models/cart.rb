@@ -8,12 +8,12 @@ class Cart
   def to_purchase user_id
     purchase = Purchase.create(user_id: user_id)
 
-    self.items.each do |item|
+    self.items.each do |i|
       purchase.purchase_items.create({
-        product_id: item.product_id,
-          quantity: item.quantity,
-             price: item.price,
-           options: item.opts })
+           item_id: i.item_id,
+          quantity: i.quantity,
+             price: i.price,
+           options: i.opts })
     end
 
     purchase
@@ -28,31 +28,28 @@ class Cart
   end
 
   def remove sku
-    self.items.delete_if do |item|
-      item.sku == sku
+    self.items.delete_if do |i|
+      i.sku == sku
     end
   end
 
   def update sku, quantity
-    self.items.each do |item|
-      if (item.sku == sku)
-        item.update(quantity)
+    self.items.each do |i|
+      if (i.sku == sku)
+        i.update(quantity)
       end
     end
   end
 
-  def add_item item_id, color_id='', size_id=''
+  def add_item item_id
     quantity ||= 1
 
-    item = self.items.select do |item|
-      item.sku == CartItem.get_sku(item_id,
-                                   color_id: color_id,
-                                   size_id: size_id)
+    item = self.items.select do |i|
+      i.sku == CartItem.get_sku(item_id)
     end.first
 
     if item.blank?
-      self.items << CartItem.new(item_id, quantity,
-                                 color_id: color_id, size_id: size_id)
+      self.items << CartItem.new(item_id, quantity)
     else
       item.quantity += quantity
     end

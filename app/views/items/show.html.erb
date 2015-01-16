@@ -1,0 +1,35 @@
+<div class="content-module-heading cf">
+
+  <h3 class="fl"><%= @item.name %></strong></h3>
+  <span class="fr expand-collapse-text">Clique para esconder</span>
+  <span class="fr expand-collapse-text initial-expand">Clique para expandir</span>
+
+</div> <!-- end content-module-heading -->
+
+<div class="content-module-main cf">
+
+  <div class="cf">
+    <%= link_to ( 
+                image_tag get_image(@item.image), width: '100%', height: 150
+              ), get_image(@item.image_url), class: "product-image-show fl fancybox" %>
+    <span class="product-desc fl">
+      <%= @item.description.try(:html_safe) %>
+      <div class="stripe-separator"><!--  --></div>
+
+    <% if @item.active %>
+      <%= form_tag add_to_cart_item_path(@item) do %>
+        <fieldset>
+          <!-- <p> -->
+            Qtd:
+            <%= number_field_tag :quantity, 1, min: 1, class: "round", style: "width: 50px;" %>
+          <!-- </p> -->
+          
+          <%= submit_tag 'Adicionar ao carrinho', class: 'button round blue image-right ic-right-arrow' %>
+        </fieldset>
+      <% end %>
+    <% else %>
+      Produto fora de estoque! Entre em contato conosco para encomenda.
+    <% end %>
+    </span>
+  </div>
+</div>

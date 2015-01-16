@@ -1,11 +1,41 @@
-<div class="three columns">
-  <%= render "layouts/left-menu" %>
-</div>
+<div class="content-module-heading cf">
 
-<div class="thirteen columns content">
+<h3 class="fl"><%= breadcumb(@category) %></h3>
+<span class="fr expand-collapse-text">Clique para esconder</span>
+<span class="fr expand-collapse-text initial-expand">Clique para expandir</span>
 
-  <span class="breadcumb cf"><%= breadcumb(@category) %></span>
+</div> <!-- end content-module-heading -->
 
-  <%= render "products/product_listing" %>
+<div class="content-module-main cf">
+
+<table>
   
+  <tbody>
+
+  	<% @items.in_groups_of(4, false).each do |row| %>
+
+      <tr>
+
+        <% row.each do |item| %>
+
+          <%= render 'home/items', item: item %>
+
+        <% end %>
+
+      </tr>
+
+    <% end %>
+
+  </tbody>
+  
+</table>
+
+<% if @items.num_pages > 1 %>
+
+  <div class="stripe-separator"><!--  --></div>
+
+  <%= paginate @items %>
+
+<% end %>
+
 </div>

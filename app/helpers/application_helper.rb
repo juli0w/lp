@@ -61,19 +61,11 @@ module ApplicationHelper
     image.blank? ? "/assets/no-image.jpg" : image
   end
 
-  def get_name item
-    opts = item.respond_to?(:opts) ? item.opts : item.options
+  def get_name i
+    opts = i.respond_to?(:opts) ? i.opts : i.options
 
-    name = item.product.name
-
-    unless opts[:color_id].blank?
-      name += " - #{item.color_name}"
-    end
-
-    unless opts[:size_id].blank?
-      name += " - #{item.size_name}"
-    end
-
+    name = i.item.name
+    
     return name
   end
 end

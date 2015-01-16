@@ -16,8 +16,8 @@ class CartController < ApplicationController
   end
 
   def update
-    params['product'].each do |product_id, quantity|
-      current_cart.update_quantity product_id, quantity
+    params['item'].each do |item_id, quantity|
+      current_cart.update_quantity item_id, quantity
     end
 
     redirect_to cart_index_path, notice: "Carrinho atualizado com sucesso."

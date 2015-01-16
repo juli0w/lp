@@ -22,16 +22,11 @@ class MessagesController < ApplicationController
   end
 
   def contact
-    User.where(state: 2).each do |user|
-      @message = Message.create({
-        message: "Nome: #{params[:message][:name]}
-        <br />Email: #{params[:message][:email]}
-        <br />Mensagem: #{params[:message][:message]}",
-        user_id: user.id,
-        subject: "Contato"})
+    if Message.send_to_admins(params[:message])
+      redirect_to :back, alert: "Agradecemos sua mensagem!"
+    else
+      redirect_to :back, alert: "Preencha todos os campos corretamente"
     end
-
-    redirect_to :back, alert: "Agradecemos sua mensagem!"
   end
 
   def create

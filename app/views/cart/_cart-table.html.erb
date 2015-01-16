@@ -1,0 +1,62 @@
+<%= form_tag cart_update_path, method: :put, class: "cf" do %>
+
+<table>
+
+    <thead>
+
+      <tr>
+        <th></th>
+        <th>Produtos</th>
+        <th width="13%">Preço</th>
+        <th width="13%">Qtd</th>
+        <th width="13%">Total</th>
+        <th width="6%"></th>
+      </tr>
+    
+    </thead>
+    
+    <tbody>
+
+      <% current_cart.items.each do |i| %>
+
+        <tr>
+          <td><%= link_to(
+                    image_tag(get_image(i.item.image), width: "100%", height: 'auto'),
+                    get_image(i.item.image), class: 'fancybox') %></td>
+          <td><%= i.item.name %></td>
+          <td><%= monetize i.price %></td>
+          <td><%= number_field_tag "item[#{i.sku}]", i.quantity, min: 1, class: "round", style: "width: 50px; font-size: 12px;" %></td>
+          <td><%= monetize i.total %></td>
+          <td><%= link_to "remover", remove_cart_path(i.sku), method: :put, class: "remove fr" %></td>
+        </tr>
+
+      <% end %>
+
+      <tr style="font-weight: bold; text-transform: uppercase;">
+        <td colspan=2></td>
+        <td colspan=2 align="right">Total:</td>
+        <td height="50"><%= monetize current_cart.total %></td>
+        <td></td>
+      </tr>
+
+    </tbody>
+    
+</table>
+
+
+<%= submit_tag "Atualizar carrinho", class: "button round dark image-right ic-refresh fr" %>
+
+<% end %>
+
+<div class="stripe-separator"><!--  --></div>
+  
+<%= link_to "Continuar comprando", root_path, class: "button round blue image-right ic-add" %>
+<%= link_to "Limpar carrinho", cart_clean_path, confirm: "Deseja limpar sua compra?", class: "button round blue image-right ic-delete" %>
+
+<% if current_cart.total >= 30 %>
+  <%= link_to "Finalizar pedido", cart_shipping_path, class: "button text-upper round green image-right ic-right-arrow fr" %>
+<% else %>
+  <span class="right" style="padding-top: 5px;">
+    O valor mínimo para a compra online é de R$ 30,00 !
+  </span>
+<% end %>

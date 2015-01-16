@@ -19,15 +19,15 @@
         </div>
       </li>
 
-      <% current_cart.items.each do |item| %>
+      <% current_cart.items.each do |i| %>
         <li>
           <img src="ag" width=46 height=46>
-          <%= link_to item.product.name, "javascript:void();" %>
+          <%= link_to i.item.name, "javascript:void();" %>
           <div class="details right">
-            <span class="unit-price"><%= monetize item.price %></span>
-            <span class="quantity"><%= text_field_tag "product[#{item.product_id}]", item.quantity %></span>
-            <span class="price"><%= monetize item.total %></span>
-            <%= link_to "", remove_cart_path(item.product_id), method: :put, class: "remove right" %>
+            <span class="unit-price"><%= monetize i.price %></span>
+            <span class="quantity"><%= text_field_tag "item[#{i.item_id}]", i.quantity %></span>
+            <span class="price"><%= monetize i.total %></span>
+            <%= link_to "", remove_cart_path(i.item_id), method: :put, class: "remove right" %>
           </div>
         </li>
       <% end %>

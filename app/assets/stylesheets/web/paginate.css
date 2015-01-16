@@ -1,20 +1,17 @@
 .pagination {
-  font-size: 14px;
-  margin: 15px 0 10px 0;
+  font-size: 12px;
 }
 
 .pagination span a {
   padding: 6px 8px;
-  background-color: #ffffff;
+  background-color: #f8f9fa;
   color: #2a2e36;
-  border: 1px solid #dedede;
   margin: 0;
-  text-decoration: none;
 }
 
 .pagination span a:hover {
   color: #ffffff;
-  background-color: #2a2e36;
+  background-color: #3f4551;
 }
 
 .pagination span.current {

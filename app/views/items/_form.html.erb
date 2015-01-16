@@ -1,0 +1,43 @@
+<%= simple_form_for(@item) do |f| %>
+
+  <fieldset>
+
+    <p>
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "round full-width-input", autofocus: true %>
+    </p>
+
+    <p>
+      <%= f.label :category_id %>
+      <%= f.collection_select :category_id, @categories, :id, :name, include_blank: true, class: "round default-width-input" %>
+    </p>
+
+    <p>
+      <%= f.label :price %>
+      <%= f.text_field :price, class: "round small-width-input" %>
+    </p>
+
+    <p>
+      <%= f.label :description %>
+      <%= f.text_area :description, class: "redactor" %>
+    </p>
+
+    <p>
+      <%= f.label :image %>
+      <%= image_tag(@item.image.thumb) if @item.image? %>
+      <%= f.file_field :image %>
+      <%= f.hidden_field :image_cache %>
+    </p>
+
+    <p>
+      <%= f.label :active, "Disponível em estoque" %>
+      <%= f.check_box :active %>
+    </p>
+
+    <div class="stripe-separator"><!--  --></div>
+    
+    <%= f.submit "Salvar", class: "button round blue image-right ic-right-arrow" %>
+  
+  </fieldset>
+
+<% end %>

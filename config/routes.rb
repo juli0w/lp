@@ -22,7 +22,7 @@ Lojadopintor::Application.routes.draw do
   get "cart/clean"
   put "cart/update"
   get "cart/shipping"
-  put "cart/remove/:sku",     action: :remove, controller: :cart, as: "remove_cart"
+  put "cart/remove/:sku",    action: :remove, controller: :cart, as: "remove_cart"
   get "cart/payment/:token", action: :payment, controller: :cart, as: "payment_cart"
   post "cart/purchase"
 
@@ -76,19 +76,40 @@ Lojadopintor::Application.routes.draw do
 
     resources :ticket_repplies, only: :create
   end
-  resources :colors
-  resources :sizes
-  resources :categories
+  
+  # resources :colors
+  # resources :sizes
+
+  resources :categories do
+    collection do
+      get :importation
+      post :import
+      delete :format
+    end
+  end
   resources :pages, except: :show
   get "pages/:slug", controller: :pages, action: :show
 
-  resources :products do
+  # resources :products do
+  #   member do
+  #     post :add_to_cart
+  #   end
+  #   collection do
+  #     get :search
+  #     post :filter
+  #   end
+  # end
+
+  resources :items do
     member do
       post :add_to_cart
     end
     collection do
       get :search
       post :filter
+      get :importation
+      post :import
+      delete :format
     end
   end
 

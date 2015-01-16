@@ -1,60 +1,54 @@
-<div class="band main-menu">
-  <div class="container">
-    <div class="sixteen columns">
-      <nav class="navbar">
-        <ul class="nav primary_nav">
-          <% @categories_root.each do |category_root| %>
-            <li><%= link_to category_root.name, category_root %>
+<div id="navbar">
+  <div class="page-limited cf">
+    <ul class="primary_nav">
+      <% @categories_root.each do |category_root| %>
+        <li><%= link_to category_root.name, category_root %>
 
-              <% if category_root.children.actives.any? %>
-              <ul class="sub_menu">
+          <% if category_root.children.actives.any? %>
+          <ul class="page-limited sub_menu">
 
-                <% category_root.children.actives.each do |category| %>
-                  <li><%= link_to category.name, category %>
-                    <ul>
-                      <% category.children.actives.each do |subcategory| %>
-                        <li><%= link_to subcategory.name, subcategory %></li>
-                      <% end %>
-                    </ul>
-                  </li>
-                <% end %>
-              </ul>
-              <% end %>
-
-            </li>
-
-          <% end %>
-
-          <li><%= link_to "Navegação", "#" %>
-            <ul class="sub_menu">
-              <% [["Empresa", :company],
-                  ["Notícias", :notices],
-                  ["Páginas", :pages]].each do |category| %>
-                <li><%= category[0] %>
-                  <ul>
-                    <% Page.send(category[1]).each do |page| %>
-                      <li><%= link_to page.title, page %></li>
-                    <% end %>
-                  </ul>
-                </li>
-              <% end %>
-            </ul>
-          </li>
-
-          <li><%= link_to "Simulador de ambientes", "#" %>
-            <ul class="sub_menu">
-              <li>Simulador de ambientes
+            <% category_root.children.actives.each do |category| %>
+              <li><%= link_to category.name, category %>
                 <ul>
-                  <li><%= link_to "Resicolor", simulador_resicolor_path %></li>
-                  <li><%= link_to "Metalatex", simulador_metalatex_path %></li>
+                  <% category.children.actives.each do |subcategory| %>
+                    <li><%= link_to subcategory.name, subcategory %></li>
+                  <% end %>
                 </ul>
               </li>
+            <% end %>
+          </ul>
+          <% end %>
+
+        </li>
+
+      <% end %>
+
+      <li><%= link_to "Navegação", "#" %>
+        <ul class="page-limited sub_menu">
+          <% [["Empresa", :company],
+              ["Notícias", :notices],
+              ["Páginas", :pages]].each do |category| %>
+            <li><%= category[0] %>
+              <ul>
+                <% Page.send(category[1]).each do |page| %>
+                  <li><%= link_to page.title, page %></li>
+                <% end %>
+              </ul>
+            </li>
+          <% end %>
+        </ul>
+      </li>
+
+      <li><%= link_to "Simulador de ambientes", "#" %>
+        <ul class="page-limited sub_menu">
+          <li>Simulador de ambientes
+            <ul>
+              <li><%= link_to "Resicolor", simulador_resicolor_path %></li>
+              <li><%= link_to "Metalatex", simulador_metalatex_path %></li>
             </ul>
           </li>
         </ul>
-
-        
-      </nav>
-    </div>
+      </li>
+    </ul>
   </div>
 </div>

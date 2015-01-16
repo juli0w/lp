@@ -1,8 +1,8 @@
 <div class="content-module-heading cf">
 
   <h3 class="fl">Categorias</h3>
-  <span class="fr expand-collapse-text">Click to collapse</span>
-  <span class="fr expand-collapse-text initial-expand">Click to expand</span>
+  <span class="fr expand-collapse-text">Clique para esconder</span>
+  <span class="fr expand-collapse-text initial-expand">Clique para expandir</span>
 
 </div> <!-- end content-module-heading -->
 
@@ -13,9 +13,9 @@
 
   <% @categories_root.each do |category_root| %>
 
-    <li><%= category_root.name %> - <%= link_to "editar", [:edit, category_root] %> <%= link_to "excluir", category_root, method: :delete, confirm: "confirma exclusão?" %>
+    <li><%= category_root.name %> - <%= category_root.parent_id %> <%= link_to "editar", [:edit, category_root] %> <%= link_to "excluir", category_root, method: :delete, confirm: "confirma exclusão?" %>
 
-      <ul>
+     <ul>
 
         <% category_root.children.each do |category| %>
 
@@ -46,5 +46,6 @@
   <div class="stripe-separator"><!--  --></div>
   
   <%= link_to "Nova categoria", new_category_path, class: "button round blue image-right ic-right-arrow" %>
+  <%= link_to "Importar", importation_categories_path, class: "button round blue image-right ic-favorite" %>
 
 </div>

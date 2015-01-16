@@ -1,11 +1,11 @@
 class CartItem
-  attr_accessor :sku, :product_id, :quantity, :price, :opts
+  attr_accessor :sku, :item_id, :quantity, :price, :opts
 
-  def initialize product_id, quantity=1, opts={}
-    self.product_id = product_id
+  def initialize item_id, quantity=1, opts={}
+    self.item_id = item_id
     self.quantity   = quantity
     self.opts       = opts
-    self.sku        = CartItem.get_sku(product_id, opts)
+    self.sku        = CartItem.get_sku(item_id, opts)
     
     calculate_price!
   end
@@ -15,13 +15,7 @@ class CartItem
   end
 
   def calculate_price
-    size_id = self.opts[:size_id]
-
-    if size_id.blank?
-      return self.product.price
-    else
-      ProductSize.find(size_id).price
-    end
+    return self.item.price
   end
 
   def update quantity
@@ -32,19 +26,19 @@ class CartItem
     self.price.to_f * self.quantity.to_f
   end
 
-  def product
-    Product.find(self.product_id)
+  def item
+    Item.find(self.item_id)
   end
 
-  def color_name
-    Color.find(opts[:color_id]).name
-  end
+  # def color_name
+  #   Color.find(opts[:color_id]).name
+  # end
 
-  def size_name
-    ProductSize.find(opts[:size_id]).size.name
-  end
+  # def size_name
+  #   ProductSize.find(opts[:size_id]).size.name
+  # end
 
-  def self.get_sku product_id, opts={}
-    "#{product_id}-#{opts[:color_id]}-#{opts[:size_id]}"
+  def self.get_sku item_id, opts={}
+    "#{item_id}"
   end
 end

@@ -1,12 +1,12 @@
 # encoding: UTF-8
 class HomeController < ApplicationController
   def index
-    @products = {}
+    @items = {}
 
-    @products["Mais vendidos"] = CacheProduct.where("cache_type = 0").last(4).map(&:product)
-    @products["Últimos comprados"] = CacheProduct.where("cache_type = 1").last(4).map(&:product)
-    @products["Recomendados"] = CacheProduct.where("cache_type = 2").last(4).map(&:product)
-    @products["Novidades"] = Product.last(4)
+    @items["Novidades"] = Item.last(4)
+    @items["Mais vendidos"] = CacheProduct.where("cache_type = 0").last(4).map(&:product)
+    @items["Últimos comprados"] = CacheProduct.where("cache_type = 1").last(4).map(&:product)
+    @items["Recomendados"] = CacheProduct.where("cache_type = 2").last(4).map(&:product)
   end
 
   def resicolor
