@@ -20,6 +20,7 @@ end
 gem 'capistrano', '~> 3.1.0'
 gem 'capistrano-ext', '~> 1.2.1'
 gem 'capistrano-rails'
+gem 'capistrano-rvm'
 
 gem 'simple_form'
 gem 'devise'
