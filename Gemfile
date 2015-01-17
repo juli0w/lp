@@ -5,18 +5,20 @@ gem 'rails', '3.2.13'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-# group :production do
-# gem 'mysql2'
-# end
+group :production do
+  gem 'mysql2'
+end
 
-gem 'sqlite3'
+group :development do
+  gem 'sqlite3'
+end
 
+gem 'capistrano'
 gem 'simple_form'
 gem 'devise'
 gem 'acts_as_tree'
 gem 'kaminari'
 gem 'friendly_id', '~> 4.0.10'
-# gem 'imperavi-rails', '0.0.12.beta'
 gem 'redactor-rails'
 gem 'carrierwave'
 gem 'mini_magick'
@@ -35,13 +37,13 @@ end
 
 gem 'jquery-rails'
 
-group :development do
-  gem 'capistrano-ext'
-end
+# group :development do
+#   gem 'capistrano-ext'
+# end
 
-group :test do
-  gem 'rspec-rails'
-  gem 'factory_girl_rails'
-  gem 'capybara', '~> 1.0'
-  gem 'launchy'
-end
+# group :test do
+#   gem 'rspec-rails'
+#   gem 'factory_girl_rails'
+#   gem 'capybara', '~> 1.0'
+#   gem 'launchy'
+# end
