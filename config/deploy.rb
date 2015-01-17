@@ -1,6 +1,10 @@
 # config valid only for Capistrano 3.1
 lock '3.1.0'
 
+set :stages, %w(production staging)
+set :default_stage, "staging"
+require 'capistrano/ext/multistage'
+
 set :password, ask('Server password', nil)
 server '173.255.197.224', user: 'root', roles: %w{web app db}, password: fetch(:password)
 
