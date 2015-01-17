@@ -1,2 +1,2 @@
-set :application, 'lojadopintor_staging'
 set :branch, "capistrano"
+set :rails_env, 'staging'
