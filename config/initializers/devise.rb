@@ -4,7 +4,7 @@ Devise.setup do |config|
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class with default "from" parameter.
-  config.mailer_sender = "please-change-me-at-config-initializers-devise@example.com"
+  config.mailer_sender = "juli0w@hotmail.com"
 
   # Configure the class responsible to send e-mails.
   # config.mailer = "Devise::Mailer"
@@ -123,6 +123,8 @@ Devise.setup do |config|
   # ==> Configuration for :validatable
   # Range for password length. Default is 8..128.
   config.password_length = 8..128
+
+  config.secret_key = "1c969ca3e9e8af76d9ed38812068de43374a5a5ff88692fce6df54d7c0375a8fd8617ddf8a3216d81cddc3b7242c6623e6686f00015cadbfc4e9d310b0f985aa"
 
   # Email regex used to validate email formats. It simply asserts that
   # an one (and only one) @ exists in the given string. This is mainly

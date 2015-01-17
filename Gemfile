@@ -10,13 +10,14 @@ group :production, :staging do
   gem 'mysql2'
 end
 
-group :development do
+group :development, :staging do
   gem 'sqlite3'
 end
 
 
 # gem 'therubyracer', :platforms => :ruby
 
+gem 'nokogiri'
 gem 'capistrano', '~> 3.1.0'
 gem 'capistrano-ext', '~> 1.2.1'
 gem 'capistrano-rails'

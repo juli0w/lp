@@ -12,26 +12,3 @@
  *= require redactor-rails
  *= require_tree .
  */
-/*
-.color-product {
-  display: inline-block;
-  width: 25px;
-  height: 25px;
-}
-
-p.colors {
-  margin-bottom: 5px;
-  display: block;
-  width: 100%;
-}
-
-label.product-color {
-  display: inline;
-  border-left: 15px solid;
-  padding-left: 10px;
-}
-
-p.colors > span { width: 250px; }
-p.colors input, p.colors label, p.colors > span {
-  display: inline-block;
-}*/
