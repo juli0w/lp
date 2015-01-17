@@ -2,15 +2,22 @@
 lock '3.1.0'
 
 set :stages, %w(production staging)
-set :default_stage, "staging"
-require 'capistrano/ext/multistage'
 
 set :password, ask('Server password', nil)
 server '173.255.197.224', user: 'root', roles: %w{web app db}, password: fetch(:password)
 
+task :production do
+  set :rails_env, 'production'
+  set :deploy_to, "/var/www/#{fetch(:application)}_production"
+end
+
+task :staging do
+  set :rails_env, 'staging'
+  set :deploy_to, "/var/www/#{fetch(:application)}_staging"
+end
+
 set :repo_url, 'https://github.com/juli0w/lp.git'
 set :application, 'lojadopintor'
-set :deploy_to, "/var/www/#{fetch(:application)}_#{rails_env}"
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
