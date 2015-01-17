@@ -41,7 +41,7 @@ class Cart
     end
   end
 
-  def add_item item_id
+  def add_item item_id, quantity
     quantity ||= 1
 
     item = self.items.select do |i|

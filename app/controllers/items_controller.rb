@@ -74,7 +74,7 @@ class ItemsController < ApplicationController
   end
 
   def add_to_cart
-    current_cart.add_item(params[:id])
+    current_cart.add_item(params[:id], params[:quantity])
     redirect_to controller: :cart, action: :index
   end
 
