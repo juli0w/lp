@@ -2,15 +2,15 @@
 lock '3.1.0'
 
 set :password, ask('Server password', nil)
-set :application, 'lojadopintor'
+server '173.255.197.224', user: 'root', roles: %w{web app db}, password: fetch(:password)
+
 set :repo_url, 'https://github.com/juli0w/lp.git'
-set :branch, "capistrano"
+set :deploy_to, "/var/www/#{fetch(:application)}"
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
 # Default deploy_to directory is /var/www/my_app
-set :deploy_to, '/var/www/2lp2'
 set :deploy_via, :remote_cache
 set :tmp_dir, '/tmp/'
 
