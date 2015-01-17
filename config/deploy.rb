@@ -4,7 +4,7 @@ lock '3.1.0'
 set :password, ask('Server password', nil)
 set :application, 'lojadopintor'
 set :repo_url, 'https://github.com/juli0w/lp.git'
-set :branch, fetch(:branch, "capistrano")
+set :branch, "capistrano"
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
