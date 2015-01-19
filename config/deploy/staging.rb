@@ -1,2 +1,2 @@
-set :branch, "capistrano"
+set :branch, "staging"
 set :rails_env, 'staging'

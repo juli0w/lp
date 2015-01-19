@@ -33,7 +33,8 @@ GEM
     arel (3.0.3)
     bcrypt (3.1.9-x86-mingw32)
     builder (3.0.4)
-    capistrano (3.1.0)
+    capistrano (3.3.5)
+      capistrano-stats (~> 1.1.0)
       i18n
       rake (>= 10.0.0)
       sshkit (~> 1.3)
@@ -48,6 +49,7 @@ GEM
     capistrano-rvm (0.1.2)
       capistrano (~> 3.0)
       sshkit (~> 1.2)
+    capistrano-stats (1.1.1)
     carrierwave (0.10.0)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
@@ -164,7 +166,8 @@ PLATFORMS
 
 DEPENDENCIES
   acts_as_tree
-  capistrano (~> 3.1.0)
+  bcrypt
+  capistrano (~> 3.3.0)
   capistrano-ext (~> 1.2.1)
   capistrano-rails
   capistrano-rvm
