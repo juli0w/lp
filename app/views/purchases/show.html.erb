@@ -85,7 +85,7 @@
       <tr>
         <td><%= link_to(
                     image_tag(get_image(item.item.image), width: "100%", height: 'auto'),
-                    get_image(item.item.image), class: 'fancybox') %></td>
+                    get_image(item.item.image_url), class: 'fancybox') %></td>
         <td><%= get_name item %></td>
         <td><%= monetize item.price %></td>
         <td><%= item.quantity %></td>
