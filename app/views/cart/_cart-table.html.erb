@@ -22,7 +22,7 @@
         <tr>
           <td><%= link_to(
                     image_tag(get_image(i.item.image), width: "100%", height: 'auto'),
-                    get_image(i.item.image), class: 'fancybox') %></td>
+                    get_image(i.item.image_url), class: 'fancybox') %></td>
           <td><%= i.item.name %></td>
           <td><%= monetize i.price %></td>
           <td><%= number_field_tag "item[#{i.sku}]", i.quantity, min: 1, class: "round", style: "width: 50px; font-size: 12px;" %></td>
