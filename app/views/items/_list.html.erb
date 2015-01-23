@@ -1,38 +1,29 @@
-<%= render "items/filter" %>
+<table>
+  
+  <tbody>
 
-<div class="product-listing">
-  <% @items.in_groups_of(4, false).each do |row| %>
-    <div class="row">
+  	<% @items.in_groups_of(4, false).each do |row| %>
 
-      <% row.each do |item| %>
+      <tr>
 
-        <div class="product three columns" id="product-<%= item.id %>">
-          <div class="product-image">
-            <%= link_to ( 
-                image_tag get_image(item.image.thumb), width: 100, height: 100
-              ), item
-            %>
-          </div>
+        <% row.each do |item| %>
 
-          <div class="product-details">
-            <%= item.name %>
-          </div>
+          <%= render 'home/items', item: item %>
 
-          <div class="product-actions">
-            <span class="price left">
-              <small>a partir de</small><br />
-              <%= monetize item.price %>
-            </span>
-            <%= link_to "Comprar", item, class: "btn right btn-carrinho", 'data-hint'=>"Bounce" %>
-          </div>
-        </div>
+        <% end %>
 
-      <% end %>
+      </tr>
 
-    </div>
+    <% end %>
 
-    <div class="hr"></div>
-  <% end %>
-</div>
+  </tbody>
+  
+</table>
 
-<%= paginate @items %>
+<% if @items.num_pages > 1 %>
+
+  <div class="stripe-separator"><!--  --></div>
+
+  <%= paginate @items %>
+
+<% end %>

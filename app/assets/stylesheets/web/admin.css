@@ -646,10 +646,6 @@ div.content-module-main { padding: 1em; /* 16/16 */ }
 
 
 /* ---------- FOOTER ---------- */
-div#footer {
-  text-align: center;
-  padding: 1.875em 0; /* 30/16 */
-}
 
 #error_explanation {
   margin-bottom: 20px;

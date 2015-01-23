@@ -1,55 +1,50 @@
-<div class="band subfooter">
-  <footer class="container">
-    <div class="sixteen columns">
-      <div class="four columns">
-        <h4>Trilha sonora</h4>
-        <iframe width="200" height="100" src="//www.youtube.com/embed/HPpu4thU0ug" frameborder="0" allowfullscreen></iframe>
-      </div>
-
-      <div class="four columns">
-        <h4>Visite nossa página</h4>
-        <%= link_to image_tag("web/facebook.jpg", width: 100, height: 100), "https://www.facebook.com/lojadopintorjlle", target: "_blank" %>
-      </div>
+<div class="page-full-width first-layer cf">
+	<div class="page-limited cf">
+		<div class="column alpha">
+		  <h4>Trilha sonora</h4>
+      <iframe width="200" height="100" src="//www.youtube.com/embed/HPpu4thU0ug" frameborder="0" allowfullscreen></iframe>
+		</div>
+    <div class="column">
+      <h4>Visite nossa página</h4>
+      <%= link_to image_tag("web/facebook.jpg", width: 100, height: 100), "https://www.facebook.com/lojadopintorjlle", target: "_blank" %>
     </div>
-  </footer>
+	</div>
 </div>
 
-<div class="band footer">
-  <footer class="container">
-    <div class="sixteen columns">
-      <div class="four columns alpha">
-        <h4>Empresa</h4>
+<div class="page-full-width second-layer cf">
+	<div class="page-limited cf">
+    <div class="column alpha">
+      <h4>Empresa</h4>
 
-        <ul>
-          <% @company_pages.each do |page| %>
-            <li><%= link_to page.title, page %></li>
-          <% end %>
-        </ul>
-      </div>
-
-      <div class="four columns">
-        <h4>Notícias</h4>
-
-        <ul>
-          <% @notices.each do |page| %>
-            <li><%= link_to page.title, page %></li>
-          <% end %>
-        </ul>
-      </div>
-
-      <div class="four columns">
-        <h4>Páginas</h4>
-
-        <ul>
-          <% @pages.each do |page| %>
-            <li><%= link_to page.title, page %></li>
-          <% end %>
-        </ul>
-      </div>
-
-      <div class="four columns omega">
-        <%= image_tag "web/logo2.png", style: "float: right" %>
-      </div>
+      <ul>
+        <% @company_pages.each do |page| %>
+          <li><%= link_to page.title, page %></li>
+        <% end %>
+      </ul>
     </div>
-  </footer>
+
+    <div class="column">
+      <h4>Notícias</h4>
+
+      <ul>
+        <% @notices.each do |page| %>
+          <li><%= link_to page.title, page %></li>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="column">
+      <h4>Páginas</h4>
+
+      <ul>
+        <% @pages.each do |page| %>
+          <li><%= link_to page.title, page %></li>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="column omega">
+      <%= image_tag "web/logo2.png", style: "float: right" %>
+    </div>
+	</div>
 </div>

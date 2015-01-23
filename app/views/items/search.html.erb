@@ -1,11 +1,13 @@
-<div class="three columns">
-  <%= render "layouts/left-menu" %>
-</div>
+<div class="content-module-heading cf">
 
-<div class="thirteen columns content">
+<h3 class="fl">Resultados para pesquisa: <%= params[:q] %></h3>
+<span class="fr expand-collapse-text">Clique para esconder</span>
+<span class="fr expand-collapse-text initial-expand">Clique para expandir</span>
 
-  <span class="breadcumb cf">Resultados para pesquisa: <%= params[:q] %></span>
+</div> <!-- end content-module-heading -->
 
-  <%= render "products/product_listing" %>
-  
+<div class="content-module-main cf">
+
+  <%= render "items/list" %>
+
 </div>

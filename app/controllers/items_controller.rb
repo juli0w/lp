@@ -13,7 +13,7 @@ class ItemsController < ApplicationController
   end
 
   def index
-    @items = Item.unscoped.page(params[:page]).per(30)
+    @items = Item.unscoped.page(params[:page]).per(20)
   end
 
   # def new
@@ -64,14 +64,14 @@ class ItemsController < ApplicationController
   end
 
   def search
-    @items = Item.where("name LIKE ?", "%#{params[:q]}%").order(order_param).page(params[:page]).per(30)
+    @items = Item.where("name LIKE ?", "%#{params[:q]}%").page(params[:page]).per(20)
     render layout: 'application'
   end
 
-  def filter
-    @items = Item.where("name LIKE ?", "%#{params[:search]}%").page(params[:page]).per(30)
-    render :index
-  end
+  # def filter
+  #   @items = Item.where("name LIKE ?", "%#{params[:search]}%").page(params[:page]).per(20)
+  #   render :index
+  # end
 
   def add_to_cart
     current_cart.add_item(params[:id], params[:quantity])
