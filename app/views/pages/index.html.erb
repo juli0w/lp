@@ -55,5 +55,9 @@
   <div class="stripe-separator"><!--  --></div>
   
   <%= link_to "Nova página", new_page_path, class: "button round blue image-right ic-right-arrow" %>
+  
+  <%= link_to "Exportar CSV", pages_path(format: :csv), class: "button round blue image-right ic-download" %>
+  
+  <%= link_to "Importar CSV", importation_pages_path, class: "button round blue image-right ic-upload" %>
 
 </div> <!-- end content-module-main -->

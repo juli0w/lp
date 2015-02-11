@@ -87,7 +87,14 @@ Lojadopintor::Application.routes.draw do
       delete :format
     end
   end
-  resources :pages, except: :show
+
+  resources :pages, except: :show do
+    collection do
+      get :importation
+      post :import
+    end
+  end
+  
   get "pages/:slug", controller: :pages, action: :show
 
   # resources :products do

@@ -5,7 +5,18 @@ class PagesController < ApplicationController
   layout 'admin'
 
   def index
-    @pages = Page.page(params[:page])
+    respond_to do |format|
+      format.html { @pages = Page.page(params[:page]) }
+      format.csv { send_data Page.to_csv }
+    end
+  end
+  
+  def importation
+  end
+
+  def import
+    Page.from_csv(params[:csv])
+    redirect_to pages_path, notice: "Páginas importadas"
   end
 
   def show

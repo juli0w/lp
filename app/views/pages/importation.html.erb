@@ -1,0 +1,29 @@
+<div class="content-module-heading cf">
+
+  <h3 class="fl">Importar Páginas</h3>
+  <span class="fr expand-collapse-text">Clique para esconder</span>
+  <span class="fr expand-collapse-text initial-expand">Clique para expandir</span>
+
+</div> <!-- end content-module-heading -->
+
+
+<div class="content-module-main cf">
+
+  <%= form_tag import_pages_path, multipart: true do %>
+
+	  <fieldset>
+
+	    <p>
+	      <%= label_tag :csv, "Arquivo CSV" %>
+	      <%= file_field_tag :csv, class: "round full-width-input" %>
+	    </p>
+
+	    <div class="stripe-separator"><!--  --></div>
+
+	    <%= submit_tag "Importar", class: "button round blue image-right ic-right-arrow" %>
+	  
+	  </fieldset>
+
+	<% end %>
+
+</div>

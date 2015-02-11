@@ -21,7 +21,7 @@
   <!-- HEADER -->
   <div id="header-with-tabs">
     
-    <div class="page-full-width cf">
+    <div class="page-limited cf">
   
       <%= render "layouts/header" %>
 
@@ -34,7 +34,7 @@
   <!-- MAIN CONTENT -->
   <div id="content">
 
-    <div class="page-full-width cf">
+    <div class="page-limited cf">
       <% [notice, alert].each do |f| %>
         <% unless f.blank? %>
           <div class="information-box round flash"><%= notice || alert %></div>

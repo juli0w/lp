@@ -209,7 +209,7 @@ application.js: application-eac26537b9a9c149363ad75f1aec62c0.js
 application/index.js: application-eac26537b9a9c149363ad75f1aec62c0.js
 admin/application.css: admin/application-ac5c210d8aa84ee956c6a9e47f02b88d.css
 admin/application/index.css: admin/application-ac5c210d8aa84ee956c6a9e47f02b88d.css
-web/application.css: web/application-66a56dce34e73ef2fa77dcde8cfc00d2.css
-web/application/index.css: web/application-66a56dce34e73ef2fa77dcde8cfc00d2.css
+web/application.css: web/application-c1c9d40c7e6eb82615e4205a47cf9e04.css
+web/application/index.css: web/application-c1c9d40c7e6eb82615e4205a47cf9e04.css
 jquery.min.map: jquery.min-5869a20a1f112acc9f75361df82eb4fa.map
 jquery/index.min.map: jquery.min-5869a20a1f112acc9f75361df82eb4fa.map
