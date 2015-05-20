@@ -33,8 +33,14 @@
 
       <%= @purchase.get_state %>
 
-      <% if @purchase.state == 0 %>
+      <% if @purchase.state == 0 and false %>
+      
         <%= render "payment", purchase: @purchase %>
+      
+      <% else %>
+      
+        Ainda não estamos aceitando pagamento online, favor entrar em contato por telefone!
+      
       <% end %>
 
     </div>

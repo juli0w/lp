@@ -3,6 +3,7 @@ class Category < ActiveRecord::Base
   attr_accessible :name, :parent_id, :active, :alternative_id, :level
 
   scope :actives, -> { where(active: true) }
+#  scope :got, -> { where(self.items.size > 0) }
 
   acts_as_tree order: "id"
 
