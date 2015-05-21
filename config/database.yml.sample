@@ -1,0 +1,6 @@
+staging:
+  adapter: sqlite3
+  encoding: utf8
+  reconnect: false
+  database: db/lojadopintor_staging.sqlite3
+  pool: 5
