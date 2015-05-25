@@ -10,8 +10,8 @@
             <% category_root.children.actives.each do |category| %>
               <li><%= link_to category.name, category %>
                 <ul>
-                  <% category.children.actives.each do |subcategory| %>
-                    <li><%= link_to subcategory.name, subcategory %></li>
+                  <% category.most_popular.each do |subcategory| %>
+                    <li><%= link_to "#{subcategory.name} (#{subcategory.items.size})", subcategory %></li>
                   <% end %>
                 </ul>
               </li>

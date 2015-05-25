@@ -3,11 +3,15 @@ class Category < ActiveRecord::Base
   attr_accessible :name, :parent_id, :active, :alternative_id, :level
 
   scope :actives, -> { where(active: true) }
-#  scope :got, -> { where(self.items.size > 0) }
+  scope :gots, -> { joins(:items).group('categories.alternative_id').having('count(items.id) > 0') }
 
   acts_as_tree order: "id"
 
   has_many :items
+  
+  def most_popular
+    self.children.gots.actives.to_a.sort_by {|e| e.items.size}.reverse.first(15)
+  end
 
   def self.import familias, grupos, subgrupos
     ImportationEngine.import(familias, grupos, subgrupos)

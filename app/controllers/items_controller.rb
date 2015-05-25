@@ -68,10 +68,10 @@ class ItemsController < ApplicationController
     render layout: 'application'
   end
 
-  # def filter
-  #   @items = Item.where("name LIKE ?", "%#{params[:search]}%").page(params[:page]).per(20)
-  #   render :index
-  # end
+  def filter
+   @items = Item.where("name LIKE ?", "%#{params[:search]}%").page(params[:page]).per(20)
+   render :index
+  end
 
   def add_to_cart
     current_cart.add_item(params[:id], params[:quantity])
