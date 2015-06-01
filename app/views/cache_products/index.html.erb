@@ -29,7 +29,7 @@
       <tr>
         <td><%= cache_product.id %></td>
         <td><%= cache_product.type_name %></td>
-        <td><%= cache_product.product.try(:name) %></td>
+        <td><%= cache_product.item.try(:name) %></td>
         <td>
           <%= link_to "", [:edit, cache_product], class: "table-actions-button ic-table-edit" %>
           <%= link_to "", cache_product, method: :delete, class: "table-actions-button ic-table-delete", confirm: "Confirma exclusão?" %>

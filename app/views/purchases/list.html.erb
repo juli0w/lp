@@ -29,7 +29,7 @@
 
       <tr>
         <td><%= purchase.rid %></td>
-        <td><%= link_to purchase.user.profile.try(:name), [:edit, purchase.user] %></td>
+        <td><%= link_to purchase.user.get_name, [:edit, purchase.user] %></td>
         <td><%= purchase.created_at.strftime("%d/%m/%Y %H:%M") %></td>
         <td><%= monetize purchase.total %></td>
         <td>
