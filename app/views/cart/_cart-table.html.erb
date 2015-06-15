@@ -31,6 +31,21 @@
         </tr>
 
       <% end %>
+      
+      <% unless current_cart.coupon.nil? %>
+        <tr style="font-weight: bold; text-transform: uppercase;">
+          <td colspan=2></td>
+          <td colspan=2 align="right">Subtotal:</td>
+          <td><%= monetize current_cart.subtotal %></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td colspan=2></td>
+          <td colspan=2 align="right">Desconto:</td>
+          <td><%= monetize current_cart.discount %></td>
+          <td></td>
+        </tr>
+      <% end %>
 
       <tr style="font-weight: bold; text-transform: uppercase;">
         <td colspan=2></td>
@@ -45,6 +60,28 @@
 
 
 <%= submit_tag "Atualizar carrinho", class: "button round dark image-right ic-refresh fr" %>
+
+<% end %>
+
+<div class="stripe-separator"><!--  --></div>
+
+
+
+<% if current_cart.coupon.nil? %>
+  <%= form_tag cart_coupon_path, method: :put, class: "cf" do %>
+    <%= label_tag :coupon, "Cupom de desconto", style: "font-size: 14px;" %>
+    <%= text_field_tag :coupon, "", class: "round default-width-input" %>
+    <%= submit_tag "Carregar", class: "button round dark image-right ic-refresh" %>
+  </fieldset>
+  <% end %>
+<% else %>
+  <%= form_tag cart_coupon_path, method: :put, class: "cf" do %>
+  <fieldset>
+    <%= label_tag :coupon_set, "Cupom de desconto", style: "font-size: 14px;" %>
+    <%= text_field_tag :coupon_set, "#{current_cart.get_coupon.name} (#{current_cart.get_coupon.get_value})", class: "round default-width-input", disabled: true %>
+    <%= submit_tag "Remover", class: "button round dark image-right ic-refresh" %>
+  </fieldset>
+  <% end %>
 
 <% end %>
 

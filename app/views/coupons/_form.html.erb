@@ -1,0 +1,41 @@
+<%= simple_form_for(@coupon) do |f| %>
+
+  <fieldset>
+
+    <p>
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "round full-width-input", autofocus: true %>
+    </p>
+    
+    <p>
+      <%= f.label :owner_id %>
+      <%= f.text_field :owner_id, class: "round default-width-input" %>
+    </p>
+
+    <p>
+      <%= f.label :value %>
+      <%= f.text_field :value, class: "round default-width-input" %>
+    </p>
+
+    <p>
+      <%= f.label :discount_type %>
+      <%= f.select :discount_type, Coupon::TYPES, include_blank: false, class: "round default-width-input" %>
+    </p>
+    
+    <p>
+      <%= f.label :active, "Ativo" %>
+      <%= f.check_box :active %>
+    </p>
+    
+    <p>
+      <%= f.label :expire_at %>
+      <%= f.datetime_select :expire_at, :ampm => true, :minute_step => 15, class: "round default-width-input" %>
+    </p>
+
+    <div class="stripe-separator"><!--  --></div>
+    
+    <%= f.submit "Salvar", class: "button round blue image-right ic-right-arrow" %>
+  
+  </fieldset>
+
+<% end %>

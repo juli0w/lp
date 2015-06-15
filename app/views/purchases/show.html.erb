@@ -23,6 +23,9 @@
         <li><strong>Bairro</strong>: <%= @purchase.district %></li>
         <li><strong>Complemento</strong>: <%= @purchase.complement %></li>
         <li><strong>Celular</strong>: <%= @purchase.cellphone %> - <strong>Telefone</strong>: <%= @purchase.phone %></li>
+        <% unless @purchase.coupon.nil? %>
+          <li><strong>Cupom de desconto</strong>: <%= @purchase.coupon.name %></li>
+        <% end %>
       </ul>
 
     </div>
@@ -101,6 +104,19 @@
         <td><%= monetize item.total %></td>
       </tr>
 
+      <% end %>
+      
+      <% unless @purchase.coupon.nil? %>
+        <tr style="font-weight: bold; text-transform: uppercase;">
+          <td colspan=2></td>
+          <td colspan=2 align="right">Subtotal:</td>
+          <td><%= monetize @purchase.subtotal %></td>
+        </tr>
+        <tr>
+          <td colspan=2></td>
+          <td colspan=2 align="right">Desconto:</td>
+          <td><%= monetize @purchase.discount %></td>
+        </tr>
       <% end %>
 
       <tr>

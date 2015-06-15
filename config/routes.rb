@@ -21,6 +21,7 @@ Lojadopintor::Application.routes.draw do
   get "cart/index"
   get "cart/clean"
   put "cart/update"
+  put "cart/coupon"
   get "cart/shipping"
   put "cart/remove/:sku",    action: :remove, controller: :cart, as: "remove_cart"
   get "cart/payment/:token", action: :payment, controller: :cart, as: "payment_cart"
@@ -29,6 +30,18 @@ Lojadopintor::Application.routes.draw do
   # -
 
   get "profile/edit"
+  
+  namespace :report do
+    resources :coupon, only: [:index] do
+      collection do
+        get :by_coupons
+      end
+      
+      member do
+        get :by_coupon
+      end
+    end
+  end
 
   resources :users do
     member do
@@ -79,6 +92,8 @@ Lojadopintor::Application.routes.draw do
   
   # resources :colors
   # resources :sizes
+  
+  resources :coupons
 
   resources :categories do
     collection do

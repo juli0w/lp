@@ -4,6 +4,21 @@ class CartController < ApplicationController
 
   def index
   end
+  
+  def coupon
+    if current_cart.coupon.nil?
+      if !current_cart.load_coupon(params[:coupon])
+        notice = "Cupom inválido!"
+      else
+        notice = "Carrinho atualizado com o cupom!"
+      end
+    else
+      current_cart.coupon = nil
+      notice = "Cupom removido"
+    end
+    
+    redirect_to cart_index_path, notice: notice
+  end
 
   def clean
     session[:cart] = nil
@@ -47,6 +62,9 @@ class CartController < ApplicationController
   def purchase
     @purchase = current_cart.to_purchase(current_user.id)
     @purchase.update_address(params[:purchase])
+    
+    current_user.get_purchase_address(params[:purchase])
+    session[:cart] = nil
 
     redirect_to @purchase
   end

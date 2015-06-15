@@ -12,3 +12,15 @@
  *= require redactor-rails
  *= require_tree .
  */
+
+  .led {
+    display: block;
+    width: 15px;
+    height: 15px;
+    border-radius: 1.3125em; /* 5/16 */
+    -moz-border-radius: 1.3125em; /* 5/16 */
+    -webkit-border-radius: 1.3125em; /* 5/16 */
+  }
+  
+  .led-true  {background-color: green;}
+  .led-false {background-color: red;}

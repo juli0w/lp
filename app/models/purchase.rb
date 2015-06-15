@@ -1,8 +1,9 @@
 class Purchase < ActiveRecord::Base
   attr_accessible :name, :address, :cellphone, :cep, :city, :complement,
-                  :number, :phone, :uf, :user_id, :district
+                  :number, :phone, :uf, :user_id, :district, :coupon_id
 
   belongs_to :user
+  belongs_to :coupon
   has_many :purchase_items
 
   STATES = {
@@ -41,12 +42,24 @@ class Purchase < ActiveRecord::Base
   def rid
     self.id.to_s.rjust(5, "0")
   end
+  
+  def discount
+    return 0 if self.coupon.nil?
+    
+    d = self.coupon.value
+
+    if self.coupon.discount_type = 0
+      return self.subtotal * (d/100)
+    else
+      return d
+    end
+  end
 
   def subtotal
     self.purchase_items.sum(&:total)
   end
 
   def total
-    subtotal
+    self.subtotal - self.discount
   end
 end

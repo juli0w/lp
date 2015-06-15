@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  value: 9.99
+  discount_type: 1
+  expire_at: 2015-06-03 09:47:17
+  owner_id: 1
+
+two:
+  name: MyString
+  value: 9.99
+  discount_type: 1
+  expire_at: 2015-06-03 09:47:17
+  owner_id: 1

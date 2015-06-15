@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_many :messages
   has_many :purchases
   has_many :tickets
+  has_many :coupons
 
   STATES = {
     0 => "Regular",
@@ -15,10 +16,14 @@ class User < ActiveRecord::Base
     2 => "Administrador"
   }
 
-  scope :admins, -> { where(state: 2) }
-
+  scope :admins,    -> { where(state: 2) }
+  
   def self.admin
     where(state: 2).first
+  end
+  
+  def get_purchase_address purchase
+    self.profile.get_purchase_address purchase
   end
 
   def unban!

@@ -1,0 +1,61 @@
+<div class="content-module-heading cf">
+
+  <h3 class="fl">Cupons de desconto</h3>
+  <span class="fr expand-collapse-text">Clique para esconder</span>
+  <span class="fr expand-collapse-text initial-expand">Clique para expandir</span>
+
+</div> <!-- end content-module-heading -->
+
+<div class="content-module-main">
+
+  <table>
+  
+    <thead>
+  
+      <tr>
+        <th></th>
+        <th>Nome</th>
+        <th>Promotor</th>
+        <th>Valor</th>
+        <th>Expira em</th>
+        <th>Ações</th>
+      </tr>
+    
+    </thead>
+    
+    <tbody>
+
+      <% @coupons.each do |coupon| %>
+
+      <tr>
+        <td width=1 style="padding-left: 10px;"><span class="led led-<%= Coupon.active? coupon.name %>"></td>
+        <td><%= link_to coupon.name, coupon.name %></td>
+        <td><%= link_to coupon.owner_name, coupon.owner_link %></td>
+        <td><%= coupon.get_value %></td>
+        <td><%= l coupon.expire_at %></td>
+        <td>
+          <%= link_to "", [:edit, coupon], class: "table-actions-button ic-table-edit" %>
+          <%= link_to "", coupon, method: :delete, class: "table-actions-button ic-table-delete", confirm: "Confirma exclusão?" %>
+        </td>
+      </tr>
+
+      <% end %>
+
+    </tbody>
+    
+  </table>
+
+  <% if @coupons.num_pages > 1 %>
+
+    <div class="stripe-separator"><!--  --></div>
+
+    <%= paginate @coupons %>
+
+  <% end %>
+
+  <div class="stripe-separator"><!--  --></div>
+  
+  <%= link_to "Novo cupom", new_coupon_path, class: "button round blue image-right ic-right-arrow" %>
+  <%= link_to "Relatório por cupom", by_coupons_report_coupon_index_path, class: "button round dark image-right ic-print" %>
+
+</div> <!-- end content-module-main -->

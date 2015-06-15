@@ -1,0 +1,11 @@
+<div class="content-module-heading cf">
+
+  <h3 class="fl"><%= @page.title %></strong></h3>
+  <span class="fr expand-collapse-text">Clique para esconder</span>
+  <span class="fr expand-collapse-text initial-expand">Clique para expandir</span>
+
+</div> <!-- end content-module-heading -->
+
+<div class="content-module-main cf">
+  <%= @page.content.html_safe %>
+</div>

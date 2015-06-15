@@ -7,12 +7,23 @@
 
       <% if user_signed_in? %>
         <li class="v-sep"><%= link_to "Logado como #{current_user.profile.try(:name) || current_user.email}", dashboard_index_path, class: "round button dark menu-user image-left" %>
-        <ul>
-          <li><%= link_to "Minhas informações",  dashboard_profile_path %></li>
-          <li><%= link_to "Meus pedidos",  purchases_path %></li>
-          <li><%= link_to "Sair",  destroy_user_session_path, :method => :delete %></li>
-        </ul> 
-      </li>
+          <ul>
+            <li><%= link_to "Minhas informações",  dashboard_profile_path %></li>
+            <li><%= link_to "Meus pedidos",  purchases_path %></li>
+            <li><%= link_to "Tickets",  tickets_path %></li>
+            <li><%= link_to "Sair",  destroy_user_session_path, :method => :delete %></li>
+          </ul> 
+        </li>
+        <% if current_user.admin? %>
+          <li class="v-sep"><%= link_to "Administração", admin_index_path, class: "round button dark ic-settings image-left" %>
+            <ul>
+              <li><%= link_to "Pedidos abertos",  open_purchases_path %></li>
+              <li><%= link_to "Pedidos pagos",  paid_purchases_path %></li>
+              <li><%= link_to "Tickets",  list_tickets_path %></li>
+              <li><%= link_to "Mensagens", messages_path %></li>
+            </ul> 
+          </li>
+        <% end %>
       <% else %>
         <li><%= link_to "Login",  new_user_session_path, class: "round button dark menu-logoff image-left" %></li>
         <li class="v-sep"><%= link_to "Cadastrar",  new_user_registration_path, class: "round button dark menu-user image-left" %></li>

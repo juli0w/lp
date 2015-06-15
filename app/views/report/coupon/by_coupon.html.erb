@@ -1,0 +1,71 @@
+<div class="content-module-heading cf">
+
+  <h3 class="fl">Relatório de cupom (detalhado)</h3>
+  <span class="fr expand-collapse-text">Clique para esconder</span>
+  <span class="fr expand-collapse-text initial-expand">Clique para expandir</span>
+
+</div> <!-- end content-module-heading -->
+
+<div class="content-module-main">
+  <h3>Nome: <%= @coupon.name %> (<%= @coupon.inherit.get_value %>)</h3>
+  <h3>Promotor: <%= link_to @coupon.inherit.owner_name, @coupon.inherit.owner_link %></h3>
+  <h3>Criado em: <%= l @coupon.inherit.created_at.to_date %></h3>
+  <h3>Vencimento: <%= l @coupon.inherit.expire_at.to_date %></h3>
+  <h3>Ativo: <%= @coupon.active? ? "Sim" : "Não" %></h3>
+</div>
+
+<div class="content-module-heading cf">
+
+  <h3 class="fl">Pedidos</h3>
+  <span class="fr expand-collapse-text">Clique para esconder</span>
+  <span class="fr expand-collapse-text initial-expand">Clique para expandir</span>
+
+</div> <!-- end content-module-heading -->
+
+<div class="content-module-main">
+
+  <table>
+  
+    <thead>
+  
+      <tr>
+        <th></th>
+        <th>Comprador</th>
+        <th>Pedido</th>
+        <th>Data</th>
+        <th>Valor total</th>
+        <th>Valor desconto</th>
+        <th></th>
+      </tr>
+    
+    </thead>
+    
+    <tbody>
+
+      <% @coupon.purchases.each do |purchase| %>
+
+      <tr>
+        <td></td>
+        <td><%= link_to purchase.user.get_name, purchase.user %></td>
+        <td><%= link_to purchase.rid, purchase %></td>
+        <td><%= l purchase.created_at.to_date %></td>
+        <td><%= monetize purchase.subtotal %></td>
+        <td><%= monetize purchase.discount %></td>
+        <td></td>
+      </tr>
+
+      <% end %>
+      
+      <tr style="color: green;">
+        <td><%= @coupon.purchases.size %></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><%= monetize @coupon.purchases.sum(&:subtotal) %></td>
+        <td><%= monetize @coupon.purchases.sum(&:discount) %></td>
+        <td></td>
+      </tr>
+
+    </tbody>
+    
+  </table>

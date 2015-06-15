@@ -1,0 +1,55 @@
+<div class="content-module-heading cf">
+
+  <h3 class="fl">Relatório de cupons</h3>
+  <span class="fr expand-collapse-text">Clique para esconder</span>
+  <span class="fr expand-collapse-text initial-expand">Clique para expandir</span>
+
+</div> <!-- end content-module-heading -->
+
+
+<div class="content-module-main">
+
+  <table>
+  
+    <thead>
+  
+      <tr>
+        <th></th>
+        <th>Cupom</th>
+        <th>Vendas</th>
+        <th>Valor total</th>
+        <th>Valor desconto</th>
+        <th></th>
+      </tr>
+    
+    </thead>
+    
+    <tbody>
+
+      <% @coupons.each do |coupon| %>
+
+      <tr>
+        <td width=1 style="padding-left: 10px;"><span class="led led-<%= coupon.active? %>"></td>
+        <td><%= link_to coupon.name, coupon_path(coupon.id) %></td>
+        <td><%= coupon.purchases.size %></td>
+        <td><%= monetize coupon.total_value %></td>
+        <td><%= monetize coupon.total_discount %></td>
+        <td>
+          <%= link_to "Detalhes", by_coupon_report_coupon_path(coupon.id) %>
+        </td>
+      </tr>
+
+      <% end %>
+      
+      <tr style="color: green;">
+        <td></td>
+        <td></td>
+        <td><%= @coupons.map {|c| c.purchases }.sum(&:size) %></td>
+        <td><%= monetize @coupons.sum(&:total_value) %></td>
+        <td><%= monetize @coupons.sum(&:total_discount) %></td>
+        <td></td>
+      </tr>
+
+    </tbody>
+    
+  </table>

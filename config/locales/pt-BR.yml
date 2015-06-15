@@ -35,6 +35,19 @@ pt-BR:
       page: Página
       message: Mensagem
     attributes:
+      ticket:
+        subject: "Assunto"
+        content: "Mensagem"
+      profile:
+        name: "Nome"
+        phone: "Telefone"
+        cellphone: "Celular"
+        district: "Bairro"
+        address: "Endereço"
+        number: "Número"
+        uf: "UF"
+        city: "Cidade"
+        complement: "Complemento"
       purchase:
         name: "Nome"
         phone: "Telefone"

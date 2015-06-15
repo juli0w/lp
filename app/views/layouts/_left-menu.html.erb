@@ -2,13 +2,15 @@
 
     <% if category_root.children.any? %>
 
-      <% category_root.children.actives.each do |category| %>
+      <% category_root.children.actives.first(3).each do |category| %>
 
         <h3><%= category.name %></h3>
           
         <ul>
-          <% category.children.actives.first(6).each do |subcategory| %>
-            <li><%= link_to subcategory.name, subcategory %></li>
+          <% category.most_popular.first(5).each do |subcategory| %>
+            <% if subcategory.items.size > 5 %>
+              <li><%= link_to subcategory.name, subcategory %></li>
+            <% end %>
           <% end %>
         </ul>
 

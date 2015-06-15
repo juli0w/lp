@@ -16,6 +16,8 @@ end
 
 # gem 'therubyracer', :platforms => :ruby
 
+gem 'rails-i18n'
+
 gem 'nokogiri'
 gem 'capistrano', '~> 3.3.0'
 gem 'capistrano-ext', '~> 1.2.1'
