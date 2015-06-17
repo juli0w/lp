@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150603124942) do
+ActiveRecord::Schema.define(:version => 20150617210227) do
 
   create_table "cache_products", :force => true do |t|
     t.integer  "cache_type"
@@ -32,13 +32,13 @@ ActiveRecord::Schema.define(:version => 20150603124942) do
 
   create_table "coupons", :force => true do |t|
     t.string   "name"
-    t.decimal  "value"
+    t.decimal  "value",         :precision => 8, :scale => 2
     t.integer  "discount_type"
     t.datetime "expire_at"
     t.integer  "owner_id"
-    t.boolean  "active",        :default => true
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
+    t.boolean  "active",                                      :default => true
+    t.datetime "created_at",                                                    :null => false
+    t.datetime "updated_at",                                                    :null => false
   end
 
   create_table "items", :force => true do |t|

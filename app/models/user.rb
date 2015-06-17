@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
   end
   
   def get_purchase_address purchase
-    self.profile.get_purchase_address purchase
+    (self.profile || self.create_profile).get_purchase_address purchase
   end
 
   def unban!
