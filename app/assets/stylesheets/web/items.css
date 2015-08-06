@@ -30,6 +30,11 @@ td.item {
   overflow: hidden;
 }
 
+.item .product-details h2 {
+  font-family: 'Droid Sans', sans-serif;
+  font-size: 1em;
+}
+
 .item .btn-carrinho {
   width: 70px;
   text-align: center;

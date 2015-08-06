@@ -380,6 +380,8 @@ form input.error-input { border: 1px solid #ff876f; }
 /* ---------- MENU ---------- */
 ul#nav {
   list-style-type: none;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 1.2em;
 }
 
   ul#nav > li {
@@ -614,6 +616,9 @@ div.no-border {
 div.content-module-heading {
   /*background: #3f4551;*/
   background: #ffffff;
+  font-size: 1.4em;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: bold;
   cursor: pointer;
   border-bottom: 1px dashed #eeefef;
   border-top: 1px dashed #eeefef;
