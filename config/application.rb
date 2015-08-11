@@ -17,8 +17,8 @@ module Lojadopintor
         address: 'smtp.gmail.com',
         port: 587,
         domain: "gmail.com",
-        user_name: 'juli0w69@gmail.com',
-        password: 'bobesponja$',
+        user_name: ENV["GMAIL_USERNAME"],
+        password: ENV["GMAIL_PASSWORD"],
         authentication: 'plain',
         enable_starttls_auto: true
     }

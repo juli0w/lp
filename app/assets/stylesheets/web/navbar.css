@@ -15,14 +15,14 @@
 
 #navbar ul.primary_nav > li > a {
   padding: 0px 15px;
-  line-height: 35px;
-  font-size: 12px;
+  line-height: 50px;
+  font-size: 0.86em;
   text-transform: uppercase;
   float: left;
   color: #ffffff;
   text-decoration: none;
   overflow: auto;
-  font-weight: bold;
+/*  font-weight: bold;*/
 }
   /*text-shadow:#000 1px -1px, #000 -1px 1px, #000 1px 1px, #000 -1px -1px*/
 #navbar ul.primary_nav > li > a:hover {
@@ -38,7 +38,7 @@
 #navbar ul.sub_menu {
   background-color: rgba(255,255,255, 0.95);
   position: absolute;
-  top: 30px;
+  top: 45px;
   left: -4000px;
   padding: 15px 0px;
   z-index: 100;

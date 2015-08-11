@@ -616,15 +616,15 @@ div.no-border {
 div.content-module-heading {
   /*background: #3f4551;*/
   background: #ffffff;
-  font-size: 1.4em;
-  font-family: 'Ubuntu', sans-serif;
-  font-weight: bold;
+  font-size: 1.2em;
+  font-family: "Droid Sans", Helvetica, Arial, sans-serif;
+/*  font-weight: bold;*/
   cursor: pointer;
   border-bottom: 1px dashed #eeefef;
   border-top: 1px dashed #eeefef;
   background: url(title-right.png) no-repeat 0px center;
   background-size: contain;
-  padding-left: 40px;
+  padding-left: 45px;
 }
 
 div.content-module-heading:first-child {
