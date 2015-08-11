@@ -22,6 +22,8 @@ class Message < ActiveRecord::Base
         subject: "Contato"})
     end
 
+    ContactMailer.contact_message(message).deliver
+
     return true
   end
 end

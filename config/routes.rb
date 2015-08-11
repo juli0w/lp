@@ -7,6 +7,9 @@ Lojadopintor::Application.routes.draw do
   get "dashboard/profile"
 
   get "admin/index"
+  get "admin/setup"
+  
+  resources :setup, only: [:update]
 
   get "home/index"
   get "home/contact"

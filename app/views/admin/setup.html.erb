@@ -1,0 +1,29 @@
+<div class="content-module-heading cf">
+
+  <h3 class="fl">Setup</h3>
+  <span class="fr expand-collapse-text"></span>
+  <span class="fr expand-collapse-text initial-expand"></span>
+
+</div> <!-- end content-module-heading -->
+
+
+<div class="content-module-main">
+
+  <%= simple_form_for(@setup) do |f| %>
+
+  <fieldset>
+
+    <p>
+      <%= f.label :emails %>
+      <%= f.text_field :emails, class: "round full-width-input", autofocus: true %>
+    </p>
+
+    <div class="stripe-separator"><!--  --></div>
+    
+    <%= f.submit "Salvar", class: "button round blue image-right ic-right-arrow" %>
+  
+  </fieldset>
+
+<% end %>
+  
+</div> <!-- end content-module-main -->

@@ -1,0 +1,9 @@
+<h1>Mensagem de contato</h1>
+<h2>Data de envio: <%= Time.now.strftime("%d/%m/%Y %H:%M") %></h2>
+
+<p><strong>Visitante: </strong><%= @message[:name] %></p>
+
+<p><strong>Email: </strong><%= @message[:email] %></p>
+
+<p><strong>Mensagem:</strong></p>
+<p><%= @message[:message] %></p>

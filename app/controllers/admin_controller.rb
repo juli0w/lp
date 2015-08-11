@@ -5,4 +5,8 @@ class AdminController < ApplicationController
 
   def index
   end
+  
+  def setup
+    @setup = Setup.first
+  end
 end

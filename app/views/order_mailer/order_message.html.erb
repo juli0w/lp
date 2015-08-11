@@ -1,0 +1,7 @@
+<h1>Pedido efetuado</h1>
+<em>Data de envio: <%= Time.now.strftime("%d/%m/%Y %H:%M") %></em>
+<hr />
+
+<p><strong>Usuário: </strong><%= @purchase.user.get_name %></p>
+
+<p><%= link_to "Detalhes", purchase_url(@purchase) %></p>

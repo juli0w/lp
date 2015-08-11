@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150617210227) do
+ActiveRecord::Schema.define(:version => 20150811175755) do
 
   create_table "cache_products", :force => true do |t|
     t.integer  "cache_type"
@@ -134,6 +134,12 @@ ActiveRecord::Schema.define(:version => 20150617210227) do
 
   add_index "redactor_assets", ["assetable_type", "assetable_id"], :name => "idx_redactor_assetable"
   add_index "redactor_assets", ["assetable_type", "type", "assetable_id"], :name => "idx_redactor_assetable_type"
+
+  create_table "setups", :force => true do |t|
+    t.string   "emails"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "ticket_repplies", :force => true do |t|
     t.integer  "ticket_id"

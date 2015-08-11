@@ -29,6 +29,8 @@ class Cart
              price: i.price,
            options: i.opts })
     end
+    
+    OrderMailer.order_message(purchase.id).deliver
 
     purchase
   end
