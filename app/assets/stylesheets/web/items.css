@@ -1,7 +1,8 @@
 .item {
-  padding: 6px;
+  padding: 6px 5px;
   width: 170px;
-  height: 210px;
+  height: 220px;
+  margin-bottom: 5px;
 }
 
 .item .product-actions {
@@ -33,11 +34,22 @@
   height: 120px;
   margin: auto;
   margin-left: 25px;
+  position: relative;
 }
 
 .item .product-image img {
   max-width: 120px;
   max-height: 120px;
+  
+  position: absolute;  
+  overflow: hidden;  
+  top: 50%;  
+  left: 50%;
+  -webkit-transform: translate(-50%,-50%);  
+  -moz-transform: translate(-50%,-50%);  
+  -ms-transform: translate(-50%,-50%);  
+  -o-transform: translate(-50%,-50%);  
+  transform: translate(-50%,-50%);  
 }
 
 .item .product-details {
