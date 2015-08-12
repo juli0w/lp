@@ -1,24 +1,12 @@
-<table>
+<div class="list-items cf">
   
-  <tbody>
+  <% @items.each do |item| %>
 
-  	<% @items.in_groups_of(4, false).each do |row| %>
+    <%= render 'home/items', item: item %>
 
-      <tr>
+  <% end %>
 
-        <% row.each do |item| %>
-
-          <%= render 'home/items', item: item %>
-
-        <% end %>
-
-      </tr>
-
-    <% end %>
-
-  </tbody>
-  
-</table>
+</div>
 
 <% if @items.num_pages > 1 %>
 

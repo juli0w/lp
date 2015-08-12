@@ -1,6 +1,9 @@
-td.item {
-  background-color: #ffffff;
+.item {
+  padding: 6px;
+  width: 170px;
+  height: 210px;
 }
+
 .item .product-actions {
   margin: 8px 0;
   padding: 0 15px;
@@ -25,14 +28,30 @@ td.item {
   color: #ffd204;
 }
 
+.item .product-image {
+  width: 100px;
+  height: 100px;
+  margin: auto;
+  margin-left: 35px;
+}
+
+.item .product-image img {
+  max-width: 100px;
+  max-height: 100px;
+}
+
 .item .product-details {
-  height: 42px;
+  height: 50px;
   overflow: hidden;
+  padding: 1px;
+  margin-bottom: 4px;
 }
 
 .item .product-details h2 {
-  font-family: 'Droid Sans', sans-serif;
-  font-size: 1em;
+  font-family: 'Verdana', sans-serif;
+  font-size: 11px;
+  color: #454545;
+  text-align: center;
 }
 
 .item .btn-carrinho {
@@ -47,7 +66,4 @@ td.item {
 }
 .item .btn-carrinho:hover {
   background-color: green;
-}
-.item .product-details {
-  padding: 1em;
 }

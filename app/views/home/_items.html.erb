@@ -1,4 +1,5 @@
-<td class="item" width="25%" align="center">
+<div class="item fl">
+  
   <div class="product-image cf">
     <%= link_to ( 
         image_tag get_image(item.image.thumb), width: 100, height: 100
@@ -17,4 +18,5 @@
     <%= link_to "Adicionar ao carrinho", item, class: "btn btn-carrinho fr", 'data-hint'=>"Bounce" %>
 
   </div>
-</td>
+  
+</div>

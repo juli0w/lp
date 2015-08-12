@@ -5,7 +5,7 @@ class MessagesController < ApplicationController
   layout 'dashboard', except: [:new]
 
   def index
-    @messages = current_user.messages.page(params[:page])
+    @messages = current_user.messages.order("created_at DESC").page(params[:page])
   end
 
   def show
