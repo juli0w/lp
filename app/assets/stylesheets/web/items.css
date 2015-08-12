@@ -29,15 +29,15 @@
 }
 
 .item .product-image {
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   margin: auto;
-  margin-left: 35px;
+  margin-left: 25px;
 }
 
 .item .product-image img {
-  max-width: 100px;
-  max-height: 100px;
+  max-width: 120px;
+  max-height: 120px;
 }
 
 .item .product-details {
