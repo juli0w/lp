@@ -521,6 +521,22 @@ a.table-actions-button {
 }
 
 
+/* Push the first cell to the right so it doesn't stick to the table border */		
+table td:first-child, table th:first-child {		
+  width: 4em /* 48/12 */;		
+  text-align: center;		
+  padding: 0;		
+  /*border: none;*/		
+}		
+table tr:last-child td {		
+  border: none;		
+}		
+		
+table td:last-child, table th:last-child {		
+  width: 7em; /* 84/12 */		
+  text-align: center;		
+  padding: 0;		
+}
 
 
 
