@@ -1,0 +1,11 @@
+<h1>Failures</h1>
+<ul>
+  <% for failure in @failures %>
+  <li>
+    <span><%= failure.name %></span> <em><%=l failure.created_at %></em>
+    <p>
+      <%= failure.message %>
+    </p>
+  </li>
+  <% end %>
+</ul>

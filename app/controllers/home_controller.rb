@@ -1,6 +1,7 @@
 # encoding: UTF-8
 class HomeController < ApplicationController
   def index
+    raise "teste"
     @items = {}
 
     @items["Novidades"] = Item.last(4)

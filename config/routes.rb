@@ -1,4 +1,6 @@
 Lojadopintor::Application.routes.draw do
+  get "oops", to: "failures#index"
+
   mount RedactorRails::Engine => '/redactor_rails'
 
   devise_for :users
