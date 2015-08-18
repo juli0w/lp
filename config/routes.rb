@@ -1,5 +1,14 @@
 Lojadopintor::Application.routes.draw do
   get "oops", to: "failures#index"
+  resources :failures, only: [:show, :index] do
+    collection do
+      get :closed
+    end
+    
+    member do
+      get :close
+    end
+  end
 
   mount RedactorRails::Engine => '/redactor_rails'
 

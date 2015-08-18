@@ -1,0 +1,39 @@
+<h2><%= @failure.name %> <em><%=l @failure.created_at %></em></h2>
+<p>
+<% if !@failure.state %>
+  <%= link_to "Close", close_failure_path(@failure) %>
+<% else %>
+  <span class="closed">Closed</span>
+<% end %>
+</p>
+<ul>
+  <li>
+    <p>
+      <%= @failure.message %>
+    </p>
+  </li>
+  
+  <% unless @failure.request.blank? %>
+  <li>
+    <p>
+      <%= @failure.request %>
+    </p>
+  </li>
+  <% end %>
+  
+  <% unless @failure.details.blank? %>
+  <li>
+    <p>
+      <%= @failure.details %>
+    </p>
+  </li>
+  <% end %>
+  
+  <% unless @failure.backtrace.blank? %>
+  <li>
+    <p>
+      <%= @failure.backtrace %>
+    </p>
+  </li>
+  <% end %>
+</ul>

@@ -1,5 +1,16 @@
 # encoding: UTF-8
 class ApplicationController < ActionController::Base
+  rescue_from StandardError do |e|
+    Failure.create!(
+      name: e.class, message: e.message,
+      backtrace: e.backtrace.join("\n"),
+      state: false,
+      details: session.as_json.to_s,
+      request: request.as_json.to_s)
+    
+    redirect_to root_path, notice: "Ocorreu algum erro, contate nossa equipe!"
+  end
+  
   include CartEngine
 
   protect_from_forgery

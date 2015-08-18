@@ -1,8 +1,15 @@
 <h1>Failures</h1>
+<p>
+  <%= link_to "closed", closed_failures_path %>
+  | <%= link_to "opened", failures_path %>
+</p>
 <ul>
   <% for failure in @failures %>
   <li>
-    <span><%= failure.name %></span> <em><%=l failure.created_at %></em>
+    <span><%= link_to failure.name, failure %></span> <em><%=l failure.created_at %></em>
+    <% unless failure.state %>
+      <%= link_to "close", close_failure_path(failure), class: "close-link" %>
+    <% end %>
     <p>
       <%= failure.message %>
     </p>
