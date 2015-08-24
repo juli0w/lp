@@ -7,7 +7,7 @@ class Setup < ActiveRecord::Base
   
   def self.categories
     refresh_categories if setup.categories.blank?
-    setup.categories
+    JSON.parse(setup.categories)
   end
   
   def self.emails
@@ -15,7 +15,7 @@ class Setup < ActiveRecord::Base
   end
   
   def self.refresh_categories
-    setup.categories = Category.reload
+    setup.categories = Category.reload.to_json
     setup.save
   end
 end

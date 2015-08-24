@@ -11,7 +11,7 @@ class Item < ActiveRecord::Base
   belongs_to :category
   
   def self.update_images
-    Item.all.each { |i| i.image.recreate_versions! }
+    Item.all.each { |i| i.image.recreate_versions! unless i.image.blank? }
   end
 
   def self.import itens

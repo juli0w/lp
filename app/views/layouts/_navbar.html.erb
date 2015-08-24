@@ -2,16 +2,16 @@
   <div class="page-limited cf">
     <ul class="primary_nav">
       <% @categories_root.each do |category_root| %>
-        <li><%= link_to category_root[:name], category_path(category_root[:id]) %>
+        <li><%= link_to category_root["name"], category_path(category_root["id"]) %>
 
-          <% if category_root[:children].any? %>
+          <% if category_root["children"].any? %>
           <ul class="page-limited sub_menu">
 
-            <% category_root[:children].each do |category| %>
-              <li><%= link_to category[:name], category_path(category[:id]) %>
+            <% category_root["children"].each do |category| %>
+              <li><%= link_to category["name"], category_path(category["id"]) %>
                 <ul>
-                  <% category[:children].each do |subcategory| %>
-                    <li><%= link_to "#{subcategory[:name]} (#{subcategory[:size]})", category_path(subcategory[:id]) %></li>
+                  <% category["children"].each do |subcategory| %>
+                    <li><%= link_to "#{subcategory["name"]} (#{subcategory["size"]})", category_path(subcategory["id"]) %></li>
                   <% end %>
                 </ul>
               </li>
