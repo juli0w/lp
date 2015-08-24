@@ -1,4 +1,5 @@
 class Setup < ActiveRecord::Base
+  serialize :categories, Hash
   attr_accessible :emails, :categories
   
   def self.setup
@@ -7,7 +8,7 @@ class Setup < ActiveRecord::Base
   
   def self.categories
     refresh_categories if setup.categories.blank?
-    JSON.parse(setup.categories)
+    setup.categories[:tree]
   end
   
   def self.emails
@@ -15,7 +16,7 @@ class Setup < ActiveRecord::Base
   end
   
   def self.refresh_categories
-    setup.categories = Category.reload.to_json
+    setup.categories = {tree: Category.reload}
     setup.save
   end
 end

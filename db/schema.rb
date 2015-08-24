@@ -150,7 +150,7 @@ ActiveRecord::Schema.define(:version => 20150824135532) do
     t.string   "emails"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.string   "categories"
+    t.text     "categories"
   end
 
   create_table "ticket_repplies", :force => true do |t|
