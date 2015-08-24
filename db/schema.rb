@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150818173949) do
+ActiveRecord::Schema.define(:version => 20150824135532) do
 
   create_table "cache_products", :force => true do |t|
     t.integer  "cache_type"
@@ -150,6 +150,7 @@ ActiveRecord::Schema.define(:version => 20150818173949) do
     t.string   "emails"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "categories"
   end
 
   create_table "ticket_repplies", :force => true do |t|

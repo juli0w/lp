@@ -16,63 +16,30 @@
 
   <%= render 'layouts/top-menu' %>
 
-  <!-- HEADER -->
-  <div id="header-with-tabs">
-    
-    <div class="page-limited cf">
-  
-      <%= render "layouts/header" %>
+  <%= render "layouts/header" %>
 
-    </div> <!-- end full-width -->  
-
-  </div> <!-- end header -->
-  
   <%= render "layouts/navbar" %>
 
   <!-- MAIN CONTENT -->
   <div id="content">
 
-    <div class="page-limited cf">
-      <% [notice, alert].each do |f| %>
-        <% unless f.blank? %>
-          <div class="information-box round flash"><%= notice || alert %></div>
-        <% end %>
-      <% end %>
-    </div>
+    <%= render "layouts/flashes" %>
     
     <div class="page-limited cf">
 
-      <div class="side-menu fr">
-        
-        <%= render "layouts/left-menu" %>
+<!-- render "layouts/left-menu" -->
 
-      </div>
-      
-      <div class="side-content fl">
-      
         <div class="content-module">
 
           <%= yield %>
         
-        </div> <!-- end content-module -->
+        </div>
 
-      </div>
+    </div>
     
-      </div> <!-- end side-content -->
-    
-    </div> <!-- end full-width -->
-      
-  </div> <!-- end content -->
-
-  <div id="footer">
-
-    <%= render "layouts/footer" %>
-
   </div>
-  
-  <!-- Stylesheets -->
-  <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet'>
-  <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,700' rel='stylesheet' type='text/css'>
+      
+  <%= render "layouts/footer" %>
   
   <% if Rails.env == 'production' %>
     <!-- Google Tag Manager -->

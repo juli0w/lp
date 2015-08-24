@@ -9,14 +9,45 @@ class Category < ActiveRecord::Base
 
   has_many :items
   
-  def most_popular
-    self.children.gots.actives.to_a.sort_by {|e| e.items.size}.reverse.first(15)
-  end
-
   def self.import familias, grupos, subgrupos
     ImportationEngine.import(familias, grupos, subgrupos)
 
     return true
+  end
+  
+  def most_popular
+    self.children.gots.actives.to_a.sort_by {|e| e.items.size}.reverse.first(15)
+  end
+  
+  def as_setupable
+    { name: self.name,
+        id: self.id,
+      size: self.items.size,
+      children: [] }
+  end
+  
+  def self.reload
+    categories = []
+    Category.roots.where(active: true).each do |category_root|
+      if category_root.children.any?
+        c = category_root.as_setupable
+        category_root.children.actives.first(3).each do |category|
+
+          c2 = category.as_setupable
+          
+          category.most_popular.each do |subcategory|
+            c3 = subcategory.as_setupable
+            c2[:children] << c3
+          end
+          
+          c[:children] << c2
+        end
+      end
+      
+      categories << c
+    end
+    
+    return categories
   end
 
   def self.load_products id

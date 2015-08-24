@@ -1,16 +1,23 @@
-<div id="header" class="cf">
-  <%= link_to root_url do %>
-    <div class="logo">
-      <h1 id="logo">Loja do Pintor</h1>
-    </div>
-  <% end %>
+<div id="header-with-tabs">
+    
+    <div class="page-limited cf">
+      
+      <div id="header" class="cf">
+        <%= link_to root_url do %>
+          <div class="logo">
+            <h1 id="logo">Loja do Pintor</h1>
+          </div>
+        <% end %>
 
-  <%= form_tag search_items_path, class: "header_search", method: :get do %>
-    <div class="form-search">
-      <div id="search-input">
-        <input id="search" type="text" name="q" value="" class="input-text" autocomplete="off" placeholder="Pesquisar">
+        <%= form_tag search_items_path, class: "header_search", method: :get do %>
+          <div class="form-search">
+            <div id="search-input">
+              <input id="search" type="text" name="q" value="" class="input-text" autocomplete="off" placeholder="Pesquisar">
+            </div>
+            <button type="submit" title="Search"></button>
+          </div>
+        <% end %>
       </div>
-      <button type="submit" title="Search"></button>
-    </div>
-  <% end %>
+      
+  </div>
 </div>

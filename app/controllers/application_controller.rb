@@ -63,7 +63,7 @@ protected
   end
 
   def load_nav
-    @categories_root = Category.roots.where(active: true)
+    @categories_root = Setup.categories
   end
 
   def load_pages

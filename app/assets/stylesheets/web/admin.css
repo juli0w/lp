@@ -4,6 +4,11 @@ h5, h6, pre, form, label, fieldset, input, p, blockquote, th, td {
   padding: 0;
 }
 
+@font-face {
+  font-family: 'gotham-rounded';
+  src: url(gotham-rounded-medium.ttf);
+}
+
 table {
   border-collapse: collapse;
   border-spacing: 0;
@@ -125,7 +130,7 @@ cite {
 
 /* ---------- TYPOGRAPHY ---------- */
 body, form {
-  font-family: "Droid Sans", Helvetica, Arial, sans-serif;
+  font-family: "gotham-rounded", "Helvetica", Helvetica, Arial, sans-serif;
   line-height: 1.125em; /* 18/16 */
 }
 
@@ -201,7 +206,7 @@ p a, p a:hover { border-bottom: 1px dotted; }
 
 /* ---------- BUTTONS ---------- */
 .button {
-  padding: 0.833em; /* 10/12 */
+  padding: 0.833em 1em 0.833em 0.833em; /* 10/12 */
   
   display: inline-block;
   text-decoration: none;
@@ -380,7 +385,6 @@ form input.error-input { border: 1px solid #ff876f; }
 /* ---------- MENU ---------- */
 ul#nav {
   list-style-type: none;
-  font-family: 'Ubuntu', sans-serif;
   font-size: 1.2em;
 }
 
@@ -616,7 +620,6 @@ div.content-module-heading {
   /*background: #3f4551;*/
   background: #ffffff;
   font-size: 1.2em;
-  font-family: "Droid Sans", Helvetica, Arial, sans-serif;
 /*  font-weight: bold;*/
   cursor: pointer;
   border-bottom: 1px dashed #eeefef;

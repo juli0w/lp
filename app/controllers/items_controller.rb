@@ -50,6 +50,7 @@ class ItemsController < ApplicationController
     respond_to do |format|
       if @item.update_attributes(params[:item])
         format.html { redirect_to items_path, notice: 'Produto atualizado com sucesso.' }
+        format.js { }
       else
         format.html { render :edit }
       end

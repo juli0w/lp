@@ -41,7 +41,7 @@ class ProductUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :thumb do
-    process :resize_to_limit => [120, nil]
+    process :resize_to_limit => [150, nil]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.

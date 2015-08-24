@@ -1,8 +1,8 @@
 .item {
-  padding: 6px 5px;
-  width: 170px;
+  padding: 6px 5px 20px 5px;
+  width: 220px;
   height: 220px;
-  margin-bottom: 5px;
+  margin-bottom: 20px;
 }
 
 .item .product-actions {
@@ -30,16 +30,16 @@
 }
 
 .item .product-image {
-  width: 120px;
-  height: 120px;
+  width: 150px;
+  height: 150px;
   margin: auto;
-  margin-left: 25px;
+  margin-left: 35px;
   position: relative;
 }
 
 .item .product-image img {
-  max-width: 120px;
-  max-height: 120px;
+  max-width: 150px;
+  max-height: 150px;
   
   position: absolute;  
   overflow: hidden;  
@@ -60,8 +60,7 @@
 }
 
 .item .product-details h2 {
-  font-family: 'Verdana', sans-serif;
-  font-size: 11px;
+  font-size: 12px;
   color: #454545;
   text-align: center;
 }

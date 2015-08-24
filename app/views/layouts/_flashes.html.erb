@@ -1,7 +1,7 @@
-<% [notice, alert].each do |f| %>
-  <% unless f.blank? %>
-    <div class="container">
-      <p class="alert notice-box"><%= notice || alert %></p>
-    </div>
+<div class="page-limited cf">
+  <% [notice, alert].each do |f| %>
+    <% unless f.blank? %>
+      <div class="information-box round flash"><%= notice || alert %></div>
+    <% end %>
   <% end %>
-<% end %>
+</div>
