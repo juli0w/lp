@@ -5,8 +5,16 @@ h5, h6, pre, form, label, fieldset, input, p, blockquote, th, td {
 }
 
 @font-face {
+    font-family: "slick";
+    src: url("fonts/slick.eot");
+    src: url("fonts/slick.eot?#iefix") format("embedded-opentype"), url("fonts/slick.woff") format("woff"), url("fonts/slick.ttf") format("truetype"), url("fonts/slick.svg#slick") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
   font-family: 'gotham-rounded';
-  src: url(gotham-rounded-medium.ttf);
+  src: url(fonts/gotham-rounded-medium.ttf);
 }
 
 table {

@@ -21,20 +21,20 @@
 
   </div>
   
+  <% if current_user.try(:admin?) and item.image.thumb.blank? %>
+
+  <div class="upload-model" id="model-<%= item.id %>">
+    <h3><strong><%= item.name %></strong></h3>
+    <%= form_for item, html: { multipart: true }, remote: true do |f| %>
+    <p>
+      <label>URL:</label>
+      <%= f.text_field :remote_image_url %>
+    </p>
+
+    <%= f.submit "Enviar", class: "btn" %>
+  <% end %>
+  </div>
+
+  <% end %>
+
 </div>
-
-<% if current_user.try(:admin?) and item.image.thumb.blank? %>
-
-<div class="upload-model" id="model-<%= item.id %>">
-  <h3><strong><%= item.name %></strong></h3>
-  <%= form_for item, html: { multipart: true }, remote: true do |f| %>
-  <p>
-    <label>URL:</label>
-    <%= f.text_field :remote_image_url %>
-  </p>
-  
-  <%= f.submit "Enviar", class: "btn" %>
-<% end %>
-</div>
-
-<% end %>

@@ -18,19 +18,8 @@
 
 $(document).ready(function(){
   $(".fancybox").fancybox();
-
-  $('#cbp-fwslider').cbpFWSlider();
   
-  jQuery(".minicart_link").click(function() {
-    $('.cart_drop').slideToggle(300);
+  $('#slick').slick({
+    infinite: true,
   });
-
-  $("#button_imobiliaria").click(function() {
-    $('.imobiliarias').toggle();
-  });
-
-  $("#button_automotiva").click(function() {
-    $('.automotivas').toggle();
-  });
-
 });

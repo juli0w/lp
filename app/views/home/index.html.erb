@@ -9,11 +9,7 @@
 
   <div class="content-module-main cf">
 
-        <% items.each do |item| %>
-
-          <%= render 'home/items', item: item %>
-
-        <% end %>
+    <%= render 'layouts/featured', items: items %>
 
   </div>
 
