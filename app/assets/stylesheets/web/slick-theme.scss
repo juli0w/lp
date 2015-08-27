@@ -100,7 +100,7 @@ $slick-opacity-not-active: 0.25 !default;
             content: $slick-next-character;
         }
     }
-  z-index: 9999;
+  z-index: 88;
 }
 
 .slick-next {
@@ -115,6 +115,7 @@ $slick-opacity-not-active: 0.25 !default;
             content: $slick-prev-character;
         }
     }
+  z-index: 88;
 }
 
 /* Dots */
