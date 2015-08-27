@@ -19,7 +19,7 @@
 $(document).ready(function(){
   $(".fancybox").fancybox();
   
-  $('#slick').slick({
+  $('.slick').slick({
     infinite: true,
   });
 });
