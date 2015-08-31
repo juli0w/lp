@@ -65,9 +65,9 @@ class Cart
     end.first
 
     if item.blank?
-      self.items << CartItem.new(item_id, quantity)
+      self.items << CartItem.new(item_id, quantity.to_i)
     else
-      item.quantity += quantity.to_i
+      item.quantity = item.quantity.to_i + quantity.to_i
     end
   end
 

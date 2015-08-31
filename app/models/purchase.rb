@@ -16,10 +16,10 @@ class Purchase < ActiveRecord::Base
   RECEIVER = "juli0w@hotmail.com"
   TOKEN    = "B3F0ECF7DDD749B1824CE98553E42E17"
 
-  scope :open    , -> { where("state = 0") }
-  scope :paid    , -> { where("state = 1") }
-  scope :sent    , -> { where("state = 2") }
-  scope :canceled, -> { where("state = 3") }
+  scope :open    , -> { where("state = 0").order("ID desc") }
+  scope :paid    , -> { where("state = 1").order("ID desc") }
+  scope :sent    , -> { where("state = 2").order("ID desc") }
+  scope :canceled, -> { where("state = 3").order("ID desc") }
 
   def update_state state
     self.state = state.to_i

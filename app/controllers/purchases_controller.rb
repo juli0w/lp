@@ -13,7 +13,7 @@ class PurchasesController < ApplicationController
   end
 
   def index
-    @purchases = current_user.purchases.page(params[:page])
+    @purchases = current_user.purchases.order("ID desc").page(params[:page])
   end
 
   def list
