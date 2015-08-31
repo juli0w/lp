@@ -3,7 +3,7 @@
   <div class="product-image cf">
     <%= link_to ( 
         image_tag get_image(item.image.thumb), id: "image-#{item.id}"
-      ), item %>
+  ), item_path(item) %>
     <% if current_user.try(:admin?) and item.image.thumb.blank? %>
       <%= link_to "upload", "#model-#{item.id}", class: 'upload-link fancybox', id: "link-#{item.id}" %>
     <% end %>

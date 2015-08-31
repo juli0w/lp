@@ -20,8 +20,12 @@ class PagesController < ApplicationController
   end
 
   def show
-    @page = Page.find_by_slug(params[:slug])
-    render layout: 'application'
+    begin
+      @page = Page.find_by_slug(params[:slug])
+      render layout: 'application'
+    rescue
+      redirect_to root_url, notice: "Página não encontrada"
+    end
   end
 
   def new

@@ -2,6 +2,7 @@
 class ItemsController < ApplicationController
   before_filter :authenticate_user!, except: [:search, :add_to_cart, :show]
   before_filter :authenticate_admin!, except: [:search, :add_to_cart, :show]
+  before_filter :find_item, only: [:show, :update, :edit, :add_to_cart]
   layout 'admin'
 
   def importation
@@ -13,7 +14,7 @@ class ItemsController < ApplicationController
   end
 
   def index
-    @items = Item.unscoped.page(params[:page]).per(20)
+    @items = Item.page(params[:page]).per(20)
   end
 
   # def new
@@ -22,8 +23,6 @@ class ItemsController < ApplicationController
   # end
 
   def show
-    @item = Item.find(params[:id])
-
     render layout: 'application'
   end
 
@@ -40,7 +39,6 @@ class ItemsController < ApplicationController
   # end
 
   def edit
-    @item = Item.unscoped.find(params[:id])
     @categories = Category.all
   end
 
@@ -58,7 +56,6 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item = Item.find(params[:id])
     @item.destroy
 
     redirect_to items_path
@@ -75,7 +72,7 @@ class ItemsController < ApplicationController
   end
 
   def add_to_cart
-    current_cart.add_item(params[:id], params[:quantity])
+    current_cart.add_item(@item.id, params[:quantity])
     redirect_to controller: :cart, action: :index
   end
 
@@ -83,5 +80,15 @@ class ItemsController < ApplicationController
     Item.delete_all
 
     redirect_to importation_items_path, notice: "Produtos deletados"
+  end
+
+private
+  
+  def find_item
+    begin
+      @item = Item.find_by_slug!(params[:id])
+    rescue
+      redirect_to root_url, notice: "Item não encontrado"
+    end
   end
 end

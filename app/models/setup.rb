@@ -19,4 +19,12 @@ class Setup < ActiveRecord::Base
     setup.categories = {tree: Category.reload}
     setup.save
   end
+  
+  # temp
+  
+  def self.refresh_slugs
+    Category.find_each(&:save)
+    Item.find_each(&:save)
+    Setup.refresh_categories
+  end
 end

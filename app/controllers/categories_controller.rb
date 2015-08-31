@@ -2,6 +2,7 @@
 class CategoriesController < ApplicationController
   before_filter :authenticate_user!, except: :show
   before_filter :authenticate_admin!, except: :show
+  before_filter :find_category, only: [:show, :update, :edit, :destroy]
   layout 'admin'
 
   def importation
@@ -17,14 +18,12 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @category = Category.find(params[:id])
-    @items    = Kaminari.paginate_array(sort(Category.load_products(params[:id]))).page(params[:page]).per(20)
+    @items = Kaminari.paginate_array(Category.load_products(params[:id])).page(params[:page]).per(20)
     render layout: 'application'
   end
 
   def index
     @categories_root = Category.roots
-    # @categories_root = Category.all
   end
 
   def new
@@ -45,13 +44,10 @@ class CategoriesController < ApplicationController
   end
 
   def edit
-    @category = Category.find(params[:id])
     @categories = Category.all
   end
 
   def update
-    @category = Category.find(params[:id])
-
     respond_to do |format|
       if @category.update_attributes(params[:category])
         format.html { redirect_to categories_path, notice: 'Categoria atualizada com sucesso.' }
@@ -65,5 +61,15 @@ class CategoriesController < ApplicationController
     Category.delete_all
 
     redirect_to importation_categories_path, notice: "Categorias deletadas"
+  end
+  
+private
+  
+  def find_category
+    begin
+      @category = Category.find_by_slug!(params[:id])
+    rescue
+      redirect_to root_url, notice: "Categoria não encontrada"
+    end
   end
 end

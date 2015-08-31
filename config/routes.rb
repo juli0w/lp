@@ -109,14 +109,6 @@ Lojadopintor::Application.routes.draw do
   
   resources :coupons
 
-  resources :categories do
-    collection do
-      get :importation
-      post :import
-      delete :format
-    end
-  end
-
   resources :pages, except: :show do
     collection do
       get :importation
@@ -135,11 +127,22 @@ Lojadopintor::Application.routes.draw do
   #     post :filter
   #   end
   # end
-
+  
+  resources :categories, except: [:show] do
+    collection do
+      get :importation
+      post :import
+      delete :format
+    end
+  end
+  
+  resources :categories, path: '', only: [:show]
+  
   resources :items do
     member do
       post :add_to_cart
     end
+    
     collection do
       get :search
       post :filter
@@ -148,6 +151,6 @@ Lojadopintor::Application.routes.draw do
       delete :format
     end
   end
-
+  
   root to: "home#index"
 end

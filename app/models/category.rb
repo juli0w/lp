@@ -1,6 +1,6 @@
 class Category < ActiveRecord::Base
   include ActsAsTree
-  attr_accessible :name, :parent_id, :active, :alternative_id, :level
+  attr_accessible :name, :parent_id, :active, :alternative_id, :level, :slug
 
   scope :actives, -> { where(active: true) }
   scope :gots, -> { joins(:items).group('categories.alternative_id').having('count(items.id) > 0') }
@@ -9,19 +9,27 @@ class Category < ActiveRecord::Base
 
   has_many :items
   
-  def self.import familias, grupos, subgrupos
-    ImportationEngine.import(familias, grupos, subgrupos)
-
-    return true
+  validates :slug, uniqueness: true, presence: true
+  before_validation :generate_slug
+  
+  def to_param
+    slug
   end
   
   def most_popular
     self.children.gots.actives.to_a.sort_by {|e| e.items.size}.reverse.first(15)
   end
   
+  def self.import familias, grupos, subgrupos
+    ImportationEngine.import(familias, grupos, subgrupos)
+
+    return true
+  end
+  
   def as_setupable
     { name: self.name,
         id: self.id,
+      slug: self.slug,
       size: self.items.size,
       children: [] }
   end
@@ -51,20 +59,33 @@ class Category < ActiveRecord::Base
   end
 
   def self.load_products id
-    categories = [id.to_i]
+    categories = [id]
 
-    self.find(id).children.each do |c|
-      categories << c.id
+    self.find_by_slug!(id).children.each do |c|
+      categories << c.slug
 
       c.children.each do |sc|
-        categories << sc.id
+        categories << sc.slug
       end
     end
 
     items = []
 
-    categories.each {|c| items = items + self.find(c).items }
+    categories.each {|c| items = items + self.find_by_slug!(c).items }
 
     return items.uniq
+  end
+  
+  def generate_slug
+    return if self.slug.present?
+    
+    sl = self.name.parameterize
+    t = 0
+    while Category.where(slug: sl).count > 0 do
+      t += 1
+      sl = "#{self.name.parameterize}-#{t}"
+    end
+    
+    self.slug = sl
   end
 end
