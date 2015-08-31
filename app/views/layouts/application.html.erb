@@ -3,7 +3,12 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Loja do Pintor - Tudo em Tintas</title>
+  <title><%= content_title @title %></title>
+  
+  <meta name="keywords" content="<%= meta_keywords @metakeywords %>" /> 
+  <meta name="description" content="<%= meta_description @metadescription %>" />
+  
+  <meta name="robots" content="index, follow">
   
   <%= stylesheet_link_tag    "web/application", :media => "all" %>
   <%= javascript_include_tag "application" %>

@@ -19,6 +19,7 @@ class CategoriesController < ApplicationController
 
   def show
     @items = Kaminari.paginate_array(Category.load_products(params[:id])).page(params[:page]).per(20)
+    @title = @category.name
     render layout: 'application'
   end
 

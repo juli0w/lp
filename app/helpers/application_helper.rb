@@ -5,6 +5,21 @@ module ApplicationHelper
     resicolor: 'http://www.resicolor.com.br/espaco-color/simulador-ambientes',
     metalatex: 'http://www.sherwin-williams.com.br/simulador'
   }
+  
+  def meta_keywords content
+    content || "loja do pintor, tintas, ferramentas, automotiva, imobiliária, tinta imobiliaria, tinta automotiva, pinceis, compressores"
+  end
+  
+  def meta_description content
+    content || "Encontre tudo em tintas imobiliárias, automotivas e industriais, além de toda linha de acessórios e ferramentas elétricas e manuais"
+  end
+  
+  def content_title content
+    title = "Loja do Pintor - "
+    title += content.try(:humanize) || "Tudo em Tintas"
+    
+    return title
+  end
 
   def monetize decimal
     number_to_currency decimal, unit: "R$ ", separator: ","

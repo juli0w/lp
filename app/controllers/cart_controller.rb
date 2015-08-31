@@ -3,6 +3,7 @@ class CartController < ApplicationController
   before_filter :authenticate_user!, only: [:shipping, :confirm, :purchase]
 
   def index
+    @title = "Carrinho de compras"
   end
   
   def coupon

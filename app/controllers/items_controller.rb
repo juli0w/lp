@@ -23,6 +23,8 @@ class ItemsController < ApplicationController
   # end
 
   def show
+    @title = @item.name
+    @metadescription = "Compre agora #{@item.name}"
     render layout: 'application'
   end
 
