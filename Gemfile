@@ -17,6 +17,7 @@ end
 # gem 'therubyracer', :platforms => :ruby
 
 gem 'rails-i18n'
+gem 'dynamic_sitemaps'
 
 gem 'nokogiri'
 gem 'capistrano', '~> 3.3.0'

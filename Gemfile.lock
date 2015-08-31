@@ -70,6 +70,7 @@ GEM
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    dynamic_sitemaps (2.0.0)
     erubis (2.7.0)
     execjs (2.2.2)
     friendly_id (4.0.10.1)
@@ -176,6 +177,7 @@ DEPENDENCIES
   carrierwave
   coffee-rails (~> 3.2.1)
   devise
+  dynamic_sitemaps
   friendly_id (~> 4.0.10)
   jquery-rails
   json (= 1.8.0)
